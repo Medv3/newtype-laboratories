@@ -1,0 +1,9 @@
+# Hugo build output
+public/
+resources/
+.hugo_build.lock
+
+# Backups de configuración/plantillas
+*.bak
+*.bak.*
+*.v*.bak

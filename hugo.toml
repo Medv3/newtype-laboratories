@@ -1,0 +1,50 @@
+baseURL = "https://newtypelabs.netlify.app/"
+locale = "es-ES"
+title = "Newtype Laboratories"
+theme = "newtype"
+
+# --- Paginación ---
+[pagination]
+  pagerSize = 10
+  path = "page"
+
+# --- Taxonomías ---
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
+
+# --- Menú principal ---
+[[menu.main]]
+  name = "Inicio"
+  url = "/"
+  weight = 10
+
+[[menu.main]]
+  name = "Publicaciones"
+  url = "/posts/"
+  weight = 20
+
+[[menu.main]]
+  name = "Sobre mí"
+  url = "/about/"
+  weight = 30
+
+# --- Parámetros del tema ---
+[params]
+  operator_alias = "FL0RES.sys"
+  tagline = "Un laboratorio para la producción de newtypes."
+  description = "Escritos sobre tecnología, capital y poder."
+  author = "Tu Nombre"
+
+  # Estética de computador clásico
+  show_browser_chrome = true
+  show_status_bar = true
+  show_sidebar = false
+  show_welcome_message = false
+  show_featured_sections = true
+  show_stats = false
+  show_retro_elements = true
+  show_sharing = false
+  show_retro_footer = true
+  show_build_info = false

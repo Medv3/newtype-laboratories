@@ -1,0 +1,28 @@
+[build]
+  publish = "public"
+  command = "hugo --minify --gc"
+
+[build.environment]
+  HUGO_VERSION = "0.162.1"
+  HUGO_ENV = "production"
+
+# Headers de seguridad (bonus)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Cache de fuentes (1 año)
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache de imágenes (1 mes)
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
