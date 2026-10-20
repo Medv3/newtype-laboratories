@@ -1,0 +1,49 @@
+{{ define "main" }}
+{{ $path := "" }}
+<article class="nt-404">
+    <div class="nt-corner nt-corner-tl" aria-hidden="true"></div>
+    <div class="nt-corner nt-corner-tr" aria-hidden="true"></div>
+    <div class="nt-corner nt-corner-bl" aria-hidden="true"></div>
+    <div class="nt-corner nt-corner-br" aria-hidden="true"></div>
+
+    <div class="nt-404-fileline">
+        <span>//FILE: <span id="nt-404-path">/...</span></span>
+        <span>STATUS: <span class="nt-404-err">NOT_FOUND</span></span>
+    </div>
+
+    <div class="nt-404-main">
+        <div class="nt-404-code">404</div>
+
+        <div class="nt-404-terminal">
+            <div class="nt-404-line">&gt; QUERY: <span id="nt-404-path2" class="nt-yellow">/...</span></div>
+            <div class="nt-404-line">&gt; SEARCHING FILESYSTEM <span class="nt-404-dots" aria-hidden="true"></span></div>
+            <div class="nt-404-line nt-404-err">&gt; ERR 404: NO_MATCH_FOUND</div>
+            <div class="nt-404-line">&gt; INCIDENT_LOGGED · SESSION_RETAINED</div>
+            <div class="nt-404-line nt-dim">&gt; ROUTING_BACK: /CONTROL_ROOM/</div>
+        </div>
+
+        <div class="nt-404-actions">
+            <a href="/" class="nt-404-btn nt-404-btn-primary">[ RETURN_TO_CONTROL_ROOM ]</a>
+            <a href="/posts/" class="nt-404-btn">[ MOUNT /POSTS/ ]</a>
+            <button class="nt-404-btn" onclick="history.back()">[ &larr; BACK ]</button>
+        </div>
+
+        <div class="nt-404-footer">
+            <span>// IF YOU BELIEVE THIS IS AN ERROR, CONTACT THE OPERATOR</span>
+            <span>// FL0RES.sys</span>
+        </div>
+    </div>
+
+    <div class="nt-404-scan" aria-hidden="true"></div>
+</article>
+
+<script>
+(function(){
+    var path = window.location.pathname;
+    var el1 = document.getElementById('nt-404-path');
+    var el2 = document.getElementById('nt-404-path2');
+    if (el1) el1.textContent = path;
+    if (el2) el2.textContent = path;
+})();
+</script>
+{{ end }}

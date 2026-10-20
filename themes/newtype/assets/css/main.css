@@ -2410,3 +2410,231 @@ body {
     font-size: 8px;
   }
 }
+
+/* =====================================================================
+   404 — FILE_NOT_FOUND
+   ===================================================================== */
+
+.nt-404 {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px clamp(16px, 3vw, 40px) 96px;
+  overflow: hidden;
+}
+
+/* Fileline superior */
+.nt-404-fileline {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.62;
+  margin-bottom: 48px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.nt-404-fileline span:last-child {
+  color: var(--red);
+  opacity: 1;
+  font-weight: 700;
+}
+
+/* Layout principal */
+.nt-404-main {
+  position: relative;
+  z-index: 2;
+}
+
+/* El "404" gigante */
+.nt-404-code {
+  font-family: var(--mono);
+  font-weight: 800;
+  font-size: clamp(120px, 26vw, 320px);
+  line-height: 0.82;
+  letter-spacing: -0.05em;
+  color: var(--fg-strong);
+  margin: 0 0 24px;
+  user-select: none;
+  position: relative;
+}
+
+.nt-404-code::after {
+  content: "404";
+  position: absolute;
+  inset: 0;
+  color: var(--red);
+  opacity: 0.15;
+  transform: translate(6px, 6px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Terminal de salida */
+.nt-404-terminal {
+  border-left: 3px solid var(--red);
+  padding: 16px 0 16px 24px;
+  margin-bottom: 48px;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+  max-width: 640px;
+}
+
+.nt-404-line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nt-404-err {
+  color: var(--red);
+  font-weight: 700;
+}
+
+/* Puntos animados "buscando" */
+.nt-404-dots::after {
+  content: "";
+  display: inline-block;
+  width: 1.5em;
+  text-align: left;
+  animation: nt-404-dots 1.2s steps(4, end) infinite;
+}
+
+@keyframes nt-404-dots {
+  0% { content: ""; }
+  25% { content: "."; }
+  50% { content: ".."; }
+  75%, 100% { content: "..."; }
+}
+
+/* Botones */
+.nt-404-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.nt-404-btn {
+  display: inline-block;
+  padding: 14px 22px;
+  border: 1px solid var(--fg-strong);
+  background: transparent;
+  color: var(--fg-strong);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.nt-404-btn:hover {
+  background: var(--fg-strong);
+  color: var(--bg);
+}
+
+.nt-404-btn-primary {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--bg);
+}
+
+.nt-404-btn-primary:hover {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--bg);
+}
+
+/* Footer del 404 */
+.nt-404-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.nt-404-footer span:last-child {
+  color: var(--yellow);
+  opacity: 1;
+  font-weight: 700;
+}
+
+/* Scanline animada sobre el bloque */
+.nt-404-scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 49%,
+    rgba(255, 59, 59, 0.06) 50%,
+    transparent 51%,
+    transparent 100%
+  );
+  background-size: 100% 200%;
+  animation: nt-404-scan 6s linear infinite;
+}
+
+@keyframes nt-404-scan {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 200%; }
+}
+
+[data-theme="light"] .nt-404-scan {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 49%,
+    rgba(211, 47, 47, 0.04) 50%,
+    transparent 51%,
+    transparent 100%
+  );
+  background-size: 100% 200%;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nt-404 { padding: 40px 20px 64px; }
+  .nt-404-terminal { font-size: 12px; padding-left: 18px; }
+}
+
+@media (max-width: 480px) {
+  .nt-404 { padding: 28px 14px 56px; }
+  .nt-404-code { font-size: clamp(96px, 32vw, 200px); margin-bottom: 16px; }
+  .nt-404-terminal {
+    font-size: 11px;
+    padding-left: 14px;
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+  .nt-404-line { white-space: normal; word-break: break-all; }
+  .nt-404-actions { flex-direction: column; gap: 8px; }
+  .nt-404-btn { text-align: center; padding: 12px 16px; font-size: 10px; }
+  .nt-404-footer { flex-direction: column; align-items: flex-start; }
+  .nt-404-fileline { font-size: 9px; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .nt-404-scan { display: none; }
+  .nt-404-dots::after { animation: none; content: "..."; }
+}
