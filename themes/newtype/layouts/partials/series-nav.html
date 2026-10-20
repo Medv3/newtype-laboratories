@@ -1,0 +1,32 @@
+{{ with .Params.series }}
+{{ $seriesName := index . 0 }}
+{{ $seriesPages := where site.RegularPages ".Params.series" "intersect" . }}
+{{ if gt (len $seriesPages) 1 }}
+<aside class="nt-series">
+    <div class="nt-series-header">
+        <span class="nt-series-label">//SERIES:</span>
+        <span class="nt-series-name">{{ $seriesName | upper }}</span>
+        <span class="nt-series-count">[ {{ len $seriesPages }} FILES ]</span>
+    </div>
+    <ol class="nt-series-list">
+        {{ range $seriesPages.ByDate }}
+        {{ $isCurrent := eq .Permalink $.Permalink }}
+        <li class="nt-series-item{{ if $isCurrent }} nt-series-current{{ end }}">
+            {{ if $isCurrent }}
+                <span class="nt-series-marker">▸</span>
+                <span class="nt-series-date">[{{ .Date.Format "2006-01-02" }}]</span>
+                <span class="nt-series-title">{{ .Title }}</span>
+                <span class="nt-series-badge">[ CURRENT ]</span>
+            {{ else }}
+                <a href="{{ .Permalink }}">
+                    <span class="nt-series-marker">·</span>
+                    <span class="nt-series-date">[{{ .Date.Format "2006-01-02" }}]</span>
+                    <span class="nt-series-title">{{ .Title }}</span>
+                </a>
+            {{ end }}
+        </li>
+        {{ end }}
+    </ol>
+</aside>
+{{ end }}
+{{ end }}

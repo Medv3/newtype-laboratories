@@ -4,13 +4,23 @@
 {{ $stamp := "MONITORED" }}
 {{ if $isAbout }}{{ $stamp = "OPERATOR" }}{{ end }}
 {{ if .Draft }}{{ $stamp = "DRAFT" }}{{ end }}
-{{ $alias := .Site.Params.operator_alias | default "Synco" }}
+{{ $alias := .Site.Params.operator_alias | default "FL0RES.sys" }}
+
+{{ $titleParts := split .Title ":" }}
+{{ $mainTitle := index $titleParts 0 }}
+{{ $subtitle := "" }}
+{{ if gt (len $titleParts) 1 }}
+  {{ $subtitle = delimit (after 1 $titleParts) ":" }}
+{{ end }}
+{{ if .Params.subtitle }}{{ $subtitle = .Params.subtitle }}{{ end }}
 
 <article class="nt-post">
+    {{ if $isAbout }}
     <div class="nt-corner nt-corner-tl" aria-hidden="true"></div>
     <div class="nt-corner nt-corner-tr" aria-hidden="true"></div>
     <div class="nt-corner nt-corner-bl" aria-hidden="true"></div>
     <div class="nt-corner nt-corner-br" aria-hidden="true"></div>
+    {{ end }}
 
     <header class="nt-post-header">
         <div class="nt-fileline">
@@ -21,7 +31,10 @@
         <div class="nt-post-titlewrap">
             <div class="nt-stamp" aria-hidden="true">{{ $stamp }}</div>
             <div class="nt-post-subject">{{ if $isAbout }}//OPERATOR:{{ else }}//DOSSIER:{{ end }}</div>
-            <h1 class="nt-post-title">{{ .Title }}</h1>
+            <h1 class="nt-post-title">{{ trim $mainTitle " " }}</h1>
+            {{ if $subtitle }}
+            <div class="nt-post-subtitle">{{ trim $subtitle " " }}</div>
+            {{ end }}
         </div>
 
         {{ if $isPost }}
@@ -36,13 +49,6 @@
     </header>
 
     <hr class="nt-rule">
-
-    {{ with .Params.featured_image }}
-    <figure class="nt-featured-image">
-        <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
-        <figcaption>{{ $.Title }}</figcaption>
-    </figure>
-    {{ end }}
 
     <div class="nt-post-grid">
         <aside class="nt-post-aside">
@@ -72,24 +78,28 @@
             {{ end }}
         </aside>
 
-        <div class="nt-content">
+        <div class="nt-content{{ if .Params.dropcap }} dropcap{{ end }}">
             {{ .Content }}
         </div>
 
         <aside class="nt-post-right">
             <div class="nt-right-block">
-                <div class="nt-aside-label">//READ_PROGRESS</div>
-                <div class="nt-right-value"><span id="nt-right-pct">0</span>%</div>
-            </div>
-            <div class="nt-right-block">
                 <div class="nt-aside-label">//STATUS</div>
                 <div class="nt-right-value nt-green" data-nt-status>INITIATE</div>
             </div>
             <div class="nt-right-block">
-                <a href="#" class="nt-right-link" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK_TO_TOP</a>
+                <div class="nt-aside-label">//READ</div>
+                <div class="nt-right-value"><span id="nt-right-pct">0</span>%</div>
+            </div>
+            <div class="nt-right-block">
+                <a href="#" class="nt-right-link" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ TOP</a>
             </div>
         </aside>
     </div>
+
+    {{ if eq .Section "posts" }}
+    {{ partial "series-nav.html" . }}
+    {{ end }}
 
     <hr class="nt-rule">
 

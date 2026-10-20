@@ -2638,3 +2638,1276 @@ body {
   .nt-404-scan { display: none; }
   .nt-404-dots::after { animation: none; content: "..."; }
 }
+
+/* =====================================================================
+   v13: POST REFINAMENTS
+   ===================================================================== */
+
+/* ---- Grid 2 columnas (eliminada la derecha) ---- */
+.nt-post-grid {
+  grid-template-columns: 200px minmax(0, 1fr) !important;
+  max-width: 1100px !important;
+  padding: 56px clamp(16px, 3vw, 40px) !important;
+  gap: 56px !important;
+}
+
+@media (max-width: 900px) {
+  .nt-post-grid {
+    grid-template-columns: 1fr !important;
+    padding: 40px 20px !important;
+    gap: 32px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nt-post-grid {
+    padding: 24px 14px !important;
+  }
+}
+
+/* ---- TÍTULO: sin uppercase, más chico, peso 700 ---- */
+.nt-post-title {
+  font-size: clamp(32px, 5vw, 64px) !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.05 !important;
+  margin: 4px 0 0 0 !important;
+  max-width: none !important;
+  color: var(--fg-strong) !important;
+}
+
+/* ---- SUBTÍTULO ---- */
+.nt-post-subtitle {
+  font-family: var(--mono);
+  font-size: clamp(15px, 1.8vw, 20px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  color: var(--dim);
+  margin: 10px 0 24px;
+  max-width: 60ch;
+}
+
+.nt-post-titlewrap {
+  margin-bottom: 24px !important;
+}
+
+/* El sello se ajusta al nuevo título más chico */
+.nt-stamp {
+  font-size: 10px !important;
+  padding: 4px 10px !important;
+  letter-spacing: 0.2em !important;
+  top: -2px !important;
+}
+
+/* ---- H3 en blanco/gris (no amarillo) ---- */
+.nt-content h3 {
+  color: var(--fg-strong) !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+  letter-spacing: -0.005em !important;
+  font-size: 1.15rem !important;
+  margin: 2.4rem 0 0.8rem !important;
+}
+
+/* ---- DROP CAP: opt-in vía front matter (dropcap: true) ---- */
+.nt-content > p:first-of-type::first-letter {
+  /* reset: quitamos la drop cap universal */
+  font-size: inherit !important;
+  line-height: inherit !important;
+  float: none !important;
+  margin: 0 !important;
+  color: inherit !important;
+  font-weight: inherit !important;
+  font-family: inherit !important;
+}
+
+.nt-content.dropcap > p:first-of-type::first-letter {
+  font-family: var(--mono) !important;
+  font-size: 4.5em !important;
+  line-height: 0.85 !important;
+  float: left !important;
+  margin: 0.08em 0.15em 0 0 !important;
+  color: var(--red) !important;
+  font-weight: 700 !important;
+}
+
+/* ---- BLOCKQUOTE: marcador // REF: ---- */
+.nt-content blockquote:not(.nt-pullquote) {
+  padding: 16px 20px 16px 24px !important;
+  margin: 2rem 0 !important;
+  position: relative;
+}
+
+.nt-content blockquote:not(.nt-pullquote)::before {
+  content: "// REF:";
+  display: block;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--yellow);
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-style: normal;
+  line-height: 1;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .nt-post-title {
+    font-size: clamp(26px, 8vw, 42px) !important;
+  }
+  .nt-post-subtitle {
+    font-size: 14px !important;
+    margin: 8px 0 18px !important;
+  }
+  .nt-content h3 {
+    font-size: 1rem !important;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  /* nada extra */
+}
+
+/* =====================================================================
+   v14: LAYOUT FIX — alinear todo a 1360px, grid 3 columnas equilibrado
+   ===================================================================== */
+
+/* Header, rule, footer y grid COMPARTEN el mismo ancho (esto es lo que fallaba) */
+.nt-post-header,
+.nt-rule,
+.nt-post-footer,
+.nt-post-pagination,
+.nt-post-grid {
+  max-width: 1600px !important;
+  margin-inline: auto !important;
+  padding-left: clamp(16px, 2.5vw, 40px) !important;
+  padding-right: clamp(16px, 2.5vw, 40px) !important;
+}
+
+/* Grid: 3 columnas · aside 180 + content flexible + right rail 110 */
+.nt-post-grid {
+  grid-template-columns: 180px minmax(0, 1fr) 110px !important;
+  gap: 48px !important;
+  padding-top: 56px !important;
+  padding-bottom: 56px !important;
+  align-items: start;
+}
+
+/* Contenido: max-width generoso pero controlado (72ch ≈ 850px a 18px) */
+.nt-post-grid .nt-content {
+  max-width: 82ch !important;
+  margin-inline: auto !important;
+  width: 100%;
+}
+
+/* Right rail sticky */
+.nt-post-right {
+  position: sticky;
+  top: calc(var(--bar) + 48px);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-align: right;
+}
+
+.nt-right-block {
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.nt-right-block:last-child {
+  border-bottom: none;
+}
+
+.nt-right-value {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--fg-strong);
+  margin-top: 6px;
+}
+
+.nt-right-link {
+  color: var(--red);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  font-size: 10px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-top: 6px;
+  transition: color 0.15s;
+}
+
+.nt-right-link:hover {
+  color: var(--yellow);
+}
+
+/* Responsive: tablet */
+@media (max-width: 1100px) {
+  .nt-post-grid {
+    grid-template-columns: 180px minmax(0, 1fr) !important;
+    gap: 40px !important;
+  }
+  .nt-post-right {
+    display: none !important;
+  }
+}
+
+/* Responsive: phone */
+@media (max-width: 900px) {
+  .nt-post-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+  .nt-post-grid .nt-content {
+    max-width: none !important;
+  }
+  .nt-post-header,
+  .nt-rule,
+  .nt-post-footer,
+  .nt-post-pagination {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nt-post-grid {
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+  }
+  .nt-post-header,
+  .nt-rule,
+  .nt-post-footer,
+  .nt-post-pagination {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+}
+
+/* =====================================================================
+   SERIES NAV
+   ===================================================================== */
+
+.nt-series {
+  max-width: 1360px;
+  margin: 0 auto 0;
+  padding: 32px clamp(16px, 3vw, 48px) 32px;
+  border-top: 1px solid var(--line);
+}
+
+.nt-series-header {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.nt-series-label {
+  color: var(--dim);
+}
+
+.nt-series-name {
+  color: var(--yellow);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+}
+
+.nt-series-count {
+  color: var(--dim);
+  margin-left: auto;
+}
+
+.nt-series-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nt-series-item {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  border-left: 2px solid transparent;
+  transition: border-color 0.15s, background 0.12s;
+}
+
+.nt-series-item:hover {
+  background: var(--bg2);
+}
+
+.nt-series-item a {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 10px 14px;
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.nt-series-item a:hover {
+  color: var(--fg-strong);
+}
+
+.nt-series-current {
+  border-left-color: var(--red);
+  background: var(--bg2);
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 10px 14px;
+}
+
+.nt-series-marker {
+  color: var(--red);
+  font-weight: 700;
+  flex-shrink: 0;
+  width: 10px;
+}
+
+.nt-series-current .nt-series-marker {
+  color: var(--red);
+}
+
+.nt-series-item:not(.nt-series-current) .nt-series-marker {
+  color: var(--dim);
+}
+
+.nt-series-date {
+  color: var(--yellow);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.nt-series-title {
+  flex: 1;
+  font-weight: 600;
+  color: var(--fg-strong);
+  text-transform: none;
+  letter-spacing: -0.005em;
+}
+
+.nt-series-current .nt-series-title {
+  color: var(--fg-strong);
+}
+
+.nt-series-badge {
+  color: var(--red);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nt-series {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nt-series {
+    padding: 24px 14px;
+  }
+  .nt-series-header {
+    font-size: 9px;
+    gap: 8px;
+  }
+  .nt-series-name { font-size: 11px; }
+  .nt-series-count { display: none; }
+  .nt-series-item a,
+  .nt-series-current {
+    padding: 8px 10px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .nt-series-title { font-size: 11px; }
+  .nt-series-badge { display: none; }
+}
+
+/* =====================================================================
+   FLUID: ocupar toda la pantalla sin importar tamaño
+   ===================================================================== */
+
+/* Contenedor principal: full width, padding fluido */
+.nt-post {
+  max-width: none !important;
+  width: 100% !important;
+  padding: 56px clamp(24px, 4vw, 64px) 96px !important;
+}
+
+/* Grid: full width, columnas laterales fijas, centro fluido */
+.nt-post-grid {
+  max-width: none !important;
+  width: 100% !important;
+  grid-template-columns: 200px minmax(0, 1fr) 140px !important;
+  gap: clamp(32px, 4vw, 72px) !important;
+}
+
+/* Contenido: FULL FLUID, sin cap de ch. Se expande con la columna. */
+.nt-post-main .nt-content,
+.nt-post-grid .nt-content {
+  max-width: none !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+/* Header (fileline, título, readout) también full width de su columna */
+.nt-post-header,
+.nt-post-main > .nt-rule,
+.nt-post-footer {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* Títulos escalan con el viewport */
+.nt-post-title {
+  font-size: clamp(36px, 4.2vw, 72px) !important;
+}
+
+.nt-post-subtitle {
+  font-size: clamp(16px, 1.6vw, 24px) !important;
+}
+
+/* Responsive: tablet */
+@media (max-width: 1100px) {
+  .nt-post-grid {
+    grid-template-columns: minmax(0, 1fr) 140px !important;
+    gap: 40px !important;
+  }
+  .nt-post-aside { display: none !important; }
+  .nt-post-main { grid-column: 1 !important; }
+  .nt-post-right { grid-column: 2 !important; }
+}
+
+/* Responsive: phone */
+@media (max-width: 800px) {
+  .nt-post {
+    padding: 32px 20px 64px !important;
+  }
+  .nt-post-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  .nt-post-main { grid-column: 1 !important; }
+  .nt-post-right { display: none !important; }
+  .nt-post-title { font-size: clamp(28px, 7vw, 44px) !important; }
+  .nt-post-subtitle { font-size: 15px !important; }
+}
+
+@media (max-width: 480px) {
+  .nt-post { padding: 24px 14px 48px !important; }
+  .nt-post-title { font-size: clamp(24px, 8vw, 38px) !important; }
+}
+
+/* =====================================================================
+   v18: MOBILE TOPBAR + iOS SAFE AREA
+   ===================================================================== */
+
+/* Fuerza topbar sólido y por encima de todo */
+.nt-topbar {
+  z-index: 300 !important;
+  background: var(--bg) !important;
+}
+
+/* iOS: respeta el notch / Dynamic Island */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .nt-topbar {
+    padding-top: max(0px, env(safe-area-inset-top, 0px)) !important;
+  }
+}
+
+/* Mobile: hijos con fondo sólido + scroll-padding real */
+@media (max-width: 900px) {
+  .nt-topbar,
+  .nt-mark,
+  .nt-menu-btn,
+  .nt-theme-btn,
+  .nt-status {
+    background: var(--bg) !important;
+  }
+
+  .nt-main {
+    position: relative;
+    z-index: 1;
+  }
+
+  html {
+    scroll-padding-top: 120px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    scroll-padding-top: 110px !important;
+  }
+}
+
+/* =====================================================================
+   HOME HERO v2: split texto + panel de sistema
+   ===================================================================== */
+
+.nt-home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(320px, 1fr);
+  gap: clamp(40px, 6vw, 96px);
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 64px;
+  margin-bottom: 56px;
+}
+
+.nt-home-hero-left {
+  min-width: 0;
+}
+
+.nt-home-hero-right {
+  min-width: 0;
+}
+
+/* Panel de sistema */
+.nt-home-panel {
+  border: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  background: var(--bg);
+}
+
+.nt-home-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim);
+  background: var(--bg2);
+}
+
+.nt-home-panel-body {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.nt-home-panel-body .nt-sysrow {
+  padding: 7px 0;
+  font-size: 10px;
+}
+
+.nt-home-panel-body .nt-sysrow > span:first-child {
+  opacity: 0.55;
+  letter-spacing: 0.14em;
+}
+
+.nt-home-panel-footer {
+  padding: 10px 14px;
+  border-top: 1px solid var(--line);
+  background: var(--bg2);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--green);
+}
+
+.nt-typewriter-static {
+  display: inline-block;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .nt-home-hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-bottom: 48px;
+    margin-bottom: 40px;
+  }
+  .nt-home-hero-right {
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nt-home-hero {
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+    gap: 32px;
+  }
+  .nt-home-panel-body .nt-sysrow {
+    font-size: 9px;
+    padding: 6px 0;
+  }
+}
+
+/* =====================================================================
+   v19: BANNER — una línea en desktop, wrap en mobile
+   ===================================================================== */
+
+.nt-alert {
+  padding: 5px clamp(12px, 2vw, 24px) !important;
+  font-size: clamp(8px, 0.85vw, 10px) !important;
+  letter-spacing: 0.1em !important;
+  gap: 12px !important;
+  line-height: 1.4 !important;
+  min-height: 0 !important;
+}
+
+.nt-alert-body {
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.nt-alert-mark {
+  font-size: 10px !important;
+  flex-shrink: 0;
+}
+
+/* Mobile: permitir wrap, 2 líneas máximo */
+@media (max-width: 800px) {
+  .nt-alert {
+    padding: 6px 12px !important;
+    font-size: 9px !important;
+    letter-spacing: 0.06em !important;
+    gap: 8px !important;
+  }
+
+  .nt-alert-body {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  .nt-alert {
+    font-size: 8px !important;
+    padding: 5px 10px !important;
+  }
+}
+
+/* =====================================================================
+   v20: BANNER — wrap natural, sin cortes
+   ===================================================================== */
+
+.nt-alert {
+  padding: 6px clamp(12px, 2vw, 24px) !important;
+  font-size: clamp(9px, 0.82vw, 11px) !important;
+  letter-spacing: 0.1em !important;
+  gap: 10px !important;
+  line-height: 1.45 !important;
+  min-height: 0 !important;
+}
+
+.nt-alert-body {
+  flex: 1;
+  text-align: center;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  min-width: 0;
+  text-wrap: balance;
+}
+
+.nt-alert-mark {
+  font-size: 11px !important;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* Mobile: un poco más pequeño pero sigue fluyendo */
+@media (max-width: 800px) {
+  .nt-alert {
+    padding: 6px 12px !important;
+    font-size: 9px !important;
+    letter-spacing: 0.06em !important;
+    gap: 8px !important;
+    line-height: 1.5 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nt-alert {
+    font-size: 8px !important;
+    padding: 5px 10px !important;
+  }
+  .nt-alert-mark { font-size: 9px !important; }
+}
+
+/* =====================================================================
+   v21: BANNER — una sola línea en desktop, wrap solo en mobile
+   ===================================================================== */
+
+.nt-alert {
+  padding: 6px clamp(12px, 2vw, 24px) !important;
+  font-size: clamp(9px, 0.8vw, 11px) !important;
+  letter-spacing: 0.08em !important;
+  gap: 10px !important;
+  line-height: 1.4 !important;
+}
+
+.nt-alert-body {
+  flex: 1;
+  text-align: center;
+  white-space: nowrap !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap !important;
+  min-width: 0;
+}
+
+.nt-alert-mark {
+  font-size: 10px !important;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* Mobile: permitir wrap */
+@media (max-width: 800px) {
+  .nt-alert {
+    padding: 6px 12px !important;
+    font-size: 9px !important;
+    letter-spacing: 0.05em !important;
+    gap: 6px !important;
+  }
+  .nt-alert-body {
+    white-space: normal !important;
+    text-wrap: normal !important;
+    overflow: visible;
+    text-overflow: clip;
+    line-height: 1.5;
+  }
+  .nt-alert-mark { font-size: 9px !important; }
+}
+
+@media (max-width: 480px) {
+  .nt-alert {
+    font-size: 8px !important;
+    padding: 5px 10px !important;
+  }
+  .nt-alert-mark { display: none; }
+}
+
+/* =====================================================================
+   v22: BANNER — texto largo, wrap balanceado (sin cortes)
+   ===================================================================== */
+
+.nt-alert {
+  padding: 8px clamp(16px, 2.5vw, 32px) !important;
+  font-size: clamp(9px, 0.82vw, 11px) !important;
+  letter-spacing: 0.08em !important;
+  gap: 12px !important;
+  line-height: 1.5 !important;
+}
+
+.nt-alert-body {
+  flex: 1;
+  text-align: center;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  text-wrap: balance;
+  min-width: 0;
+  max-width: 1400px;
+}
+
+.nt-alert-mark {
+  font-size: 11px !important;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* Desktop medio: un poco más pequeño para no ocupar 3 líneas */
+@media (max-width: 1400px) {
+  .nt-alert {
+    font-size: 10px !important;
+    padding: 7px 20px !important;
+  }
+}
+
+@media (max-width: 1100px) {
+  .nt-alert {
+    font-size: 9px !important;
+    letter-spacing: 0.05em !important;
+    padding: 7px 16px !important;
+  }
+}
+
+/* Mobile: wrap normal */
+@media (max-width: 800px) {
+  .nt-alert {
+    padding: 6px 12px !important;
+    font-size: 9px !important;
+    gap: 8px !important;
+    line-height: 1.5 !important;
+  }
+  .nt-alert-mark { font-size: 9px !important; }
+}
+
+@media (max-width: 480px) {
+  .nt-alert {
+    font-size: 8px !important;
+    padding: 5px 10px !important;
+    letter-spacing: 0.04em !important;
+  }
+  .nt-alert-mark { display: none; }
+}
+
+/* =====================================================================
+   v23: BANNER — UNA LÍNEA en desktop, wrap solo mobile
+   ===================================================================== */
+
+.nt-alert {
+  padding: 7px clamp(16px, 2.5vw, 32px) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.08em !important;
+  gap: 12px !important;
+  line-height: 1.4 !important;
+}
+
+.nt-alert-body {
+  flex: 1;
+  text-align: center;
+  white-space: nowrap !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap !important;
+  min-width: 0;
+}
+
+.nt-alert-mark {
+  font-size: 10px !important;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* Achicar según pantalla para que siempre quepa en una línea */
+@media (max-width: 1400px) {
+  .nt-alert { font-size: 9px !important; letter-spacing: 0.06em !important; }
+}
+
+@media (max-width: 1200px) {
+  .nt-alert { font-size: 8.5px !important; letter-spacing: 0.05em !important; padding: 6px 16px !important; }
+}
+
+@media (max-width: 1000px) {
+  .nt-alert { font-size: 8px !important; letter-spacing: 0.04em !important; }
+}
+
+/* Mobile: permitir wrap (una línea en mobile es imposible) */
+@media (max-width: 800px) {
+  .nt-alert {
+    padding: 6px 12px !important;
+    font-size: 9px !important;
+    gap: 8px !important;
+    line-height: 1.5 !important;
+  }
+  .nt-alert-body {
+    white-space: normal !important;
+    text-wrap: balance !important;
+    overflow: visible;
+    text-overflow: clip;
+  }
+  .nt-alert-mark { font-size: 9px !important; }
+}
+
+@media (max-width: 480px) {
+  .nt-alert {
+    font-size: 8px !important;
+    padding: 5px 10px !important;
+    letter-spacing: 0.03em !important;
+  }
+  .nt-alert-mark { display: none; }
+}
+
+/* =====================================================================
+   BANNER FINAL: L1621_ART44 + SESSION_START
+   ===================================================================== */
+
+#nt-session-start {
+  color: var(--yellow);
+  font-weight: 700;
+}
+
+.nt-alert {
+  padding: 7px clamp(16px, 2.5vw, 32px) !important;
+  font-size: 9.5px !important;
+  letter-spacing: 0.06em !important;
+  gap: 10px !important;
+  line-height: 1.4 !important;
+}
+
+.nt-alert-body {
+  flex: 1;
+  text-align: center;
+  white-space: nowrap !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+@media (max-width: 1400px) {
+  .nt-alert { font-size: 8.5px !important; letter-spacing: 0.04em !important; }
+}
+@media (max-width: 1200px) {
+  .nt-alert { font-size: 8px !important; letter-spacing: 0.03em !important; padding: 6px 16px !important; }
+}
+@media (max-width: 1000px) {
+  .nt-alert { font-size: 7.5px !important; letter-spacing: 0.02em !important; }
+}
+@media (max-width: 800px) {
+  .nt-alert {
+    padding: 6px 12px !important;
+    font-size: 8.5px !important;
+    gap: 8px !important;
+    line-height: 1.5 !important;
+  }
+  .nt-alert-body {
+    white-space: normal !important;
+    overflow: visible;
+    text-overflow: clip;
+  }
+}
+@media (max-width: 480px) {
+  .nt-alert {
+    font-size: 7.5px !important;
+    padding: 5px 10px !important;
+    letter-spacing: 0.02em !important;
+  }
+  .nt-alert-mark { display: none; }
+}
+
+/* =====================================================================
+   BANNER RESPONSIVE: hide parts on mobile
+   ===================================================================== */
+
+/* Mobile: oculta el header de sistema y el MONITORING:ACTIVE (implícito) */
+@media (max-width: 800px) {
+  .nt-alert-sys,
+  .nt-alert-mon {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nt-alert-sys,
+  .nt-alert-mon {
+    display: none !important;
+  }
+}
+
+/* =====================================================================
+   BANNER FIX: forzar wrap en móvil
+   ===================================================================== */
+
+@media (max-width: 800px) {
+  .nt-alert {
+    display: flex !important;
+    align-items: flex-start !important;
+    padding: 8px 12px !important;
+    gap: 6px !important;
+  }
+
+  .nt-alert-body {
+    white-space: normal !important;
+    text-wrap: wrap !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    flex: 1 1 auto !important;
+    line-height: 1.5 !important;
+    font-size: 8.5px !important;
+    letter-spacing: 0.02em !important;
+    text-align: left !important;
+  }
+
+  .nt-alert-body span,
+  .nt-alert-body > span {
+    white-space: normal !important;
+  }
+
+  /* Si el header de sistema está oculto, no cuenta */
+  .nt-alert-sys,
+  .nt-alert-mon {
+    display: none !important;
+  }
+
+  .nt-alert-mark {
+    font-size: 10px !important;
+    flex-shrink: 0 !important;
+    align-self: flex-start !important;
+    margin-top: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nt-alert {
+    padding: 7px 10px !important;
+  }
+
+  .nt-alert-body {
+    font-size: 8px !important;
+    line-height: 1.55 !important;
+  }
+
+  .nt-alert-mark {
+    display: none !important;
+  }
+}
+
+/* =====================================================================
+   BANNER v2: dos versiones controladas
+   ===================================================================== */
+
+/* Base: desktop visible, mobile oculto */
+.nt-alert-desktop {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  flex: 1;
+  min-width: 0;
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+}
+
+.nt-alert-mobile {
+  display: none !important;
+}
+
+/* Mobile: oculta desktop, muestra mobile */
+@media (max-width: 800px) {
+  .nt-alert-desktop {
+    display: none !important;
+  }
+
+  .nt-alert-mobile {
+    display: block !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    text-align: center !important;
+    font-size: 9px !important;
+    letter-spacing: 0.04em !important;
+    line-height: 1.5 !important;
+    padding: 2px 4px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .nt-alert {
+    padding: 7px 12px !important;
+    gap: 8px !important;
+  }
+
+  .nt-alert-mark {
+    font-size: 10px !important;
+    align-self: center !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nt-alert {
+    padding: 6px 10px !important;
+  }
+
+  .nt-alert-mobile {
+    font-size: 8.5px !important;
+    line-height: 1.55 !important;
+  }
+
+  .nt-alert-mark {
+    font-size: 9px !important;
+  }
+}
+
+/* =====================================================================
+   BANNER FIX DEFINITIVO
+   ===================================================================== */
+
+/* Contenedor principal */
+.nt-alert {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 6px 16px !important;
+  border-top: 1px solid var(--red) !important;
+  border-bottom: 1px solid var(--red) !important;
+  background: var(--bg) !important;
+  gap: 12px !important;
+  font-family: var(--mono) !important;
+  line-height: 1.4 !important;
+}
+
+.nt-alert-mark {
+  color: var(--red) !important;
+  font-size: 11px !important;
+  flex-shrink: 0 !important;
+  animation: nt-pulse-alert 1.6s ease-in-out infinite !important;
+}
+
+/* Desktop */
+.nt-alert-desktop {
+  display: block !important;
+  font-size: 9.5px !important;
+  letter-spacing: 0.05em !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  text-align: center !important;
+  color: var(--fg) !important;
+}
+
+/* Mobile (oculto por defecto) */
+.nt-alert-mobile {
+  display: none !important;
+}
+
+#nt-session-start {
+  color: var(--yellow) !important;
+  font-weight: 700 !important;
+}
+
+/* ===== MEDIA QUERIES ===== */
+
+@media (max-width: 1400px) {
+  .nt-alert-desktop { font-size: 8.5px !important; letter-spacing: 0.03em !important; }
+}
+
+@media (max-width: 1100px) {
+  .nt-alert-desktop { font-size: 8px !important; letter-spacing: 0.02em !important; }
+}
+
+/* Mobile: cambia de versión */
+@media (max-width: 800px) {
+  .nt-alert {
+    padding: 8px 12px !important;
+    gap: 8px !important;
+  }
+  
+  .nt-alert-desktop {
+    display: none !important;
+  }
+  
+  .nt-alert-mobile {
+    display: block !important;
+    font-size: 9px !important;
+    letter-spacing: 0.05em !important;
+    white-space: normal !important;
+    text-align: center !important;
+    line-height: 1.5 !important;
+    color: var(--fg) !important;
+    overflow-wrap: break-word !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nt-alert-mobile { font-size: 8px !important; }
+  .nt-alert-mark { font-size: 9px !important; }
+}
+
+/* =====================================================================
+   FINAL POLISH: Colors & UI Micro-interactions
+   ===================================================================== */
+
+:root {
+  /* Ajustamos el rojo a uno más puro y agresivo */
+  --red: #ff2a2a;
+  --red-dim: rgba(255, 42, 42, 0.15);
+}
+
+[data-theme="light"] {
+  --red: #d32f2f;
+  --red-dim: rgba(211, 47, 47, 0.1);
+}
+
+/* 1. Selección de texto estilo terminal (Ámbar sobre negro) */
+::selection {
+  background: var(--yellow) !important;
+  color: var(--bg) !important;
+}
+
+/* 2. Scrollbar minimalista (Cyberpunk) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+  border-left: 1px solid var(--line);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg2);
+  border: 1px solid var(--line);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--green);
+  border-color: var(--green);
+}
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+
+/* 3. Enlaces en el cuerpo (más precisos) */
+.nt-content a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--red);
+  transition: color 0.2s, text-decoration-color 0.2s;
+}
+.nt-content a:hover {
+  color: var(--yellow);
+  text-decoration-color: var(--yellow);
+}
+
+/* 4. Ajuste sutil al Drop Cap para que respire mejor */
+.nt-content.dropcap > p:first-of-type::first-letter {
+  margin-top: 0.05em;
+  margin-right: 0.1em;
+}
+
+/* 5. Ajuste al Blockquote (// REF) para que el ámbar resalte más */
+.nt-content blockquote:not(.nt-pullquote)::before {
+  color: var(--yellow) !important;
+  text-shadow: 0 0 8px rgba(255, 176, 0, 0.3); /* Sutil glow de fósforo */
+}

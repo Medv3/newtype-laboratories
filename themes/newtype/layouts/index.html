@@ -1,13 +1,35 @@
 {{ define "main" }}
 <div class="nt-home">
     <section class="nt-home-hero">
-        <div class="nt-home-kicker">//PRIMARY_DIRECTIVE</div>
-        <h1 class="nt-home-title">{{ .Site.Params.tagline | default "Un laboratorio para la producción de newtypes." }}</h1>
-        <p class="nt-home-desc">{{ .Site.Params.description }}</p>
-        <div class="nt-home-cta">
-            <a href="/posts/">[ MOUNT /POSTS/ ]</a>
-            <a href="/about/">[ OPEN /ETC/OPERATOR ]</a>
+        <div class="nt-home-hero-left">
+            <div class="nt-home-kicker">//PRIMARY_DIRECTIVE</div>
+            <h1 class="nt-home-title">{{ .Site.Params.tagline | default "Un laboratorio para la producción de newtypes." }}</h1>
+            <p class="nt-home-desc">{{ .Site.Params.description }}</p>
+            <div class="nt-home-cta">
+                <a href="/posts/">[ MOUNT /POSTS/ ]</a>
+                <a href="/about/">[ OPEN /ETC/OPERATOR ]</a>
+            </div>
         </div>
+
+        <aside class="nt-home-hero-right">
+            <div class="nt-home-panel">
+                <div class="nt-home-panel-header">
+                    <span>//SYSTEM_READOUT</span>
+                    <span class="nt-green">● LIVE</span>
+                </div>
+                <div class="nt-home-panel-body">
+                    <div class="nt-sysrow"><span>STATUS</span><span class="nt-green" data-nt-status>INITIATE</span></div>
+                    <div class="nt-sysrow"><span>SESSION</span><span class="nt-yellow">LOGGED</span></div>
+                    <div class="nt-sysrow"><span>CLEARANCE</span><span>L6</span></div>
+                    <div class="nt-sysrow"><span>KIPPLE</span><span class="nt-yellow">ACCUMULATING</span></div>
+                    <div class="nt-sysrow"><span>MONITOR</span><span class="nt-green">ACTIVE</span></div>
+                    <div class="nt-sysrow"><span>NODE</span><span>BOG_CO · 04°42'N</span></div>
+                </div>
+                <div class="nt-home-panel-footer">
+                    <span class="nt-typewriter-static">&gt; SCANNING FILESYSTEM<span class="nt-cursor"></span></span>
+                </div>
+            </div>
+        </aside>
     </section>
 
     <div class="nt-home-grid">

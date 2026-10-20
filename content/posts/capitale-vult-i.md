@@ -2,11 +2,13 @@
 title: "Capitale vult I: Del neoliberalismo a la neoreacción"
 date: 2026-10-20T00:00:00-05:00
 draft: false
+dropcap: true
 toc: false
 tags:
   - neoliberalismo
   - neoreacción
----
+
+series: ["capitale-vult"]---
 
 # Introducción
 
@@ -128,15 +130,6 @@ En 2020, al final de la primera presidencia de Trump, Curtis Yarvin inauguró un
 Las razones de esta desconexión y esterilidad de la crítica pequeñoburguesa son muchas y muy complejas, explicables por lo general en torno al abandono del análisis de clase y la crítica de la técnica como ejes fundamentales de la crítica. Debemos salir "de la casa de los doctos"[^33] y dar un portazo a nuestras espaldas. El tiempo presente nos exige abandonar la torre de marfil de la academia occidental, no solo discursivamente como pretende la academia, sino en cada acción, en cada práctica. 
 
 La presente es la primera contribución teórica al proyecto teórico-práctico de resistencia al tecnofascismo neoreaccionario y construcción del socialismo cibernético. En lo que sigue, caracterizaremos en detalle el régimen tecnofascista en función de sus ejes fundamentales, propondremos estrategia y táctica para la resistencia y superación de este nuevo orden global, y exploraremos la posibilidad de un régimen alternativo.
-
-## Serie
-
-**Capitale vult** — Serie sobre tecnofascismo y neoreacción:
-
-- [Parte 1: Del neoliberalismo a la neoreacción](/posts/capitale-vult-i/) ← *este documento*
-- Parte 2: *próximamente*
-
----
 
 [^1]: Deleuze, G. (2017). *Derrames II. Aparatos de Estado y axiomática capitalista* (2.a ed., S. Puente & P. Ires, Trads.). Editorial Cactus. p. 258.
 
