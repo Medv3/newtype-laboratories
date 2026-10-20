@@ -48,6 +48,7 @@
             <span class="nt-clearance">L6 · <span data-nt-status>INITIATE</span></span>
             <span class="nt-hide-s">BOG_CO <span id="nt-clock">--:--:--</span></span>
         </div>
+        <button class="nt-menu-btn" id="nt-menu-btn" aria-label="Abrir menú" title="/">[≡]</button>
         <button class="nt-theme-btn" id="nt-theme-toggle" aria-label="Cambiar tema" title="T">[◐]</button>
     </header>
 
@@ -241,6 +242,13 @@
         var pBackdrop = document.getElementById('nt-palette-backdrop');
         function openPalette(){ if (!palette) return; palette.hidden = false; setTimeout(function(){ pInput.focus(); }, 10); renderResults(''); }
         function closePalette(){ if (!palette) return; palette.hidden = true; pInput.value = ''; }
+        var NAV_ITEMS = [
+            { label: '[01] INICIO', url: '/' },
+            { label: '[02] PUBLICACIONES', url: '/posts/' },
+            { label: '[03] SOBRE MÍ', url: '/about/' },
+            { label: '[04] ETIQUETAS', url: '/tags/' }
+        ];
+
         function renderResults(q){
             if (!pResults) return;
             var posts = window.NT_POSTS || [];
@@ -249,17 +257,48 @@
                 return p.title.toLowerCase().indexOf(ql) >= 0
                     || (p.tags || []).some(function(t){ return t.toLowerCase().indexOf(ql) >= 0; });
             });
+
             pResults.innerHTML = '';
-            if (filtered.length === 0) { pResults.innerHTML = '<li class="nt-palette-empty">// NO_RESULTS_FOUND</li>'; return; }
-            filtered.slice(0, 10).forEach(function(p, i){
+            var hasActive = false;
+
+            if (!q) {
+                NAV_ITEMS.forEach(function(item){
+                    var li = document.createElement('li');
+                    li.className = 'nt-palette-item nt-palette-navitem' + (hasActive ? '' : ' active');
+                    hasActive = true;
+                    li.innerHTML = '<span class="nt-palette-navlabel">' + item.label + '</span>'
+                                 + '<span class="nt-palette-arrow">↵</span>';
+                    li.addEventListener('click', function(){ window.location.href = item.url; });
+                    pResults.appendChild(li);
+                });
+
+                if (filtered.length > 0) {
+                    var sep = document.createElement('li');
+                    sep.className = 'nt-palette-separator';
+                    sep.innerHTML = '<span>DOSSIERS</span>';
+                    pResults.appendChild(sep);
+                }
+            }
+
+            if (filtered.length === 0 && q) {
+                pResults.innerHTML = '<li class="nt-palette-empty">// NO_RESULTS_FOUND</li>';
+                return;
+            }
+
+            filtered.slice(0, 10).forEach(function(p){
                 var li = document.createElement('li');
-                li.className = 'nt-palette-item' + (i === 0 ? ' active' : '');
+                li.className = 'nt-palette-item' + (hasActive ? '' : ' active');
+                hasActive = true;
                 li.innerHTML = '<span class="nt-palette-date">[' + p.date + ']</span>'
                              + '<span class="nt-palette-title">' + p.title + '</span>'
                              + '<span class="nt-palette-arrow">↵</span>';
                 li.addEventListener('click', function(){ window.location.href = p.url; });
                 pResults.appendChild(li);
             });
+
+            if (pResults.children.length === 0) {
+                pResults.innerHTML = '<li class="nt-palette-empty">// NO_RESULTS_FOUND</li>';
+            }
         }
         if (pInput) {
             pInput.addEventListener('input', function(e){ renderResults(e.target.value); });
@@ -292,6 +331,9 @@
         });
 
         refreshStatus();
+
+        var menuBtn = document.getElementById('nt-menu-btn');
+        if (menuBtn) menuBtn.addEventListener('click', openPalette);
     })();
     </script>
     {{ block "scripts" . }}{{ end }}

@@ -1852,3 +1852,561 @@ body {
 .nt-content > h2:first-of-type + p {
   margin-top: 1.5rem;
 }
+
+/* =====================================================================
+   MOBILE REFRESH — iPhone 15 Pro Max (430×932) / Samsung S26 (412×915)
+   Breakpoints: 900px (tablet) · 480px (phone) · 380px (small phone)
+   ===================================================================== */
+
+/* ---- 1. TABLET / LARGE PHONE (≤ 900px) ---- */
+@media (max-width: 900px) {
+
+  html {
+    scroll-padding-top: 150px !important;
+  }
+
+  /* ---- TOPBAR: 3 filas ---- */
+  .nt-topbar {
+    height: auto !important;
+    min-height: 44px;
+    flex-wrap: wrap;
+    padding: 0 !important;
+    gap: 0 !important;
+    align-items: stretch;
+  }
+
+  /* Fila 1: brand + botón tema */
+  .nt-mark {
+    flex: 1 1 auto !important;
+    min-width: 0;
+    padding: 12px 16px !important;
+    align-items: center !important;
+  }
+
+  .nt-brand {
+    font-size: 14px !important;
+    letter-spacing: 0 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nt-system {
+    display: none !important;
+  }
+
+  .nt-theme-btn {
+    order: 2;
+    flex-shrink: 0;
+    padding: 0 16px !important;
+    margin: 0 !important;
+    border: none !important;
+    border-left: 1px solid var(--line) !important;
+  }
+
+  /* Fila 2: nav horizontal scrollable */
+  .nt-nav {
+    order: 3;
+    display: flex !important;
+    width: 100% !important;
+    margin: 0 !important;
+    border-top: 1px solid var(--line);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .nt-nav::-webkit-scrollbar { display: none; }
+
+  .nt-nav a {
+    flex-shrink: 0;
+    padding: 10px 14px !important;
+    font-size: 10px !important;
+    letter-spacing: 0.1em !important;
+    white-space: nowrap;
+    border-right: 1px solid var(--line);
+  }
+
+  .nt-nav a:last-child { border-right: none; }
+
+  /* Fila 3: status compacto */
+  .nt-status {
+    order: 4;
+    width: 100% !important;
+    padding: 6px 16px !important;
+    border-top: 1px solid var(--line);
+    font-size: 9px !important;
+    gap: 8px !important;
+    justify-content: space-between !important;
+    display: flex !important;
+    flex-wrap: wrap;
+  }
+
+  .nt-typewriter {
+    font-size: 9px !important;
+    min-width: 0 !important;
+    max-width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .nt-clearance {
+    font-size: 9px !important;
+    padding: 1px 6px !important;
+  }
+
+  .nt-hide-s {
+    display: inline !important;
+    font-size: 9px !important;
+  }
+
+  /* Sticky asides: quitar (topbar multi-fila no lo permite bien) */
+  .nt-post-aside,
+  .nt-post-right {
+    position: static !important;
+    top: auto !important;
+  }
+
+  /* Alert: compacto */
+  .nt-alert {
+    padding: 6px 14px !important;
+    font-size: 9px !important;
+    letter-spacing: 0.06em !important;
+    line-height: 1.4 !important;
+  }
+
+  .nt-alert-mark { display: none !important; }
+
+  .nt-alert-body {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* POST: single column */
+  .nt-post-grid {
+    grid-template-columns: 1fr !important;
+    padding: 40px 20px !important;
+    gap: 32px !important;
+    max-width: none !important;
+  }
+
+  .nt-post-aside {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    order: -1;
+  }
+
+  .nt-aside-block {
+    margin-bottom: 0 !important;
+    padding-bottom: 12px !important;
+  }
+
+  .nt-content {
+    font-size: 17px !important;
+    line-height: 1.7 !important;
+    max-width: none !important;
+  }
+
+  .nt-post-header,
+  .nt-rule,
+  .nt-post-footer,
+  .nt-post-pagination {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* HOME: single column */
+  .nt-home-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+}
+
+/* ---- 2. STANDARD PHONE (≤ 480px) — iPhone 15 Pro Max / Samsung S26 ---- */
+@media (max-width: 480px) {
+
+  html {
+    scroll-padding-top: 140px !important;
+  }
+
+  /* Topbar aún más ajustada */
+  .nt-mark { padding: 10px 14px !important; }
+  .nt-brand { font-size: 13px !important; }
+  .nt-theme-btn { padding: 0 14px !important; }
+
+  .nt-nav a {
+    padding: 9px 12px !important;
+    font-size: 9px !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .nt-status {
+    padding: 5px 14px !important;
+    font-size: 8px !important;
+    gap: 6px !important;
+  }
+
+  .nt-typewriter,
+  .nt-clearance,
+  .nt-hide-s {
+    font-size: 8px !important;
+  }
+
+  /* Alert muy compacto */
+  .nt-alert {
+    font-size: 8px !important;
+    padding: 5px 10px !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  /* Post */
+  .nt-post { padding: 28px 0 56px !important; }
+
+  .nt-post-title {
+    font-size: clamp(26px, 9vw, 44px) !important;
+    line-height: 1 !important;
+  }
+
+  .nt-post-subject {
+    font-size: 10px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .nt-stamp {
+    font-size: 9px !important;
+    padding: 3px 8px !important;
+    letter-spacing: 0.14em !important;
+    top: -4px !important;
+    right: 12px !important;
+  }
+
+  .nt-post-header {
+    padding-left: 14px !important;
+    border-left-width: 2px !important;
+  }
+
+  .nt-fileline {
+    flex-direction: column !important;
+    gap: 4px !important;
+    align-items: flex-start !important;
+    font-size: 9px !important;
+  }
+
+  .nt-post-readout {
+    gap: 8px !important;
+    font-size: 10px !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  /* Dossier single column */
+  .nt-dossier {
+    grid-template-columns: 1fr !important;
+    max-width: none !important;
+    padding: 12px 14px !important;
+  }
+
+  .nt-dossier-row {
+    font-size: 10px !important;
+    padding: 5px 0 !important;
+  }
+
+  /* Post grid */
+  .nt-post-grid { padding: 24px 14px !important; }
+  .nt-post-aside { grid-template-columns: 1fr !important; }
+  .nt-aside-label { font-size: 9px !important; }
+
+  /* Content */
+  .nt-content { font-size: 16px !important; }
+
+  .nt-content > p:first-of-type::first-letter {
+    font-size: 3.5em !important;
+    line-height: 0.85 !important;
+  }
+
+  .nt-content h2 { font-size: 1.2rem !important; }
+  .nt-content h3 { font-size: 1rem !important; }
+
+  .nt-content blockquote {
+    padding: 12px 14px !important;
+    margin: 1.5rem 0 !important;
+  }
+
+  .nt-pullquote,
+  .nt-content blockquote.nt-pullquote {
+    margin: 2rem 0 !important;
+    padding: 14px 16px !important;
+    font-size: 1em !important;
+  }
+
+  /* Home */
+  .nt-home { padding: 28px 14px 56px !important; }
+
+  .nt-home-kicker { font-size: 9px !important; margin-bottom: 14px !important; }
+
+  .nt-home-title {
+    font-size: clamp(28px, 10vw, 46px) !important;
+    line-height: 0.98 !important;
+    margin-bottom: 20px !important;
+  }
+
+  .nt-home-desc { font-size: 15px !important; margin-bottom: 24px !important; }
+
+  .nt-home-cta { flex-direction: column; gap: 8px; }
+
+  .nt-home-cta a {
+    width: 100%;
+    text-align: center;
+    font-size: 10px !important;
+    padding: 12px 16px !important;
+  }
+
+  /* List */
+  .nt-list { padding: 28px 14px 56px !important; }
+
+  .nt-list-header {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .nt-section-num { font-size: clamp(48px, 16vw, 88px) !important; line-height: 0.8 !important; }
+  .nt-section-title { font-size: clamp(26px, 9vw, 44px) !important; }
+  .nt-list-stats { text-align: left !important; font-size: 9px !important; }
+
+  .nt-post-item a {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+    padding: 14px 0 !important;
+  }
+
+  .nt-post-index { font-size: 10px !important; }
+  .nt-post-name { font-size: 16px !important; line-height: 1.15 !important; }
+  .nt-post-readtime { font-size: 9px !important; }
+
+  /* Footer */
+  .nt-footer { padding: 20px 14px !important; }
+
+  .nt-footer-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    font-size: 9px !important;
+    padding: 12px 0 !important;
+  }
+
+  .nt-footer-center { flex-wrap: wrap !important; gap: 10px !important; }
+
+  .nt-footer-final {
+    font-size: 8px !important;
+    letter-spacing: 0.06em !important;
+    padding: 12px 0 !important;
+    text-align: left !important;
+  }
+
+  /* Boot */
+  .nt-boot-content {
+    font-size: 10px !important;
+    padding: 16px !important;
+    line-height: 1.6 !important;
+    overflow-x: auto !important;
+  }
+
+  /* Palette */
+  .nt-palette { padding-top: 8vh !important; }
+  .nt-palette-panel { width: 94vw !important; }
+  .nt-palette-header { padding: 12px 14px !important; }
+  .nt-palette-prompt, .nt-palette-hint { font-size: 9px !important; }
+  .nt-palette-header input { font-size: 14px !important; }
+
+  .nt-palette-item {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+    padding: 10px 14px !important;
+  }
+
+  .nt-palette-date { font-size: 9px !important; }
+  .nt-palette-title {
+    font-size: 11px !important;
+    white-space: normal !important;
+    text-overflow: clip !important;
+  }
+  .nt-palette-arrow { display: none !important; }
+
+  /* Post navigation */
+  .nt-post-nav { grid-template-columns: 1fr !important; gap: 12px !important; }
+  .nt-post-next { text-align: left !important; }
+  .nt-post-nav-title { font-size: 12px !important; }
+
+  /* Featured image full-bleed */
+  .nt-featured-image {
+    margin: 0 -14px 2rem !important;
+    padding: 0 0 1rem !important;
+  }
+
+  .nt-featured-image img {
+    border-left: none !important;
+    border-right: none !important;
+  }
+
+  /* Footnotes */
+  .nt-content .footnotes { font-size: 11px !important; margin-top: 2.5rem !important; }
+  .nt-content .footnotes li { padding: 6px 0 6px 32px !important; }
+
+  /* TOC */
+  .nt-toc-aside { font-size: 10px !important; }
+}
+
+/* ---- 3. VERY SMALL PHONE (≤ 380px) ---- */
+@media (max-width: 380px) {
+  html { scroll-padding-top: 130px !important; }
+
+  .nt-brand { font-size: 12px !important; }
+
+  .nt-nav a {
+    padding: 8px 9px !important;
+    font-size: 8px !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  .nt-post-title { font-size: clamp(22px, 8vw, 32px) !important; }
+  .nt-home-title { font-size: clamp(24px, 9vw, 40px) !important; }
+  .nt-content { font-size: 15px !important; }
+
+  .nt-kipple { display: none !important; }
+}
+
+/* =====================================================================
+   v11: MENÚ [≡] + PALETTE NAV
+   ===================================================================== */
+
+/* ---- Botón [≡]: oculto en desktop ---- */
+.nt-menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--fg);
+  padding: 0 14px;
+  font-family: var(--mono);
+  font-size: 16px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.12s;
+}
+
+.nt-menu-btn:hover {
+  background: var(--bg2);
+}
+
+@media (min-width: 901px) {
+  .nt-menu-btn { display: none !important; }
+}
+
+/* ---- Móvil: nav desaparece, [≡] aparece ---- */
+@media (max-width: 900px) {
+
+  /* Nav oculta */
+  .nt-nav { display: none !important; }
+
+  /* Fila 1: brand + [≡] + [◐] */
+  .nt-mark {
+    order: 1 !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+
+  .nt-menu-btn {
+    display: flex !important;
+    order: 2 !important;
+    border-left: 1px solid var(--line) !important;
+    padding: 0 14px !important;
+  }
+
+  .nt-theme-btn {
+    order: 3 !important;
+  }
+
+  /* Fila 2: status */
+  .nt-status {
+    order: 4 !important;
+    width: 100% !important;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 480px) {
+  .nt-menu-btn { padding: 0 12px !important; font-size: 15px; }
+}
+
+/* ---- Palette: navegación arriba ---- */
+.nt-palette-navitem {
+  grid-template-columns: 1fr auto !important;
+  padding: 14px 18px !important;
+  background: transparent;
+  transition: background 0.1s, padding-left 0.15s;
+}
+
+.nt-palette-navitem:hover,
+.nt-palette-navitem.active {
+  background: var(--bg2) !important;
+  padding-left: 22px !important;
+}
+
+.nt-palette-navitem.active .nt-palette-navlabel {
+  color: var(--green) !important;
+}
+
+[data-theme="light"] .nt-palette-navitem.active .nt-palette-navlabel {
+  color: var(--red) !important;
+}
+
+.nt-palette-navlabel {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-strong);
+}
+
+/* Separador DOSSIERS */
+.nt-palette-separator {
+  padding: 10px 18px !important;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  font-weight: 700;
+  background: var(--bg2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  list-style: none;
+  pointer-events: none;
+  user-select: none;
+}
+
+.nt-palette-separator span::before {
+  content: "// ";
+}
+
+/* Responsive del palette en mobile */
+@media (max-width: 480px) {
+  .nt-palette-navitem {
+    padding: 12px 14px !important;
+  }
+  .nt-palette-navitem.active {
+    padding-left: 18px !important;
+  }
+  .nt-palette-navlabel {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+  }
+  .nt-palette-separator {
+    padding: 8px 14px !important;
+    font-size: 8px;
+  }
+}
