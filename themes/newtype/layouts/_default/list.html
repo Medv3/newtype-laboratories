@@ -1,0 +1,26 @@
+{{ define "main" }}
+<section class="nt-list">
+    <header class="nt-list-header">
+        <span class="nt-section-num">{{ if .IsHome }}01{{ else if eq .Section "posts" }}02{{ else if eq .Section "tags" }}04{{ else }}03{{ end }}</span>
+        <h1 class="nt-section-title">{{ if .IsHome }}Archivo{{ else }}{{ .Title }}{{ end }}</h1>
+        <div class="nt-list-stats">
+            ARCHIVOS: {{ len .Pages }}<br>
+            DESCLASIFICADOS: {{ len .Pages }}
+        </div>
+    </header>
+
+    <hr class="nt-rule">
+
+    <ol class="nt-posts-list">
+        {{ range .Pages }}
+        <li class="nt-post-item">
+            <a href="{{ .Permalink }}">
+                <span class="nt-post-index">[{{ .Date.Format "2006-01-02" }}]</span>
+                <span class="nt-post-name">{{ .Title }}</span>
+                <span class="nt-post-readtime">{{ .ReadingTime }} min</span>
+            </a>
+        </li>
+        {{ end }}
+    </ol>
+</section>
+{{ end }}

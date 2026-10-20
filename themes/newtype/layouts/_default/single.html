@@ -1,0 +1,123 @@
+{{ define "main" }}
+{{ $isAbout := eq .RelPermalink "/about/" }}
+{{ $isPost := eq .Section "posts" }}
+{{ $stamp := "MONITORED" }}
+{{ if $isAbout }}{{ $stamp = "OPERATOR" }}{{ end }}
+{{ if .Draft }}{{ $stamp = "DRAFT" }}{{ end }}
+{{ $alias := .Site.Params.operator_alias | default "Synco" }}
+
+<article class="nt-post">
+    <div class="nt-corner nt-corner-tl" aria-hidden="true"></div>
+    <div class="nt-corner nt-corner-tr" aria-hidden="true"></div>
+    <div class="nt-corner nt-corner-bl" aria-hidden="true"></div>
+    <div class="nt-corner nt-corner-br" aria-hidden="true"></div>
+
+    <header class="nt-post-header">
+        <div class="nt-fileline">
+            <span>//FILE: /{{ if $isAbout }}etc/operator.md{{ else }}{{ with .File }}{{ .Path }}{{ else }}draft.md{{ end }}{{ end }}</span>
+            <span>FILE_ID: NT-{{ .Date.Format "2006" }}-{{ printf "%04d" .Date.YearDay }}-A</span>
+        </div>
+
+        <div class="nt-post-titlewrap">
+            <div class="nt-stamp" aria-hidden="true">{{ $stamp }}</div>
+            <div class="nt-post-subject">{{ if $isAbout }}//OPERATOR:{{ else }}//DOSSIER:{{ end }}</div>
+            <h1 class="nt-post-title">{{ .Title }}</h1>
+        </div>
+
+        {{ if $isPost }}
+        <div class="nt-post-readout">
+            <span class="nt-readout-warn">[DATE: {{ .Date.Format "2006-01-02" }}]</span>
+            <span>[READ: {{ .ReadingTime }} min]</span>
+            <span>[WORDS: {{ .WordCount }}]</span>
+            {{ with .Params.tags }}<span>[TAGS:{{ range . }} #{{ . }}{{ end }}]</span>{{ end }}
+            {{ with .Params.series }}<span>[SERIES: {{ delimit . " / " }}]</span>{{ end }}
+        </div>
+        {{ end }}
+    </header>
+
+    <hr class="nt-rule">
+
+    {{ with .Params.featured_image }}
+    <figure class="nt-featured-image">
+        <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+        <figcaption>{{ $.Title }}</figcaption>
+    </figure>
+    {{ end }}
+
+    <div class="nt-post-grid">
+        <aside class="nt-post-aside">
+            <div class="nt-aside-block">
+                <div class="nt-aside-label">//FILE_META</div>
+                {{ if $isAbout }}
+                <div class="nt-sysrow"><span>CLASS</span><span>OPERATOR_FILE</span></div>
+                <div class="nt-sysrow"><span>CLEARANCE</span><span class="nt-yellow">LEVEL_6</span></div>
+                <div class="nt-sysrow"><span>OPERATOR</span><span>██████████</span></div>
+                <div class="nt-sysrow"><span>ALIAS</span><span class="nt-yellow">{{ $alias }}</span></div>
+                <div class="nt-sysrow"><span>LEGAL_NAME</span><span>██████████</span></div>
+                <div class="nt-sysrow"><span>STATUS</span><span class="nt-green">ACTIVE</span></div>
+                {{ else }}
+                <div class="nt-sysrow"><span>CLASS</span><span>{{ if .Draft }}RESTRICTED{{ else }}PUBLIC{{ end }}</span></div>
+                <div class="nt-sysrow"><span>REVIEW</span><span class="nt-yellow">[■] PASSED</span></div>
+                <div class="nt-sysrow"><span>OPERATOR</span><span>██████████</span></div>
+                <div class="nt-sysrow"><span>ALIAS</span><span class="nt-yellow">{{ $alias }}</span></div>
+                <div class="nt-sysrow"><span>STATUS</span><span class="nt-green">{{ if .Draft }}DRAFT{{ else }}INDEXED{{ end }}</span></div>
+                {{ end }}
+            </div>
+
+            {{ if and .Params.toc .TableOfContents }}
+            <div class="nt-aside-block">
+                <div class="nt-aside-label">//TOC</div>
+                <div class="nt-toc-aside">{{ .TableOfContents }}</div>
+            </div>
+            {{ end }}
+        </aside>
+
+        <div class="nt-content">
+            {{ .Content }}
+        </div>
+
+        <aside class="nt-post-right">
+            <div class="nt-right-block">
+                <div class="nt-aside-label">//READ_PROGRESS</div>
+                <div class="nt-right-value"><span id="nt-right-pct">0</span>%</div>
+            </div>
+            <div class="nt-right-block">
+                <div class="nt-aside-label">//STATUS</div>
+                <div class="nt-right-value nt-green" data-nt-status>INITIATE</div>
+            </div>
+            <div class="nt-right-block">
+                <a href="#" class="nt-right-link" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK_TO_TOP</a>
+            </div>
+        </aside>
+    </div>
+
+    <hr class="nt-rule">
+
+    <footer class="nt-post-footer">
+        <div class="nt-post-nav">
+            {{ with .PrevInSection }}
+            <a href="{{ .Permalink }}" class="nt-post-prev">
+                <span class="nt-label">← PREV_FILE</span>
+                <span class="nt-post-nav-title">{{ .Title }}</span>
+            </a>
+            {{ else }}
+            <div class="nt-post-prev nt-post-nav-empty">
+                <span class="nt-label">← PREV_FILE</span>
+                <span class="nt-post-nav-title">[ FIRST_FILE ]</span>
+            </div>
+            {{ end }}
+            {{ with .NextInSection }}
+            <a href="{{ .Permalink }}" class="nt-post-next">
+                <span class="nt-label">NEXT_FILE →</span>
+                <span class="nt-post-nav-title">{{ .Title }}</span>
+            </a>
+            {{ else }}
+            <div class="nt-post-next nt-post-nav-empty">
+                <span class="nt-label">NEXT_FILE →</span>
+                <span class="nt-post-nav-title">[ LAST_FILE ]</span>
+            </div>
+            {{ end }}
+        </div>
+    </footer>
+</article>
+{{ end }}

@@ -1,0 +1,51 @@
+{{ define "main" }}
+<div class="nt-home">
+    <section class="nt-home-hero">
+        <div class="nt-home-kicker">//PRIMARY_DIRECTIVE</div>
+        <h1 class="nt-home-title">{{ .Site.Params.tagline | default "Un laboratorio para la producción de newtypes." }}</h1>
+        <p class="nt-home-desc">{{ .Site.Params.description }}</p>
+        <div class="nt-home-cta">
+            <a href="/posts/">[ MOUNT /POSTS/ ]</a>
+            <a href="/about/">[ OPEN /ETC/OPERATOR ]</a>
+        </div>
+    </section>
+
+    <div class="nt-home-grid">
+        <section class="nt-home-posts">
+            <div class="nt-section-label">//RECENT_INTAKE</div>
+            <ol class="nt-posts-list">
+                {{ range first 5 (where .Site.RegularPages "Section" "posts") }}
+                <li class="nt-post-item">
+                    <a href="{{ .Permalink }}">
+                        <span class="nt-post-index">[{{ .Date.Format "2006-01-02" }}]</span>
+                        <span class="nt-post-name">{{ .Title }}</span>
+                        <span class="nt-post-readtime">{{ .ReadingTime }} min</span>
+                    </a>
+                </li>
+                {{ end }}
+            </ol>
+            <a class="nt-more" href="/posts/">→ LS /POSTS/ --ALL</a>
+        </section>
+
+        <aside class="nt-home-sidebar">
+            <div class="nt-sideblock">
+                <div class="nt-section-label">//DIRECTORIES</div>
+                <ul class="nt-dirlist">
+                    <li><a href="/posts/">/posts/ <span class="nt-dim">— {{ len (where .Site.RegularPages "Section" "posts") }} files</span></a></li>
+                    <li><a href="/about/">/etc/operator <span class="nt-dim">— 1 file</span></a></li>
+                    <li><a href="/tags/">/var/tags <span class="nt-dim">— {{ len .Site.Taxonomies.tags }} tags</span></a></li>
+                    <li><a href="/index.xml">/feed.xml <span class="nt-dim">— RSS</span></a></li>
+                </ul>
+            </div>
+
+            <div class="nt-sideblock">
+                <div class="nt-section-label">//SYSTEM_STATUS</div>
+                <div class="nt-sysrow"><span>RECORDS</span><span class="nt-yellow">{{ len (where .Site.RegularPages "Section" "posts") }}</span></div>
+                <div class="nt-sysrow"><span>LAST_INTAKE</span><span class="nt-yellow">{{ with (index (first 1 (where .Site.RegularPages "Section" "posts").ByDate.Reverse) 0) }}{{ .Date.Format "2006-01-02" }}{{ else }}—{{ end }}</span></div>
+                <div class="nt-sysrow"><span>TRANSFORMATION</span><span class="nt-yellow"><span data-nt-read>0</span> / <span data-nt-total>0</span></span></div>
+                <div class="nt-sysrow"><span>STATUS</span><span class="nt-green" data-nt-status>INITIATE</span></div>
+            </div>
+        </aside>
+    </div>
+</div>
+{{ end }}

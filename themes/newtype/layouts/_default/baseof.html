@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Locale | default "es" }}" data-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ block "title" . }}{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}{{ end }}</title>
+    {{ with .Description }}<meta name="description" content="{{ . }}">{{ else }}<meta name="description" content="{{ .Site.Params.description | default .Site.Title }}">{{ end }}
+    <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}">
+    <meta property="og:description" content="{{ .Description | default .Site.Params.description }}">
+    <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    {{ range .AlternativeOutputFormats -}}
+    <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" title="{{ $.Site.Title }}">
+    {{ end -}}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    {{ $css := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $css.Permalink }}">
+    {{ block "head" . }}{{ end }}
+</head>
+<body>
+    <div class="nt-progress" id="nt-progress" aria-hidden="true"></div>
+    <div class="nt-boot" id="nt-boot" aria-hidden="true"><div class="nt-boot-content" id="nt-boot-content"></div></div>
+
+    {{ $crumb := "CONTROL_ROOM" }}
+    {{ if and .IsPage (eq .Section "posts") }}
+      {{ $crumb = printf "CONTROL_ROOM/POSTS/%s.md" .File.BaseFileName }}
+    {{ else if eq .Section "posts" }}
+      {{ $crumb = "CONTROL_ROOM/POSTS" }}
+    {{ else if eq .RelPermalink "/about/" }}
+      {{ $crumb = "CONTROL_ROOM/ETC/operator.md" }}
+    {{ else if eq .Section "tags" }}
+      {{ $crumb = "CONTROL_ROOM/VAR/TAGS" }}
+    {{ end }}
+
+    <header class="nt-topbar">
+        <a class="nt-mark" href="/">
+            <span class="nt-brand">{{ .Site.Title }}</span>
+            <span class="nt-system">//{{ $crumb }}</span>
+        </a>
+        <nav class="nt-nav" aria-label="Secciones">
+            <a href="/"{{ if .IsHome }} class="on"{{ end }}>[01] INICIO</a>
+            <a href="/posts/"{{ if eq .Section "posts" }} class="on"{{ end }}>[02] PUBLICACIONES</a>
+            <a href="/about/"{{ if eq .RelPermalink "/about/" }} class="on"{{ end }}>[03] SOBRE MÍ</a>
+            <a href="/tags/"{{ if eq .Section "tags" }} class="on"{{ end }}>[04] ETIQUETAS</a>
+        </nav>
+        <div class="nt-status">
+            <span class="nt-typewriter" id="nt-tw">[INITIALIZING...]</span>
+            <span class="nt-clearance">L6 · <span data-nt-status>INITIATE</span></span>
+            <span class="nt-hide-s">BOG_CO <span id="nt-clock">--:--:--</span></span>
+        </div>
+        <button class="nt-theme-btn" id="nt-theme-toggle" aria-label="Cambiar tema" title="T">[◐]</button>
+    </header>
+
+    <div class="nt-alert" role="alert">
+        <span class="nt-alert-mark">⚠</span>
+        <span class="nt-alert-body">
+            NT_LABS // SESSION_LOGGED · TRANSPARENCY:MANDATORY · ALL_READS_ARE_RECORDED · UNAUTHORIZED_ACCESS_IS_A_CONTAINMENT_BREACH
+        </span>
+        <span class="nt-alert-mark">⚠</span>
+    </div>
+
+    <main class="nt-main">
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    <footer class="nt-footer">
+        <div class="nt-footer-row">
+            <span>© {{ now.Format "2006" }} NEWTYPE_LABORATORIES</span>
+            <span class="nt-footer-center">
+                <a href="/index.xml">[ RSS ]</a>
+                <a href="https://github.com/">[ GITHUB ]</a>
+                <a href="mailto:">[ CONTACTO ]</a>
+            </span>
+            <span class="nt-kipple">KIPPLE_LEVEL: ACCUMULATING</span>
+        </div>
+        <div class="nt-footer-final">
+            // END_OF_LOG · CLASSIFIED · DO NOT REPRODUCE<span class="nt-cursor">█</span>
+        </div>
+    </footer>
+
+    <div class="nt-palette" id="nt-palette" hidden>
+        <div class="nt-palette-backdrop" id="nt-palette-backdrop"></div>
+        <div class="nt-palette-panel" role="dialog" aria-label="Buscar">
+            <div class="nt-palette-header">
+                <span class="nt-palette-prompt">//GREP:</span>
+                <input type="text" id="nt-palette-input" placeholder="buscar dossier..." autocomplete="off">
+                <span class="nt-palette-hint">[ ESC ]</span>
+            </div>
+            <ul class="nt-palette-results" id="nt-palette-results"></ul>
+        </div>
+    </div>
+
+    <script>
+    window.NT_POSTS = [
+        {{ range where .Site.RegularPages "Section" "posts" }}
+        { title: {{ .Title | jsonify }}, url: {{ .Permalink | jsonify }}, date: {{ .Date.Format "2006-01-02" | jsonify }}, tags: [{{ range .Params.tags }}{{ . | jsonify }},{{ end }}] },
+        {{ end }}
+    ];
+    </script>
+
+    <script>
+    (function(){
+        var root = document.documentElement;
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // ---- READ TRACKING + STATUS ----
+        var postUrls = (window.NT_POSTS || []).map(function(p){ return p.url; });
+        var readKey = 'nt-read-posts';
+        var readPosts = [];
+        try { readPosts = JSON.parse(localStorage.getItem(readKey) || '[]'); } catch(e){ readPosts = []; }
+        readPosts = readPosts.filter(function(u){ return postUrls.indexOf(u) >= 0; });
+
+        var currentPath = window.location.pathname;
+        var isPost = /^\/posts\/.+\/$/.test(currentPath);
+
+        // Marcar como leído solo tras 25% de scroll (engagement real)
+        var marked = false;
+        function markAsRead(){
+            if (marked || !isPost) return;
+            marked = true;
+            var here = window.location.href;
+            if (postUrls.indexOf(here) >= 0 && readPosts.indexOf(here) < 0) {
+                readPosts.push(here);
+                try { localStorage.setItem(readKey, JSON.stringify(readPosts)); } catch(e){}
+                refreshStatus();
+            }
+        }
+        function checkScroll(){
+            if (!isPost || marked) return;
+            var h = document.documentElement.scrollHeight - window.innerHeight;
+            if (h > 0 && (window.scrollY / h) >= 0.25) markAsRead();
+        }
+
+        function computeStatus(){
+            var total = postUrls.length;
+            var read = readPosts.length;
+            if (total === 0) return { total: 0, read: 0, status: 'INITIATE', pct: 0 };
+            var pct = read / total;
+            var status = 'INITIATE';
+            if (pct >= 1) status = 'NEWTYPE';
+            else if (pct >= 0.5) status = 'SENIOR_OPERATOR';
+            else if (pct > 0) status = 'OPERATOR';
+            return { total: total, read: read, status: status, pct: pct };
+        }
+
+        function refreshStatus(){
+            var s = computeStatus();
+            document.querySelectorAll('[data-nt-status]').forEach(function(el){ el.textContent = s.status; });
+            document.querySelectorAll('[data-nt-read]').forEach(function(el){ el.textContent = s.read; });
+            document.querySelectorAll('[data-nt-total]').forEach(function(el){ el.textContent = s.total; });
+        }
+
+        // ---- THEME ----
+        var saved = localStorage.getItem('nt-theme');
+        if (saved) root.setAttribute('data-theme', saved);
+        function toggleTheme(){
+            var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', next);
+            localStorage.setItem('nt-theme', next);
+        }
+        var btn = document.getElementById('nt-theme-toggle');
+        if (btn) btn.addEventListener('click', toggleTheme);
+
+        // ---- CLOCK ----
+        var clock = document.getElementById('nt-clock');
+        function tickClock(){
+            if (!clock) return;
+            clock.textContent = new Date().toLocaleTimeString('es-CO', { timeZone: 'America/Bogota', hour12: false });
+        }
+        tickClock(); setInterval(tickClock, 1000);
+
+        // ---- TYPEWRITER ----
+        var tw = document.getElementById('nt-tw');
+        if (tw && !reduce) {
+            var states = ['[SCANNING...]', '[DOSSIER LOGGED]', '[MONITORING]', '[ARCHIVE SYNC]'];
+            var idx = 0, char = 0, deleting = false;
+            (function type(){
+                var current = states[idx];
+                if (!deleting) {
+                    tw.textContent = current.slice(0, char++);
+                    if (char > current.length) { deleting = true; setTimeout(type, 1800); return; }
+                    setTimeout(type, 70);
+                } else {
+                    tw.textContent = current.slice(0, char--);
+                    if (char < 0) { deleting = false; char = 0; idx = (idx + 1) % states.length; }
+                    setTimeout(type, 30);
+                }
+            })();
+        } else if (tw) {
+            tw.textContent = '[SYSTEM: ACTIVE]';
+        }
+
+        // ---- PROGRESS BAR (top) ----
+        var prog = document.getElementById('nt-progress');
+        var rightPct = document.getElementById('nt-right-pct');
+        function updateProgress(){
+            var h = document.documentElement.scrollHeight - window.innerHeight;
+            var pct = h > 0 ? Math.round((window.scrollY / h) * 100) : 0;
+            if (prog) prog.style.width = pct + '%';
+            if (rightPct) rightPct.textContent = pct;
+            checkScroll();
+        }
+        window.addEventListener('scroll', updateProgress, { passive: true });
+        updateProgress();
+
+        // ---- BOOT SEQUENCE ----
+        var boot = document.getElementById('nt-boot');
+        var bootContent = document.getElementById('nt-boot-content');
+        if (boot && bootContent && !reduce && !sessionStorage.getItem('nt-booted')) {
+            var s = computeStatus();
+            var lines = [
+                '> NT_LABS_CONTROL_ROOM',
+                '> MOUNTING /posts .......... OK',
+                '> MOUNTING /etc/operator ... OK',
+                '> SESSION: LOGGED',
+                '> STATUS: ' + s.status + ' — ' + s.read + '/' + s.total + ' DOSSIERS_READ',
+                '> READY.'
+            ];
+            var li = 0, ci = 0;
+            (function bootType(){
+                if (li >= lines.length) {
+                    setTimeout(function(){
+                        boot.classList.add('nt-boot-out');
+                        setTimeout(function(){ boot.style.display = 'none'; sessionStorage.setItem('nt-booted','1'); }, 400);
+                    }, 300);
+                    return;
+                }
+                var line = lines[li];
+                bootContent.textContent = lines.slice(0, li).join('\n') + (li ? '\n' : '') + line.slice(0, ci);
+                if (ci++ >= line.length) { li++; ci = 0; setTimeout(bootType, 120); }
+                else setTimeout(bootType, 16);
+            })();
+        } else if (boot) {
+            boot.style.display = 'none';
+        }
+
+        // ---- COMMAND PALETTE ----
+        var palette = document.getElementById('nt-palette');
+        var pInput = document.getElementById('nt-palette-input');
+        var pResults = document.getElementById('nt-palette-results');
+        var pBackdrop = document.getElementById('nt-palette-backdrop');
+        function openPalette(){ if (!palette) return; palette.hidden = false; setTimeout(function(){ pInput.focus(); }, 10); renderResults(''); }
+        function closePalette(){ if (!palette) return; palette.hidden = true; pInput.value = ''; }
+        function renderResults(q){
+            if (!pResults) return;
+            var posts = window.NT_POSTS || [];
+            var ql = q.toLowerCase();
+            var filtered = !q ? posts : posts.filter(function(p){
+                return p.title.toLowerCase().indexOf(ql) >= 0
+                    || (p.tags || []).some(function(t){ return t.toLowerCase().indexOf(ql) >= 0; });
+            });
+            pResults.innerHTML = '';
+            if (filtered.length === 0) { pResults.innerHTML = '<li class="nt-palette-empty">// NO_RESULTS_FOUND</li>'; return; }
+            filtered.slice(0, 10).forEach(function(p, i){
+                var li = document.createElement('li');
+                li.className = 'nt-palette-item' + (i === 0 ? ' active' : '');
+                li.innerHTML = '<span class="nt-palette-date">[' + p.date + ']</span>'
+                             + '<span class="nt-palette-title">' + p.title + '</span>'
+                             + '<span class="nt-palette-arrow">↵</span>';
+                li.addEventListener('click', function(){ window.location.href = p.url; });
+                pResults.appendChild(li);
+            });
+        }
+        if (pInput) {
+            pInput.addEventListener('input', function(e){ renderResults(e.target.value); });
+            pInput.addEventListener('keydown', function(e){
+                var items = pResults.querySelectorAll('.nt-palette-item');
+                var activeIdx = Array.from(items).findIndex(function(el){ return el.classList.contains('active'); });
+                if (e.key === 'Enter' && items[activeIdx]) { items[activeIdx].click(); }
+                if (e.key === 'ArrowDown') { e.preventDefault(); if (items[activeIdx]) items[activeIdx].classList.remove('active'); var n = items[Math.min(activeIdx+1, items.length-1)]; if (n) n.classList.add('active'); }
+                if (e.key === 'ArrowUp') { e.preventDefault(); if (items[activeIdx]) items[activeIdx].classList.remove('active'); var p = items[Math.max(activeIdx-1, 0)]; if (p) p.classList.add('active'); }
+            });
+        }
+        if (pBackdrop) pBackdrop.addEventListener('click', closePalette);
+
+        // ---- KEYBOARD SHORTCUTS ----
+        var lastKey = '', lastKeyTime = 0;
+        document.addEventListener('keydown', function(e){
+            var tag = (e.target.tagName || '').toLowerCase();
+            if (tag === 'input' || tag === 'textarea') return;
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); openPalette(); return; }
+            if (e.key === '/' && (palette && palette.hidden)) { e.preventDefault(); openPalette(); return; }
+            if (e.key === 'Escape') closePalette();
+            if (e.key === 't' && !e.ctrlKey && !e.metaKey) toggleTheme();
+            var now = Date.now();
+            if (lastKey === 'g' && now - lastKeyTime < 800) {
+                if (e.key === 'h') window.location.href = '/';
+                if (e.key === 'p') window.location.href = '/posts/';
+                if (e.key === 'a') window.location.href = '/about/';
+            }
+            lastKey = e.key; lastKeyTime = now;
+        });
+
+        refreshStatus();
+    })();
+    </script>
+    {{ block "scripts" . }}{{ end }}
+</body>
+</html>
