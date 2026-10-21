@@ -24,7 +24,7 @@
 
     <header class="nt-post-header">
         <div class="nt-fileline">
-            <span>//FILE: /{{ if $isAbout }}etc/operator.md{{ else }}{{ with .File }}{{ .Path }}{{ else }}draft.md{{ end }}{{ end }}</span>
+            <span>//FILE: /var/{{ if $isAbout }}etc/whoami{{ else }}dossiers/{{ with .File }}{{ .ContentBaseName }}{{ else }}draft{{ end }}{{ end }}</span>
             <span>FILE_ID: NT-{{ .Date.Format "2006" }}-{{ printf "%04d" .Date.YearDay }}-A</span>
         </div>
 
