@@ -7,24 +7,26 @@
   HUGO_ENV = "production"
 
 # ==========================================
-# CABECERAS DE SEGURIDAD Y PRIVACIDAD
+# BLINDAJE DE SEGURIDAD (CSP CORREGIDA)
 # ==========================================
 [[headers]]
   for = "/*"
   [headers.values]
-    # Seguridad
+    # 1. HSTS: Fuerza siempre HTTPS
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    
+    # 2. Anti-Clickjacking y Sniffing
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
     
-    # Anti-Fingerprinting
+    # 3. Anti-Fingerprinting (Ocultar servidor)
     Server = ""
     X-Powered-By = ""
     
-    # CSP (Permite el modo seguro de YouTube)
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://i.ytimg.com; font-src 'self'; connect-src 'self'; frame-src 'self' https://www.youtube-nocookie.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none';"
+    # 4. LA CSP DEFINITIVA (Con 'unsafe-inline' para tus scripts y estilos)
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://i.ytimg.com; font-src 'self'; frame-src 'self' https://www.youtube-nocookie.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none';"
 
 # ==========================================
 # CACHÉ DE ARCHIVOS ESTÁTICOS
@@ -38,13 +40,3 @@
   for = "/img/*"
   [headers.values]
     Cache-Control = "public, max-age=2592000"
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Content-Security-Policy-Report-Only = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://i.ytimg.com; font-src 'self'; frame-src 'self' https://www.youtube-nocookie.com;"
