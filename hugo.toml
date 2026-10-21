@@ -32,6 +32,7 @@ theme = "newtype"
 
 # --- Parámetros del tema ---
 [params]
+email = "newtypelabs@tuta.io"
   operator_alias = "FL0RES.sys"
   tagline = "Un laboratorio para la producción de newtypes."
   description = "Escritos sobre tecnología, capital y poder."
@@ -49,23 +50,16 @@ theme = "newtype"
   show_retro_footer = true
   show_build_info = false
 
-[markup]
-  [markup.highlight]
-    style = "monokai"
-    lineNos = true
-    lineNumbersInTable = false
-    noClasses = false
 
-# Privacidad de YouTube por defecto
-
-
-
-# Privacidad de YouTube (Modo Seguro)
 [privacy]
   [privacy.youtube]
     disable = false
     privacyEnhanced = true
 
+
 [markup]
   [markup.highlight]
+    style = "monokai"
+    lineNos = true
+    lineNumbersInTable = false
     noClasses = false
