@@ -65,3 +65,7 @@ theme = "newtype"
   [privacy.youtube]
     disable = false
     privacyEnhanced = true
+
+[markup]
+  [markup.highlight]
+    noClasses = false
