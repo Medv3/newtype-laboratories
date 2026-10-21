@@ -57,11 +57,10 @@ theme = "newtype"
     noClasses = false
 
 # Privacidad de YouTube por defecto
-[privacy]
-  [privacy.youtube]
-    disable = false
-    privacyEnhanced = true
 
+
+
+# Privacidad de YouTube (Modo Seguro)
 [privacy]
   [privacy.youtube]
     disable = false
