@@ -83,7 +83,7 @@
                 <a href="https://github.com/">[ GITHUB ]</a>
                 <a href="mailto:">[ CONTACTO ]</a>
             </span>
-            <span class="nt-kipple">KIPPLE_LEVEL: ACCUMULATING</span>
+            <span class="nt-kipple">KIPPLE_LEVEL: <span id="nt-kipple-status">ACCUMULATING</span></span>
         </div>
         <div class="nt-footer-final">
             // END_OF_LOG · CLASSIFIED · DO NOT REPRODUCE
@@ -359,6 +359,33 @@
             }
             sessEl.textContent = sessTime;
         }
+
+        // nt-kipple-logic
+        window.addEventListener('scroll', function() {
+            var kip = document.getElementById('nt-kipple-status');
+            if (!kip) return;
+            var h = document.documentElement.scrollHeight - window.innerHeight;
+            var pct = h > 0 ? Math.round((window.scrollY / h) * 100) : 0;
+            
+            if (pct >= 99) {
+                kip.textContent = 'OVERFLOW';
+                kip.style.color = 'var(--red)';
+                kip.style.textShadow = '0 0 8px rgba(255, 42, 42, 0.5)';
+            } else if (pct >= 66) {
+                kip.textContent = 'CRITICAL';
+                kip.style.color = 'var(--red)';
+                kip.style.textShadow = 'none';
+            } else if (pct >= 33) {
+                kip.textContent = 'HIGH';
+                kip.style.color = 'var(--yellow)';
+                kip.style.textShadow = 'none';
+            } else {
+                kip.textContent = 'ACCUMULATING';
+                kip.style.color = 'var(--yellow)';
+                kip.style.textShadow = 'none';
+            }
+        }, { passive: true });
+        
     })();
     </script>
     {{ block "scripts" . }}{{ end }}

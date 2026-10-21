@@ -4063,3 +4063,8 @@ body {
 .nt-figure figcaption::before {
   content: "";
 }
+
+/* Transición suave para el Kipple */
+#nt-kipple-status {
+  transition: color 0.4s ease, text-shadow 0.4s ease;
+}
