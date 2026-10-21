@@ -8,7 +8,9 @@ tags:
   - neoliberalismo
   - neoreacción
 
-series: ["capitale-vult"]---
+series: ["capitale-vult"]
+---
+---
 
 # Introducción
 
@@ -16,7 +18,11 @@ El neoliberalismo ha muerto. Esta afirmación no resulta sorprendente en la actu
 
 Proliferan, entonces, los intentos por concebir esta nueva época, la nuestra. Se trata de un nuevo momento de las sociedades capitalistas en el que el desarrollo y uso de estructuras tecnológicas de control, ya sin ningún velo discursivo, amenaza nuestra supervivencia misma para asegurar la acumulación de capital por parte de fracciones hegemónicas de la burguesía, las más radicales en su afán de acumulación. ¿Cómo comprenderlo y cómo describirlo? ¿Cómo nombrarlo? Se ha hablado, así, de \emph{tecnofascismo}, \emph{tecnoliberalismo}, \emph{tecnocapitalismo}, \emph{capitalismo de vigilancia}, \emph{capitalismo de plataformas}... ¡hasta de \emph{tecnofeudalismo}!
 
-No hace mucho, sin embargo, el fin del neoliberalismo era una tesis audaz y polémica, vista con malos ojos por el establecimiento académico. Bien entrada la década de 2010, la intelectualidad pequeñoburguesa occidental ---que se autodenomina árbitro y culmen de la crítica radical del capitalismo--- seguía utilizando el término «neoliberalismo» como un concepto paraguas para agrupar e interpretar la práctica totalidad de los procesos que configuraban la sociedad capitalista, y lo convirtieron en la categoría definitiva para pensar el período histórico que vivimos.
+No hace mucho, sin embargo, el fin del neoliberalismo era una tesis audaz y polémica, vista con malos ojos por el establecimiento académico. Bien entrada la década de 2010, la intelectualidad pequeñoburguesa occidental 
+---
+que se autodenomina árbitro y culmen de la crítica radical del capitalismo
+---
+seguía utilizando el término «neoliberalismo» como un concepto paraguas para agrupar e interpretar la práctica totalidad de los procesos que configuraban la sociedad capitalista, y lo convirtieron en la categoría definitiva para pensar el período histórico que vivimos.
 
 En la producción teórica de estos intelectuales, el neoliberalismo llegó a ser entendido como la forma más acabada, casi absoluta, del capitalismo. Estábamos, según la academia occidental, ante la expresión más desarrollada de una maquinaria capitalista jamás vista, un aparato infinitamente flexible del que ya nada podía escapar, ni siquiera nuestra imaginación. Se llegó a pensarlo como un tejido capaz de integrar y modular cualquier fenómeno sin riesgo de ruptura. No había un afuera. Solo quedaba tensionar el sistema, buscar líneas de fuga mínimas, aceptando, con cinismo o resignación, que en última instancia no había alternativa.
 
@@ -28,9 +34,25 @@ La elección de Donald Trump como presidente de los Estados Unidos en noviembre 
 
 La democracia neoliberal, en una creciente crisis de legitimidad, expulsaba de su tejido a quienes había prometido integrar, sin que la intelectualidad crítica se atreviera a afirmarlo a tiempo. Mientras los autores más encumbrados de las aulas occidentales se preocupaban por cómo sus identidades se veían afectadas en el orden posmoderno que teorizaban, la población general quedaba huérfana ante el abandono y el incumplimiento de las promesas económicas y políticas del proyecto neoliberal. Por las revistas académicas fluían ríos de tinta discutiendo la gubernamentalidad neoliberal y las subjetividades hipersegmentadas, mientras las fracciones más radicales de la burguesía se lanzaban a capturar a las multitudes naufragantes.
 
-Ese movimiento burgués se materializó en colectivos políticos de articulación larga y difusa, que poco a poco vinieron a recoger con éxito los retazos políticos que la izquierda, presa de las políticas identitarias neoliberales y el discurso académico en boga, aún inmóvil contemplando el espejismo neoliberal, nunca pudo aglutinar. El ejemplo cimero de ese éxito fue, en Estados Unidos, Donald Trump, quien, aunque respaldado por el Partido Republicano, no encajaba en los esquemas tradicionales de la derecha estadounidense, encarnando ---aún hoy, en medio de su segunda presidencia--- un punto de inflexión en la política de las sociedades capitalistas.
+Ese movimiento burgués se materializó en colectivos políticos de articulación larga y difusa, que poco a poco vinieron a recoger con éxito los retazos políticos que la izquierda, presa de las políticas identitarias neoliberales y el discurso académico en boga, aún inmóvil contemplando el espejismo neoliberal, nunca pudo aglutinar. El ejemplo cimero de ese éxito fue, en Estados Unidos, Donald Trump, quien, aunque respaldado por el Partido Republicano, no encajaba en los esquemas tradicionales de la derecha estadounidense, encarnando 
+---
+aún hoy, en medio de su segunda presidencia
+---
+un punto de inflexión en la política de las sociedades capitalistas.
 
-Con la primera elección del actual presidente de los Estados Unidos, la deriva hacia la extrema derecha, manifiesta desde comienzos del milenio en Europa del Este ---Hungría, Polonia, Ucrania--- y en Asia ---Turquía, India---, irrumpió finalmente con fuerza en los centros neurálgicos del poder global. La victoria de Trump en la metrópoli del sistema mundial, sumada al ascenso acelerado de movimientos análogos en Europa Occidental ---UKIP y luego el Brexit Party/Reform UK en el Reino Unido, la Lega y Fratelli d'Italia en Italia, Rassemblement National en Francia y Alternative für Deutschland en Alemania---, fue el campanazo que obligó a buena parte de la intelectualidad crítica a despertar del letargo en que el paradigma neoliberal la había sumido y a reconocer que, efectivamente, la noche había caído sobre nosotros.
+Con la primera elección del actual presidente de los Estados Unidos, la deriva hacia la extrema derecha, manifiesta desde comienzos del milenio en Europa del Este 
+---
+Hungría, Polonia, Ucrania
+---
+y en Asia 
+---
+Turquía, India
+---
+, irrumpió finalmente con fuerza en los centros neurálgicos del poder global. La victoria de Trump en la metrópoli del sistema mundial, sumada al ascenso acelerado de movimientos análogos en Europa Occidental 
+---
+UKIP y luego el Brexit Party/Reform UK en el Reino Unido, la Lega y Fratelli d'Italia en Italia, Rassemblement National en Francia y Alternative für Deutschland en Alemania
+---
+, fue el campanazo que obligó a buena parte de la intelectualidad crítica a despertar del letargo en que el paradigma neoliberal la había sumido y a reconocer que, efectivamente, la noche había caído sobre nosotros.
 
 A diferencia de la intelectualidad crítica consagrada, que recién comenzaba a teorizar lo que la experiencia ya había confirmado, esas articulaciones reaccionarias, ajenas a los lineamientos del paradigma neoliberal y aceptando la etiqueta apenas cuando ya era una reliquia, comprendieron desde el principio que el orden neoliberal no era un tejido sin afuera, sino un orden sociopolítico producido y reproducido por sus actores, y se tomaron muy en serio esta comprensión para tomar posición y actuar. Por ello, tomaron siempre un rol activo, no solo en el uso de las instituciones neoliberales, sino también en su superación cuando se volvieron insuficientes o contrarias a sus propósitos. El orden que hoy se construye es producto de la posición activa de esas fracciones. La intelectualidad crítica metropolitana, en cambio, se perdía en debates autorreferenciales y complejizaba cada vez más problemas ajenos a las cuestiones primarias de la política.
 

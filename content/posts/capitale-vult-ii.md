@@ -10,7 +10,9 @@ tags:
   - neoreacción
 
 series: ["capitale-vult"]
-dropcap: true---
+dropcap: true
+---
+---
 
 ### Nueva reacción a la neorreacción
 
