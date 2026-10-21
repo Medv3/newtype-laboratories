@@ -3911,3 +3911,155 @@ body {
   color: var(--yellow) !important;
   text-shadow: 0 0 8px rgba(255, 176, 0, 0.3); /* Sutil glow de fósforo */
 }
+
+/* ===== TAGS GRID ===== */
+.nt-tags-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  padding: 32px 0;
+}
+
+.nt-tag-node {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  font-family: var(--mono);
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s, padding-left 0.2s;
+}
+
+.nt-tag-node:hover {
+  background: var(--bg2);
+  border-color: var(--yellow);
+  padding-left: 24px;
+}
+
+.nt-tag-hash {
+  color: var(--red);
+  font-weight: 700;
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.nt-tag-name {
+  color: var(--fg-strong);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  flex: 1;
+}
+
+.nt-tag-count {
+  color: var(--yellow);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+/* Asegurar que el árabe en el subtítulo se lea bien */
+.nt-post-subtitle {
+  font-family: var(--mono), 'Noto Sans Arabic', 'Tahoma', 'Arial', sans-serif !important;
+  line-height: 1.6 !important;
+}
+
+/* =====================================================================
+   HEADER FIX: Sin números, 2 columnas
+   ===================================================================== */
+
+.nt-list-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-end !important;
+  gap: 24px !important;
+  margin-bottom: 40px !important;
+}
+
+.nt-list-titlewrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.nt-list-stats {
+  text-align: right;
+  line-height: 1.9;
+}
+
+.nt-return {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+}
+
+.nt-return a {
+  color: var(--red);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.nt-return a:hover {
+  color: var(--yellow);
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .nt-list-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+  .nt-list-stats {
+    text-align: left;
+  }
+}
+
+/* Paginación */
+.nt-pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+}
+.nt-pagination a {
+  color: var(--red);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+}
+.nt-pagination a:hover { color: var(--yellow); }
+
+/* Shortcode de figura */
+.nt-figure {
+  margin: 2.5rem 0;
+}
+.nt-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+}
+.nt-figure figcaption {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dim);
+  padding-top: 8px;
+  text-align: right;
+  border-top: 1px solid var(--line);
+  margin-top: 6px;
+}
+.nt-figure figcaption::before {
+  content: "";
+}

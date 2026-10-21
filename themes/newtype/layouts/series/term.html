@@ -1,0 +1,22 @@
+{{ define "main" }}
+<section class="nt-list">
+    <header class="nt-list-header">
+        <div class="nt-list-titlewrap">
+            <div class="nt-post-subject">//ARCHIVE_SERIES:</div>
+            <h1 class="nt-section-title">{{ .Title }}</h1>
+        </div>
+        <div class="nt-list-stats">NODES: {{ len .Pages }}</div>
+    </header>
+    <hr class="nt-rule">
+    <ol class="nt-posts-list">
+        {{ range .Pages.ByDate }}
+        <li class="nt-post-item">
+            <a href="{{ .Permalink }}">
+                <span class="nt-post-index">[{{ .Date.Format "2006-01-02" }}]</span>
+                <span class="nt-post-name">{{ .Title }}</span>
+            </a>
+        </li>
+        {{ end }}
+    </ol>
+</section>
+{{ end }}

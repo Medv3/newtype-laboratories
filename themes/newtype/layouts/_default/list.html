@@ -1,18 +1,19 @@
 {{ define "main" }}
+{{ $paginator := .Paginate .Pages 10 }}
 <section class="nt-list">
     <header class="nt-list-header">
-        <span class="nt-section-num">{{ if .IsHome }}01{{ else if eq .Section "posts" }}02{{ else if eq .Section "tags" }}04{{ else }}03{{ end }}</span>
-        <h1 class="nt-section-title">{{ if .IsHome }}Archivo{{ else }}{{ .Title }}{{ end }}</h1>
+        <div class="nt-list-titlewrap">
+            <div class="nt-post-subject">//DIRECTORY:</div>
+            <h1 class="nt-section-title">{{ .Title }}</h1>
+        </div>
         <div class="nt-list-stats">
-            ARCHIVOS: {{ len .Pages }}<br>
-            DESCLASIFICADOS: {{ len .Pages }}
+            FILES_FOUND: {{ len .Pages }}<br>
+            PAGE: {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}
         </div>
     </header>
-
     <hr class="nt-rule">
-
     <ol class="nt-posts-list">
-        {{ range .Pages }}
+        {{ range $paginator.Pages }}
         <li class="nt-post-item">
             <a href="{{ .Permalink }}">
                 <span class="nt-post-index">[{{ .Date.Format "2006-01-02" }}]</span>
@@ -22,5 +23,11 @@
         </li>
         {{ end }}
     </ol>
+    {{ if gt $paginator.TotalPages 1 }}
+    <div class="nt-pagination">
+        {{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}">[ ← PREV_PAGE ]</a>{{ else }}<span></span>{{ end }}
+        {{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}">[ NEXT_PAGE → ]</a>{{ else }}<span></span>{{ end }}
+    </div>
+    {{ end }}
 </section>
 {{ end }}

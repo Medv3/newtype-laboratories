@@ -1,0 +1,6 @@
+<figure class="nt-figure">
+    <img src="{{ .Get "src" }}" alt="{{ .Get "caption" }}" loading="lazy">
+    {{ with .Get "caption" }}
+    <figcaption>// SOURCE: {{ . }}</figcaption>
+    {{ end }}
+</figure>

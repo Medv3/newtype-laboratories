@@ -1,0 +1,23 @@
+{{ define "main" }}
+<section class="nt-list">
+    <header class="nt-list-header">
+                <h1 class="nt-section-title">Index</h1>
+        <div class="nt-list-stats">
+            SISTEMA: CONTROL_ROOM<br>
+            NODOS: {{ len .Data.Terms }}
+        </div>
+    </header>
+
+    <hr class="nt-rule">
+
+    <div class="nt-tags-grid">
+        {{ range .Data.Terms.ByCount }}
+        <a href="{{ .Page.Permalink }}" class="nt-tag-node">
+            <span class="nt-tag-hash">#</span>
+            <span class="nt-tag-name">{{ .Page.Title }}</span>
+            <span class="nt-tag-count">[{{ .Count }} files]</span>
+        </a>
+        {{ end }}
+    </div>
+</section>
+{{ end }}

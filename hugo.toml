@@ -48,3 +48,10 @@ theme = "newtype"
   show_sharing = false
   show_retro_footer = true
   show_build_info = false
+
+[markup]
+  [markup.highlight]
+    style = "monokai"
+    lineNos = true
+    lineNumbersInTable = false
+    noClasses = false

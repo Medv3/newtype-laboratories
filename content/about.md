@@ -1,10 +1,10 @@
 +++
 date = '2025-07-08T01:45:57-05:00'
 draft = false
-title = 'Operator File'
+title = "Whoami"
+subtitle = "هاشم [Hákim], o المقنع [El velado]"
 +++
 
-## هاشم [Hákim], o المقنع [El velado]
 
 > 今者吾喪我，汝知之乎？ [*He perdido mi yo, ¿lo entiendes?*]
 > 
