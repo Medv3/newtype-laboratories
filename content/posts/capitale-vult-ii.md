@@ -1,6 +1,6 @@
 ---
 title: "Capitale Vult II"
-date: 2025-10-20T00:00:00-05:00
+date: 2026-10-20T00:00:00-05:00
 draft: false
 toc: false
 images:
