@@ -31,25 +31,6 @@ theme = "newtype"
   weight = 30
 
 # --- Parámetros del tema ---
-[params]
-email = "newtypelabs@tuta.io"
-  operator_alias = "FL0RES.sys"
-  tagline = "Un laboratorio para la producción de newtypes."
-  description = "Escritos sobre tecnología, capital y poder."
-  author = "Tu Nombre"
-
-  # Estética de computador clásico
-  show_browser_chrome = true
-  show_status_bar = true
-  show_sidebar = false
-  show_welcome_message = false
-  show_featured_sections = true
-  show_stats = false
-  show_retro_elements = true
-  show_sharing = false
-  show_retro_footer = true
-  show_build_info = false
-
 
 [privacy]
   [privacy.youtube]
@@ -63,3 +44,13 @@ email = "newtypelabs@tuta.io"
     lineNos = true
     lineNumbersInTable = false
     noClasses = false
+
+[params]
+  default_og_image = "/img/og-default.jpg"
+  default_og_image = "/img/og-default.jpg"
+  author = "FL0RES.sys"
+  operator_alias = "FL0RES.sys"
+  email = "newtypelabs@tuta.io"
+  github = "Medv3/newtype-laboratories"
+  tagline = "Un laboratorio para la producción de otros futuros posibles."
+  description = "Escritos sobre tecnología, capital y poder."
