@@ -22,14 +22,26 @@
     <div class="nt-boot" id="nt-boot" aria-hidden="true"><div class="nt-boot-content" id="nt-boot-content"></div></div>
 
     {{ $crumb := "CONTROL_ROOM" }}
-    {{ if and .IsPage (eq .Section "posts") }}
-      {{ $crumb = printf "CONTROL_ROOM/POSTS/%s.md" .File.BaseFileName }}
+    {{ if eq .RelPermalink "/about/" }}
+      {{ $crumb = "CONTROL_ROOM/ETC/whoami" }}
     {{ else if eq .Section "posts" }}
-      {{ $crumb = "CONTROL_ROOM/POSTS" }}
-    {{ else if eq .RelPermalink "/about/" }}
-      {{ $crumb = "CONTROL_ROOM/ETC/operator.md" }}
+      {{ if eq .Kind "page" }}
+        {{ $crumb = printf "CONTROL_ROOM/DOSSIERS/%s" .File.ContentBaseName }}
+      {{ else }}
+        {{ $crumb = "CONTROL_ROOM/DOSSIERS" }}
+      {{ end }}
     {{ else if eq .Section "tags" }}
-      {{ $crumb = "CONTROL_ROOM/VAR/TAGS" }}
+      {{ if eq .Kind "term" }}
+        {{ $crumb = printf "CONTROL_ROOM/VAR/TAGS/%s" (.Title | urlize) }}
+      {{ else }}
+        {{ $crumb = "CONTROL_ROOM/VAR/TAGS" }}
+      {{ end }}
+    {{ else if eq .Section "series" }}
+      {{ if eq .Kind "term" }}
+        {{ $crumb = printf "CONTROL_ROOM/VAR/SERIES/%s" (.Title | urlize) }}
+      {{ else }}
+        {{ $crumb = "CONTROL_ROOM/VAR/SERIES" }}
+      {{ end }}
     {{ end }}
 
     <header class="nt-topbar">
