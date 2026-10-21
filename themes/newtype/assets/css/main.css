@@ -4068,3 +4068,17 @@ body {
 #nt-kipple-status {
   transition: color 0.4s ease, text-shadow 0.4s ease;
 }
+
+/* ===== ESTILO DEL REPRODUCTOR YOUTUBE ===== */
+.nt-video-wrapper {
+  margin: 2.5rem 0;
+  border: 1px solid var(--line);
+  padding: 4px;
+  background: var(--bg2);
+}
+lite-youtube {
+  max-width: 100%;
+  border: 1px solid var(--line);
+  --lyt-play-btn-bg: var(--red);
+  --lyt-play-btn-hover-bg: var(--yellow);
+}

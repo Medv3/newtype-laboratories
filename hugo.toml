@@ -55,3 +55,9 @@ theme = "newtype"
     lineNos = true
     lineNumbersInTable = false
     noClasses = false
+
+# Privacidad de YouTube por defecto
+[privacy]
+  [privacy.youtube]
+    disable = false
+    privacyEnhanced = true

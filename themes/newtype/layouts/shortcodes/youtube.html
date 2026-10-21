@@ -1,0 +1,7 @@
+{{ $id := .Get 0 }}
+{{ $title := .Get 1 | default "YouTube Video" }}
+<link rel="stylesheet" href="/css/lite-yt-embed.css">
+<script src="/js/lite-yt-embed.js" defer></script>
+<div class="nt-video-wrapper">
+    <lite-youtube videoid="{{ $id }}" playlabel="Play: {{ $title }}"></lite-youtube>
+</div>
