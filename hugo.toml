@@ -47,7 +47,6 @@ theme = "newtype"
 
 [params]
   default_og_image = "/img/og-default.jpg"
-  default_og_image = "/img/og-default.jpg"
   author = "FL0RES.sys"
   operator_alias = "FL0RES.sys"
   email = "newtypelabs@tuta.io"
