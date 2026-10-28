@@ -4150,3 +4150,94 @@ lite-youtube {
   content: "" !important; /* Quita el >> en el título árabe */
   margin: 0 !important;
 }
+
+/* =====================================================================
+   v25: JOYAS ESTÉTICAS (Surveillance, Scanline, Terminal Links)
+   ===================================================================== */
+
+/* === 1. SURVEILLANCE IMAGE === */
+.nt-surveillance {
+  position: relative;
+  overflow: hidden;
+}
+
+.nt-surveillance img {
+  filter: grayscale(100%) contrast(1.1);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.nt-surveillance:hover img {
+  filter: grayscale(0%) contrast(1);
+  transform: scale(1.02); /* Sutil zoom al recuperar color */
+}
+
+/* El badge REC */
+.nt-cam-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(10, 10, 10, 0.8);
+  color: var(--red);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 4px 8px;
+  border: 1px solid var(--red);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.nt-surveillance:hover .nt-cam-badge {
+  opacity: 1;
+  animation: blink 1s steps(1) infinite;
+}
+
+/* === 2. SCANLINE EN EL TÍTULO === */
+.nt-post-titlewrap {
+  position: relative;
+  overflow: hidden; /* Para que la línea no se salga */
+  padding-bottom: 10px;
+}
+
+.nt-post-titlewrap::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 30%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+  opacity: 0.6;
+  animation: nt-scan-title 4s ease-in-out infinite;
+}
+
+@keyframes nt-scan-title {
+  0% { left: 0%; width: 10%; opacity: 0; }
+  20% { opacity: 0.8; }
+  80% { opacity: 0.8; }
+  100% { left: 90%; width: 10%; opacity: 0; }
+}
+
+/* === 3. TERMINAL LINKS === */
+.nt-content a {
+  transition: all 0.15s ease;
+}
+
+.nt-content a:hover {
+  background: var(--red);
+  color: var(--bg) !important;
+  text-decoration: none !important;
+  padding: 0 4px;
+  box-shadow: 2px 2px 0 var(--yellow); /* Sombra dura tipo terminal */
+}
+
+.nt-content a:hover::after {
+  content: " ↗";
+  font-size: 0.85em;
+  color: var(--yellow);
+  margin-left: 2px;
+}
