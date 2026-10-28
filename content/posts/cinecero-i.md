@@ -7,6 +7,8 @@ toc: false
 series: ["Cine Cero"]
 tags: ["ciencia-ficcion", "cine-cero", "cine"]
 ---
+![Philip K. Dick](/img/cincecero1.01.webp "*Philip K. Dick (1928-1982).*")
+
 En 1981, Philip K. Dick, uno de los grandes autores de la ciencia ficción, hizo su aporte más importante, o al menos el más explícito y concreto, al eterno debate acerca de la definición del campo con *My Definition of Science Fiction*, un escrito corto aparecido en el número inaugural de *Just: SF*, un fanzine editado por John Betancourt entre octubre de 1981 y junio de 1982. Este texto, breve pero muy rico, siempre me ha gustado, porque en él, a pesar de reconocer la complejidad del término, Dick lanza una idea clara de lo que considera que es el modo narrativo en el que trabajó durante décadas.
 
 Los críticos y académicos, desde Gernsback y Campbell hasta Suvin y Clute, acostumbran a resaltar hasta el cansancio lo difícil que es definir la ciencia ficción (en adelante, CF). Casi todos ellos, además, enumeran definiciones de otros casi nunca dispuestos a comprometerse con una definición cerrada. Llenan páginas y páginas de ejemplos más o menos parecidos, surgidos de distintos contextos, para concluir que la CF no se puede definir, o se limitan a asumir que el lector ya sabe qué es, evadiendo así el compromiso de una caracterización, según ellos, por prudencia intelectual: *The Encyclopedia of Science Fiction*, una fuente clásica de los estudios sobre la CF, concluye que «There is really no good reason to expect that a workable definition of sf will ever be established. None has been, so far» («no hay ninguna buena razón para esperar que alguna vez se establezca una definición viable de la CF; ninguna lo ha sido hasta ahora»; Stableford et al. 314; mi trad.).[^1]
