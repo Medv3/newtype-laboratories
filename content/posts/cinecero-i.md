@@ -31,8 +31,6 @@ En otras palabras, la CF posibilita la exploración de las consecuencias más ra
 
 ## La ciencia ficción como crítica
 
-![Frankenstein](/img/cinecero1.02.webp "Frankenstein ilustrado por Bernie Wrightson")
-
 Esta señalada apertura a la crítica que propicia la ciencia ficción ha sido aprovechada prácticamente desde los orígenes mismos del modo narrativo. Mary Shelley señaló con agudeza las contradicciones de la sociedad inglesa decimonónica en su *Frankenstein*, oponiendo la existencia monstruosa a la institucionalidad patriarcal, cientificista e imbuida de ideas liberales de progreso y modernidad, una institucionalidad que terminó por producir una creciente exclusión social, un afianzamiento del poder excluyente de la burguesía y un desarrollo acelerado de la tecnología tras la Revolución Industrial en función de la acumulación capitalista y la precarización de las fracciones oprimidas de la población.
 
 H. G. Wells, por la misma vía, se sirvió del viaje en el tiempo en *The Time Machine* y *When the Sleeper Wakes*, así como del desarrollo posible —y particularmente profético— de la tecnología militar en *The War in the Air*, de la figura del otro, extraño y enemigo, en *The War of the Worlds*, o del sujeto invisible —tal vez invisibilizado— en *The Invisible Man* para desarrollar fuertes críticas a la realidad del capitalismo victoriano, la desigualdad creciente, la concentración de capital en pocas manos y la intensificación del imperialismo, todos fenómenos que con el tiempo desembocarían en las grandes guerras de comienzos del siglo XX. Este espíritu crítico está también presente, si bien no siempre de manera tan explícita como en la obra de Wells o Shelley, en la obra de Jules Verne.
