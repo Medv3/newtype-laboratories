@@ -35,10 +35,16 @@ H. G. Wells, por la misma vía, se sirvió del viaje en el tiempo en *The Time M
 
 La era de los *pulp* en los Estados Unidos mantuvo la perspectiva crítica en la producción impresa: cuentos, novelas, cómics e incluso poemas comenzaron a adoptar el modo narrativo de la CF para discutir problemas políticos y filosóficos que la dirección del avance científico y tecnológico en el país que se comenzaba a convertir en el lugar clásico del modo de producción capitalista suscitaba. Este impulso crítico, con contadas excepciones, se intensificó durante la Edad Dorada y en las nuevas oleadas de la ciencia ficción. Desde la *New Wave* de la década de los sesenta hasta el más moderno y globalizado *cyberpunk*, estas oleadas no han hecho más que aprovechar de formas más atrevidas y explícitas el potencial crítico del modo narrativo para lanzar dardos poderosísimos, como en la obra de William Gibson o Neal Stephenson[^2], y para pensar futuros posibles, más allá de la distopía capitalista que vivimos fuera del texto, como en la obra de Ursula K. Le Guin.
 
+Pero con el tiempo no solo se amplió la crítica de CF, sino también los medios de expresión para crear y transmitir las obras. El modo narrativo ha influido en, y ha recibido la influencia de, importantes obras pictóricas —con hitos anteriores, pero de forma especialmente visible a partir de la década de los setenta, con el auge del arte conceptual para el cine y la ilustración de portadas—, así como del diseño y la arquitectura. Lo mismo ocurre con la música, donde podemos encontrar ejemplos desde la ópera hasta la música electrónica, con casos que se remontan a la década de los cincuenta.
+
+Sin embargo, el medio de expresión privilegiado que acogió el modo narrativo de la ciencia ficción casi a la par de la literatura, y probablemente con la misma fertilidad e impacto, fue el más masificado y posiblemente el más potente, y el único, junto con la arquitectura, capaz de producir obras lo bastante complejas como para acercarse a la *Gesamtkunstwerk* teorizada por Wagner. El medio de expresión artística acoge dentro de sí, como elementos o capas, las otras seis artes que Ricciotto Canudo integró en su manifiesto —arquitectura, escultura, pintura, música, danza y poesía— y las sintetiza en eso que él llamó el «arte de síntesis total»: el séptimo arte, el cine.
+
+## La ciencia ficción en el cine
+
 ## Notas
 
 [^1]: Todas las traducciones de citas en este texto son mías, salvo que se indique lo contrario.
-[^2]: Términos como ciberespacio, metaverso y varios otros, utilizados hoy como marketing para las corporaciones ciberfascistas que gobiernan el planeta, tienen su origen en las distopías *cyberpunk* de estos autores.
+[^2]: Términos como *ciberespacio*, *metaverso* y varios otros, utilizados hoy como marketing para las corporaciones ciberfascistas que gobiernan el planeta, tienen su origen en las distopías *cyberpunk* de estos autores.
 
 ## Obras citadas
 
