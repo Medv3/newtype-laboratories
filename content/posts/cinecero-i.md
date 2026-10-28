@@ -43,13 +43,6 @@ Pero con el tiempo no solo se amplió la crítica de la CF, sino también los me
 
 Sin embargo, el medio de expresión privilegiado que acogió el modo narrativo de la ciencia ficción casi a la par de la literatura, y probablemente con la misma fertilidad e impacto, fue el más masificado y posiblemente el más potente, y el único, junto con la arquitectura, capaz de producir obras lo bastante complejas como para acercarse a la *Gesamtkunstwerk* teorizada por Wagner. El medio de expresión artística acoge dentro de sí, como elementos o capas, las otras seis artes que Ricciotto Canudo integró en su manifiesto —arquitectura, escultura, pintura, música, danza y poesía— y las sintetiza en eso que él llamó el «arte de síntesis total»: el séptimo arte, el cine.
 
----
-
-continúa en la próxima entrada
-
-En la próxima entrada, rastrearé brevemente la historia del cine de ciencia ficción, prestando especial atención al que se produjo en los Estados Unidos entre la década de los 70 y la década de los 90. Esto servirá de contexto y punto de partida para comprender más a detalle las aracterísticas específicas de este cine, que nos dió películas icónicas como *Blade Runner*, *Robocop*, *Total Recall* y *The Truman Show*, u cine con un carácter específico que reveleraá la forma de aproximarse de los gringos a su propia realidad, sus preocupaciones, sus miedos y el inexorable afgarre de las ideas liberales y la propaganda que jamás les banadona, aún en sus críticas más feroces.
----
-
 ## Obras citadas
 
 Dick, Philip K. «My Definition of Science Fiction». *Just: SF*, vol. 1, n.º 1, 1981. Reimpreso en *The Shifting Realities of Philip K. Dick: Selected Literary and Philosophical Writings*, editado por Lawrence Sutin, Vintage Books, 1995, pp. 99-100.
