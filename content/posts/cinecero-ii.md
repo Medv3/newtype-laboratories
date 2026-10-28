@@ -1,5 +1,5 @@
 ---
-title: "Cine Cero 2: La ciencia ficción en el cine"
+title: "Cine Cero 2: El cine de ciencia ficción (1)"
 date: 2026-10-28T00:00:00-05:00
 draft: false
 dropcap: true
@@ -7,7 +7,7 @@ toc: false
 series: ["Cine Cero"]
 tags: ["ciencia-ficcion", "cine", "cyberpunk", "crítica"]
 ---
-## El cine de ciencia ficción: notas para una historia
+## La ciencia ficción en el cine: notas para una historia
 
 ### 1890s-1930
 
