@@ -4,8 +4,8 @@ date: 2026-10-27T17:08:17-05:00
 draft: false
 dropcap: true
 toc: false
-series: [cine-cero]
-tags: []
+series: ["Cine Cero"]
+tags: ["ciencia-ficcion", "cine-cero", "cine"]
 ---
 En 1981, Philip K. Dick, uno de los grandes autores de la ciencia ficción, hizo su aporte más importante, o al menos el más explícito y concreto, al eterno debate acerca de la definición del campo con *My Definition of Science Fiction*, un escrito corto aparecido en el número inaugural de *Just: SF*, un fanzine editado por John Betancourt entre octubre de 1981 y junio de 1982. Este texto, breve pero muy rico, siempre me ha gustado, porque en él, a pesar de reconocer la complejidad del término, Dick lanza una idea clara de lo que considera que es el modo narrativo en el que trabajó durante décadas.
 
