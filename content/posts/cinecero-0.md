@@ -7,7 +7,7 @@ toc: false
 series: ["Cine Cero"]
 tags: ["ciencia-ficcion", "cine-cero", "ciberfascismo", "japón", "corea"]
 ---
-![Akira](/img/cinecero0.01.jpg "Akira (1988) de Katsuhiro Otomo")
+![Akira](/img/cinecero0.01.png "Neo-Tokio en Aira (1988) de Katsuhiro Otomo")
 
 A mediados de 2025, mientras veía *Akira*, de Katsuhiro Otomo (1988), tuve una conversación con una persona cercana acerca del escalofrío que produce hoy en día ver cine de ciencia ficción de Asia del Este del siglo pasado, pues parece que nuestro presente se viera ahí reflejado con una clarividencia y una precisión espeluznantes. No se trató de una sensación aislada, sino de una que permea la cultura, desde memes hasta discursos artísticos y políticos contemporáneos: vivimos una distopía *cyberpunk* como las que mostraban el anime y el cine asiático hace 40 años.
 
@@ -17,7 +17,7 @@ Esa idea y la excusa de revisitar *Save the Green Planet*, de Jang Joon-hwan (20
 
 Esta exploración me permitió elaborar con más detalle la hipótesis que pretendo exponer y defender en este texto. Sostengo, pues, que el cine de ciencia ficción, en especial el *cyberpunk*, de Asia del Este (particularmente Japón entre los setenta y los 2000, y Corea del Sur entre los 90 y la actualidad), se nos hace tan profético porque se trata de cine producido en periferias hiperdesarrolladas que encontraron en él una forma privilegiada de expresión y crítica de las contradicciones del modo de producción capitalista y de las formaciones sociales que se articulaban a su alrededor en sus contextos.
 
-![Tokio](/img/cinecero0.02.jpg "Tokio en 1980")
+![Tokio](/img/cinecero0.02.jpg "Tokio en el ocaso del milagro económico. Fotografía de Greg Girard, *JAL 76-88*, Kominek, 2022.")
 
 Durante la época de integración de posguerra y de los llamados milagros económicos, estas sociedades fueron utilizadas por los países centrales, en particular por Estados Unidos, como laboratorios para probar tecnologías que, a los ojos del resto del mundo, parecían futuristas y, en buena medida, distópicas. La posguerra no trajo para ellas una integración genuina al mercado global en condiciones de igualdad con los países centrales occidentales, como sus cifras económicas y sus avances tecnológicos podrían hacer creer, sino que se mantuvieron siendo periferias bajo un control férreo de Estados Unidos, sin posibilidad de desarrollar sus propias defensas, con integración obligatoria y alianzas con los estadounidenses, y una dependencia estructural que persiste hasta hoy.
 
@@ -33,9 +33,9 @@ La tradición estadounidense es producto de una realidad social que experimenta 
 
 Las tradiciones japonesa y surcoreana, por su parte, si bien están colmadas de particularidades que las diferencian, tienen suficientes elementos comunes como para considerarlas como expresiones de la opresión mediada por el hiperdesarrollo en torno a tres pilares que estructuran la experiencia de ambas sociedades y que los cineastas de ambas han criticado ferozmente: i) la concentración del poder económico, político y militar en manos de corporaciones que lo ejercen de manera directa; ii) la producción y reproducción de subjetividades alineadas mediante la producción, distribución y aprovechamiento de infraestructuras ubicuas de vigilancia, control y castigo; y iii) la aceleración e intensificación de la explotación capitalista, estableciendo dinámicas de hiperexplotación absoluta de los entes que habitan el mundo, y en particular del ser humano.
 
-![Seul](/img/cinecero0.03.png "Panorámica de Seúl")
+![Seul](/img/cinecero0.03.png "Seúl en 2002 (izq.) y Tokio en 1985 (der.)")
 
-Este cine es expresión de esa experiencia oprimida controlada desde la lejanía, los cielos de los *chaebols* y *keiretsu* y la distancia del centro global, el norte, los estadounidenses y, en cierta medida, los europeos occidentales. Se trata de un cine periférico, pero que se produce en medio de hiperdesarrollo una vez termina el milagro: en Japón con la crisis del 73 y en Corea del Sur con la crisis del 97, fechas que coinciden, con algunos años de desfase, con el surgimiento del *cyberpunk* que describo en ambos países. Con esta descripción, intento caracterizar este cine como uno que no cabe en la útil pero incompleta caracterización famosa que hicieron Getino y Solanas en los setenta, dividiendo el cine en primer, segundo y tercer cine (Getino y Solanas 55-91).
+Este cine es expresión de esa experiencia compartida de la opresión controlada desde la lejanía, los cielos de los *chaebols* y *keiretsu* y la distancia del centro global, el norte, los estadounidenses y, en cierta medida, los europeos occidentales. Se trata de un cine periférico, pero que se produce en medio de hiperdesarrollo una vez termina el milagro: en Japón con la crisis del 73 y en Corea del Sur con la crisis del 97, fechas que coinciden, con algunos años de desfase, con el surgimiento del *cyberpunk* que describo en ambos países. Con esta descripción, intento caracterizar este cine como uno que no cabe en la útil pero incompleta caracterización famosa que hicieron Getino y Solanas en los setenta, dividiendo el cine en primer, segundo y tercer cine (Getino y Solanas 55-91).
 
 El cine *cyberpunk* de Japón y Corea en el ocaso de los milagros económicos se produce de la misma manera y se distribuye por lo general como el primer y segundo cine, pero, igual que el tercer cine, es uno cuyo contenido denuncia y critica fuertemente la opresión imperialista. Si bien está atrapado en lo que solo para los burgueses era una utopía posmoderna, mantiene su carácter revolucionario denunciando cosas que para la población de ambos países eran el presente pero que para el resto del mundo eran apenas un futuro posible, usualmente descartado gracias al poder de la propaganda liberal estadounidense y occidental en general.
 
@@ -46,6 +46,8 @@ No se trata de dos niveles «detrás» del primer cine, sino de una contraposici
 ## Obras citadas
 
 Getino, Octavio, y Fernando Solanas. «Hacia un tercer cine». *Cine, cultura y descolonización*, Siglo XXI, 1979, pp. 55-91.
+
+Girard, Greg. *JAL 76-88*. Kominek, 2022.
 
 Zuboff, Shoshana. *The Age of Surveillance Capitalism: The Fight for a Human Future at the New Frontier of Power*. PublicAffairs, 2019.
 
