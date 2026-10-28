@@ -29,10 +29,30 @@
                     <span class="nt-typewriter-static">&gt; SCANNING FILESYSTEM<span class="nt-cursor"></span></span>
                 </div>
             </div>
+
+            <div class="nt-home-panel nt-hero-series-panel" style="margin-top: 24px;">
+                <div class="nt-home-panel-header">
+                    <span>//ACTIVE_ARCHIVES</span>
+                    <span class="nt-green">● SYNCED</span>
+                </div>
+                <div class="nt-home-panel-body">
+                    {{ range .Site.Taxonomies.series.Alphabetical }}
+                    <a href="{{ .Page.RelPermalink }}" class="nt-hero-series-item">
+                        <span class="nt-series-arrow">>></span>
+                        <span class="nt-series-title">{{ .Page.LinkTitle }}</span>
+                        <span class="nt-series-count">[{{ .Count }}]</span>
+                    </a>
+                    {{ end }}
+                </div>
+            </div>
         </aside>
     </section>
 
+    
+    
+
     <div class="nt-home-grid">
+
         <section class="nt-home-posts">
             <div class="nt-section-label">//RECENT_INTAKE</div>
             <ol class="nt-posts-list">
@@ -56,17 +76,12 @@
                     <li><a href="/posts/">/posts/ <span class="nt-dim">— {{ len (where .Site.RegularPages "Section" "posts") }} files</span></a></li>
                     <li><a href="/about/">/etc/operator <span class="nt-dim">— 1 file</span></a></li>
                     <li><a href="/tags/">/var/tags <span class="nt-dim">— {{ len .Site.Taxonomies.tags }} tags</span></a></li>
+                    <li><a href="/series/">/var/series <span class="nt-dim">— {{ len .Site.Taxonomies.series }} series</span></a></li>
                     <li><a href="/index.xml">/feed.xml <span class="nt-dim">— RSS</span></a></li>
                 </ul>
             </div>
 
-            <div class="nt-sideblock">
-                <div class="nt-section-label">//SYSTEM_STATUS</div>
-                <div class="nt-sysrow"><span>RECORDS</span><span class="nt-yellow">{{ len (where .Site.RegularPages "Section" "posts") }}</span></div>
-                <div class="nt-sysrow"><span>LAST_INTAKE</span><span class="nt-yellow">{{ with (index (first 1 (where .Site.RegularPages "Section" "posts").ByDate.Reverse) 0) }}{{ .Date.Format "2006-01-02" }}{{ else }}—{{ end }}</span></div>
-                <div class="nt-sysrow"><span>TRANSFORMATION</span><span class="nt-yellow"><span data-nt-read>0</span> / <span data-nt-total>0</span></span></div>
-                <div class="nt-sysrow"><span>STATUS</span><span class="nt-green" data-nt-status>INITIATE</span></div>
-            </div>
+            
         </aside>
     </div>
 </div>

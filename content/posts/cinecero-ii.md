@@ -25,15 +25,13 @@ Sin embargo, el cine de ciencia ficción tomó una forma y un carácter más sig
 
 En 1925, el director Harry O. Hoyt y la guionista Marion Fairfax habían adaptado *The Lost World* de Arthur Conan Doyle, y en 1929, dos años después del estreno de *Metropolis*, Fritz Lang continuó desarrollando su obra en el modo narrativo con *Frau im Mond*.
 
-## 1930s-1960s
+### 1930s-1960s
 
 Pronto...
 
 ## Obras citadas
 
 *Aelita*. Dirigida por Yákov Protazánov, Mosfilm, 1924. Restauración digital, Lobster Films, 2018.
-
-*The Lost World*. Dirigida por Harry O. Hoyt, First National Pictures, 1925. Restauración de Lobster Films y Blackhawk Films, 2017.
 
 *Metropolis*. Dirigida por Fritz Lang, UFA, 1927. Restauración de Friedrich-Wilhelm-Murnau-Stiftung, 2010.
 

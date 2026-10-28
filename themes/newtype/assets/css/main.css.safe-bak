@@ -1,0 +1,4751 @@
+/* ===== NEWTYPE LABORATORIES — ARCHIVO NEGRO AESTHETIC ===== */
+
+@font-face { font-family:'JetBrains Mono'; src:url('/fonts/JetBrainsMono-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'JetBrains Mono'; src:url('/fonts/JetBrainsMono-Bold.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'JetBrains Mono'; src:url('/fonts/JetBrainsMono-Italic.woff2') format('woff2'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'JetBrains Mono'; src:url('/fonts/JetBrainsMono-BoldItalic.woff2') format('woff2'); font-weight:700; font-style:italic; font-display:swap; }
+@font-face { font-family:'Literata'; src:url('/fonts/literata-v40-latin_latin-ext-regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Literata'; src:url('/fonts/literata-v40-latin_latin-ext-italic.woff2') format('woff2'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'Literata'; src:url('/fonts/literata-v40-latin_latin-ext-700.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Literata'; src:url('/fonts/literata-v40-latin_latin-ext-700italic.woff2') format('woff2'); font-weight:700; font-style:italic; font-display:swap; }
+
+:root {
+  --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --serif: 'Literata', Georgia, 'Times New Roman', serif;
+  --pad: clamp(16px, 2.6vw, 40px);
+  --bar: 46px;
+}
+
+[data-theme="dark"] {
+  --bg: #0a0a0a;
+  --bg2: #141414;
+  --fg: #e8e8e8;
+  --fg-strong: #ffffff;
+  --dim: rgba(232,232,232,0.62);
+  --faint: rgba(232,232,232,0.38);
+  --line: rgba(232,232,232,0.14);
+  --red: #ff3b3b;
+  --yellow: #FFB000;
+  --green: #00FF41;
+}
+
+[data-theme="light"] {
+  --bg: #f5f5f5;
+  --bg2: #e8e8e8;
+  --fg: #1a1a1a;
+  --fg-strong: #000000;
+  --dim: rgba(26,26,26,0.62);
+  --faint: rgba(26,26,26,0.38);
+  --line: rgba(26,26,26,0.14);
+  --red: #d32f2f;
+  --yellow: #B8860B;
+  --green: #007A2A;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--bar) + 8px); }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--fg); color: var(--bg); }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; color: inherit; }
+
+.nt-dim { opacity: 0.62; }
+.nt-faint { opacity: 0.38; }
+.nt-blink { animation: nt-blink 1s steps(1) infinite; }
+@keyframes nt-blink { 50% { opacity: 0; } }
+.nt-cursor::after {
+  content: "█";
+  margin-left: 2px;
+  animation: nt-blink 1s steps(1) infinite;
+}
+
+/* === TOPBAR === */
+.nt-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  height: var(--bar);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 var(--pad);
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+
+.nt-mark {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.nt-brand {
+  font-family: var(--mono);
+  font-weight: 800;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--fg-strong);
+}
+
+.nt-nav {
+  display: flex;
+  gap: 4px;
+  margin: 0 auto;
+}
+
+.nt-nav a {
+  padding: 12px 10px;
+  opacity: 0.62;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: opacity 0.12s;
+}
+
+.nt-nav a:hover,
+.nt-nav a.on { opacity: 1; }
+
+.nt-nav a.on::before { content: "▸ "; }
+
+.nt-status {
+  display: flex;
+  gap: 18px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  opacity: 0.7;
+}
+
+.nt-theme-btn {
+  background: transparent;
+  border: 1px solid var(--line);
+  padding: 6px 10px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+
+.nt-theme-btn:hover {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+/* === MAIN === */
+.nt-main {
+  padding: 0 var(--pad);
+  min-height: calc(100vh - var(--bar) * 2);
+}
+
+/* === POST === */
+.nt-post { padding: 64px 0 96px; }
+
+.nt-post-header { margin-bottom: 48px; }
+
+.nt-post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.62;
+  margin-bottom: 32px;
+}
+
+.nt-post-meta b {
+  color: var(--fg-strong);
+  opacity: 1;
+  font-weight: 700;
+}
+
+.nt-post-title {
+  font-family: var(--mono);
+  font-size: clamp(40px, 7vw, 96px);
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--fg-strong);
+  margin: 0 0 32px;
+  max-width: 20ch;
+  text-wrap: balance;
+}
+
+.nt-post-readout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.62;
+}
+
+.nt-post-readout span:first-child {
+  color: var(--yellow);
+  opacity: 1;
+  font-weight: 700;
+}
+
+.nt-rule {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 0;
+}
+
+/* === CONTENT === */
+.nt-content {
+  max-width: 68ch;
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.75;
+  letter-spacing: 0.005em;
+  padding: 48px 0;
+}
+
+.nt-content > p:first-of-type::first-letter {
+  font-family: var(--mono);
+  font-size: 5em;
+  line-height: 0.82;
+  float: left;
+  margin: 0.05em 0.12em 0 0;
+  color: var(--red);
+  font-weight: 800;
+}
+
+.nt-content p { margin: 0 0 1.4em; }
+
+.nt-content h2 {
+  font-family: var(--mono);
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin: 3rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--fg-strong);
+}
+
+.nt-content h3 {
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 2.4rem 0 0.8rem;
+  color: var(--yellow);
+}
+
+.nt-content a {
+  color: var(--red);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.nt-content a:hover { color: var(--yellow); }
+
+
+
+.nt-content ul,
+.nt-content ol {
+  margin: 0 0 1.4em;
+  padding-left: 1.5em;
+}
+
+.nt-content li { margin-bottom: 0.4em; }
+
+.nt-content code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: var(--bg2);
+  padding: 0.15em 0.4em;
+  border: 1px solid var(--line);
+}
+
+.nt-content pre {
+  font-family: var(--mono);
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  font-size: 0.88em;
+  line-height: 1.6;
+}
+
+.nt-content pre code {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+
+
+.nt-content iframe {
+  border: 1px solid var(--line);
+  margin: 2rem 0;
+  max-width: 100%;
+}
+
+/* === TOC === */
+.nt-toc {
+  border: 1px solid var(--line);
+  padding: 16px 20px;
+  margin: 0 0 48px;
+  font-size: 12px;
+  max-width: 68ch;
+}
+
+.nt-toc-title {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.62;
+  margin-bottom: 12px;
+}
+
+.nt-toc ul { list-style: none; padding: 0; margin: 0; }
+.nt-toc li { padding: 4px 0; }
+.nt-toc a { opacity: 0.85; }
+.nt-toc a:hover { opacity: 1; }
+
+/* === POST FOOTER === */
+.nt-post-footer { padding-top: 32px; }
+
+.nt-post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 68ch;
+}
+
+.nt-post-prev,
+.nt-post-next {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  transition: background 0.12s;
+}
+
+.nt-post-prev:hover,
+.nt-post-next:hover { background: var(--bg2); }
+
+.nt-post-next { text-align: right; }
+
+.nt-label {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.62;
+}
+
+.nt-post-nav-title {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+/* === LIST === */
+.nt-list { padding: 64px 0 96px; }
+
+.nt-list-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 24px;
+  align-items: end;
+  margin-bottom: 40px;
+}
+
+.nt-section-num {
+  font-family: var(--mono);
+  font-weight: 800;
+  font-size: clamp(80px, 11vw, 170px);
+  line-height: 0.86;
+  letter-spacing: -0.04em;
+  color: var(--fg-strong);
+}
+
+.nt-section-title {
+  font-family: var(--mono);
+  font-weight: 800;
+  font-size: clamp(40px, 5.4vw, 84px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--fg-strong);
+  margin: 0;
+}
+
+.nt-list-stats {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.62;
+  text-align: right;
+  line-height: 1.9;
+}
+
+.nt-posts-list { list-style: none; padding: 0; margin: 0; }
+
+.nt-post-item { border-bottom: 1px solid var(--line); }
+
+.nt-post-item a {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 24px;
+  align-items: baseline;
+  padding: 24px 0;
+  transition: padding-left 0.2s, background 0.2s;
+}
+
+.nt-post-item a:hover {
+  padding-left: 16px;
+  background: var(--bg2);
+}
+
+.nt-post-index {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--yellow);
+  font-weight: 700;
+}
+
+.nt-post-name {
+  font-family: var(--mono);
+  font-size: clamp(20px, 2.4vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  color: var(--fg-strong);
+}
+
+.nt-post-readtime {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.62;
+}
+
+/* === FOOTER === */
+.nt-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 24px var(--pad);
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.nt-footer-center { display: flex; gap: 20px; }
+.nt-footer-center a:hover { opacity: 1; text-decoration: underline; }
+
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+  .nt-nav { display: none; }
+  .nt-hide-s { display: none; }
+}
+
+@media (max-width: 720px) {
+  .nt-list-header { grid-template-columns: 1fr; }
+  .nt-list-stats { text-align: left; }
+  .nt-post-item a { grid-template-columns: 1fr; gap: 6px; }
+  .nt-post-nav { grid-template-columns: 1fr; }
+  .nt-post-next { text-align: left; }
+  .nt-post-title { font-size: clamp(32px, 10vw, 56px); }
+}
+
+/* ===== CAPA DE VIGILANCIA ADMINISTRATIVA ===== */
+
+/* Scanlines muy sutiles sobre TODO el chrome (no el cuerpo) */
+.nt-topbar,
+.nt-alert,
+.nt-footer,
+.nt-post-header,
+.nt-list-header {
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,0.012) 0px,
+    rgba(255,255,255,0.012) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+/* === HAZARD STRIPES (tira de peligro) === */
+/* === ALERT BANNER === */
+.nt-alert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 8px var(--pad);
+  background: var(--bg);
+  border-bottom: 1px solid var(--red);
+  color: var(--red);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.nt-alert-mark {
+  color: var(--red);
+  animation: nt-pulse-alert 1.6s ease-in-out infinite;
+}
+
+.nt-alert-body {
+  text-align: center;
+  flex: 1;
+  max-width: 900px;
+}
+
+@keyframes nt-pulse-alert {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+/* === TOPBAR STATUS === */
+
+
+
+
+.nt-clearance {
+  padding: 2px 8px;
+  border: 1px solid var(--yellow);
+  color: var(--yellow);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+}
+
+/* === POST HEADER === */
+.nt-post-header {
+  position: relative;
+  border-left: 3px solid var(--red);
+  padding: 32px 0 32px 28px;
+  margin-bottom: 0;
+}
+
+.nt-fileline {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.62;
+  margin-bottom: 24px;
+}
+
+.nt-fileline span:last-child {
+  color: var(--yellow);
+  opacity: 1;
+  font-weight: 700;
+}
+
+/* === DOSSIER BOX === */
+.nt-dossier {
+  border: 1px solid var(--line);
+  padding: 12px 16px;
+  margin-bottom: 40px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 32px;
+  max-width: 640px;
+}
+
+.nt-dossier-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 3px 0;
+  border-bottom: 1px dotted var(--line);
+}
+
+.nt-dossier-row > span:first-child {
+  opacity: 0.5;
+}
+
+.nt-dossier-row > span:last-child {
+  color: var(--fg-strong);
+  font-weight: 700;
+}
+
+.nt-dossier-ok {
+  color: var(--yellow) !important;
+}
+
+/* === TÍTULO + SELLO === */
+.nt-post-titlewrap {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.nt-post-subject {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.nt-stamp {
+  position: absolute;
+  top: -12px;
+  right: 8px;
+  border: 2px solid var(--red);
+  color: var(--red);
+  padding: 6px 14px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  transform: rotate(-8deg);
+  opacity: 0.85;
+  pointer-events: none;
+  user-select: none;
+  background: var(--bg);
+}
+
+/* === READOUT === */
+.nt-readout-warn {
+  color: var(--yellow);
+  opacity: 1 !important;
+  font-weight: 700;
+}
+
+/* === HAZARD RULE (divisor) === */
+/* === CROSSHAIR CORNERS === */
+.nt-post {
+  position: relative;
+  padding: 48px 0 96px;
+}
+
+.nt-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--red);
+  opacity: 0.6;
+}
+
+.nt-corner-tl { top: 24px; left: 0; border-right: none; border-bottom: none; }
+.nt-corner-tr { top: 24px; right: 0; border-left: none; border-bottom: none; }
+.nt-corner-bl { bottom: 24px; left: 0; border-right: none; border-top: none; }
+.nt-corner-br { bottom: 24px; right: 0; border-left: none; border-top: none; }
+
+/* === PAGINACIÓN === */
+.nt-post-pagination {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  border-top: 1px solid var(--line);
+}
+
+/* === FOOTER FINAL === */
+.nt-footer {
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0 var(--pad) 16px;
+}
+
+.nt-footer-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.nt-footer-final {
+  text-align: center;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+/* === UTILIDADES PARA USAR EN ENSAYOS === */
+
+/* Redacción de texto */
+.nt-redacted {
+  background: var(--fg-strong);
+  color: transparent;
+  padding: 0 4px;
+  user-select: none;
+  font-family: var(--mono);
+}
+
+/* Bloque de advertencia (usa <div class="nt-warning">...</div> en markdown) */
+.nt-warning {
+  display: block;
+  padding: 12px 16px;
+  border-left: 3px solid var(--red);
+  background: rgba(255, 59, 59, 0.06);
+  font-family: var(--mono);
+  font-size: 0.82em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 1.8rem 0;
+}
+
+.nt-warning::before {
+  content: "⚠ ";
+  color: var(--red);
+  font-weight: 800;
+}
+
+/* H2 con prefijo de sección automático */
+/* El § se controla desde el markdown; sin prefijo automático */
+
+/* Marker de tag inline */
+.nt-tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.72em;
+  padding: 2px 8px;
+  border: 1px solid var(--line);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 4px 4px 0;
+  color: var(--yellow);
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .nt-dossier { grid-template-columns: 1fr; }
+  .nt-stamp { top: -8px; right: 0; font-size: 10px; padding: 4px 10px; letter-spacing: 0.2em; }
+  .nt-post-header { padding-left: 20px; }
+  .nt-fileline { font-size: 9px; }
+  .nt-alert-body { font-size: 9px; letter-spacing: 0.1em; }
+}
+
+
+/* ===== POLISH FINAL ===== */
+
+/* Refinar contraste del banner de alerta */
+.nt-alert {
+  background: var(--bg) !important;
+  color: var(--red) !important;
+  border-top: 1px solid var(--red) !important;
+  border-bottom: 1px solid var(--red) !important;
+  letter-spacing: 0.16em !important;
+}
+
+/* Clearance badge más elegante */
+.nt-clearance {
+  border-color: var(--yellow) !important;
+  color: var(--yellow) !important;
+  padding: 2px 8px !important;
+}
+
+/* REC más sutil, no tan agresivo */
+
+
+/* Post header: el spine rojo más refinado */
+.nt-post-header {
+  border-left: 2px solid var(--red) !important;
+  padding-left: 24px !important;
+}
+
+/* Dossier más legible */
+.nt-dossier {
+  border-left: 1px solid var(--yellow) !important;
+  padding: 14px 18px !important;
+}
+
+.nt-dossier-row {
+  padding: 4px 0 !important;
+  font-size: 10px !important;
+}
+
+/* Título del post: spacing más editorial */
+.nt-post-title {
+  margin: 8px 0 24px !important;
+  text-wrap: balance !important;
+}
+
+/* Sello MONITORED más refinado */
+.nt-stamp {
+  border-width: 1.5px !important;
+  letter-spacing: 0.24em !important;
+  opacity: 0.7 !important;
+}
+
+/* TOC más limpio */
+.nt-toc {
+  border-left: 2px solid var(--yellow) !important;
+  border-top: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+  padding: 8px 0 8px 20px !important;
+  background: transparent !important;
+}
+
+.nt-toc-title {
+  color: var(--yellow) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2em !important;
+  margin-bottom: 12px !important;
+}
+
+.nt-toc ul ul {
+  padding-left: 1.2em;
+  opacity: 0.7;
+}
+
+/* Readout: separar mejor */
+.nt-post-readout {
+  gap: 20px !important;
+  padding-top: 8px !important;
+}
+
+/* Corner crosshairs más sutiles */
+.nt-corner {
+  opacity: 0.4 !important;
+  border-width: 1.5px !important;
+}
+
+/* Footer final: más impacto */
+.nt-footer-final {
+  color: var(--red) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.2em !important;
+  padding: 20px 0 !important;
+}
+
+/* Variación en modo claro */
+[data-theme="light"] .nt-alert {
+  background: rgba(211, 47, 47, 0.04) !important;
+}
+
+[data-theme="light"] .nt-stamp {
+  background: #f5f5f5 !important;
+}
+
+/* Selección de texto: rojo sobre negro */
+::selection {
+  background: var(--red) !important;
+  color: var(--bg) !important;
+}
+
+/* Scrollbar minimalista */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--red);
+}
+
+
+/* ===== CONTROL_ROOM — EFECTOS CRT ===== */
+
+/* Scanlines sutiles sobre toda la página */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.18) 0px,
+    rgba(0, 0, 0, 0.18) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity: 0.45;
+}
+
+[data-theme="light"] body::before {
+  opacity: 0.15;
+}
+
+/* System indicators en verde P1 con glow de fósforo */
+.nt-system,
+.nt-typewriter,
+.nt-hide-s,
+#nt-clock,
+
+
+[data-theme="light"] .nt-system,
+[data-theme="light"] .nt-typewriter,
+[data-theme="light"] .nt-hide-s,
+[data-theme="light"] #nt-clock {
+  text-shadow: none;
+}
+
+.nt-system {
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.nt-typewriter {
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  min-width: 14ch;
+  display: inline-block;
+}
+
+/* Clearance en ámbar */
+.nt-clearance {
+  border: 1px solid var(--yellow) !important;
+  color: var(--yellow) !important;
+  padding: 2px 8px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  font-size: 10px !important;
+}
+
+/* Dossier: borde ámbar (datos de archivo) */
+.nt-dossier {
+  border-left: 2px solid var(--yellow) !important;
+}
+
+/* Readout: fecha en ámbar */
+.nt-readout-warn {
+  color: var(--yellow) !important;
+}
+
+/* SPECIMEN_ID en ámbar (dato de archivo) */
+.nt-fileline span:last-child {
+  color: var(--yellow) !important;
+}
+
+/* Banner de alerta: institucional, sobrio */
+.nt-alert {
+  background: rgba(255, 59, 59, 0.03) !important;
+  color: var(--fg) !important;
+  border-top: 1px solid var(--red) !important;
+  border-bottom: 1px solid var(--red) !important;
+  letter-spacing: 0.14em !important;
+  font-size: 10px !important;
+}
+
+.nt-alert-mark {
+  color: var(--red) !important;
+  font-weight: 800 !important;
+}
+
+/* Kipple en el footer */
+.nt-kipple {
+  color: var(--yellow) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+}
+
+/* TOC en ámbar */
+.nt-toc {
+  border-left: 2px solid var(--yellow) !important;
+}
+
+.nt-toc-title {
+  color: var(--yellow) !important;
+}
+
+/* Tags en ámbar */
+.nt-post-readout span:not(.nt-readout-warn) {
+  color: var(--dim) !important;
+}
+
+/* Glow verde sutil en el banner del topbar */
+.nt-topbar {
+  border-bottom: 1px solid var(--line) !important;
+}
+
+/* Brand: blanco puro */
+.nt-brand {
+  color: var(--fg-strong) !important;
+}
+
+/* Refinar el glow del cursor del footer */
+.nt-cursor {
+  color: var(--red) !important;
+}
+
+/* ===== HOME ===== */
+.nt-home { padding: 64px 0 96px; }
+
+.nt-home-hero {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 56px;
+  margin-bottom: 56px;
+}
+
+.nt-home-kicker {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.nt-home-title {
+  font-family: var(--mono);
+  font-size: clamp(40px, 6vw, 88px);
+  line-height: 0.94;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--fg-strong);
+  margin: 0 0 28px;
+  max-width: 18ch;
+  text-wrap: balance;
+}
+
+.nt-home-desc {
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.7;
+  max-width: 60ch;
+  color: var(--fg);
+  margin: 0 0 36px;
+}
+
+.nt-home-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.nt-home-cta a {
+  padding: 12px 20px;
+  border: 1px solid var(--fg-strong);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--fg-strong);
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.nt-home-cta a:hover {
+  background: var(--fg-strong);
+  color: var(--bg);
+}
+
+.nt-home-cta a:first-child {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--bg);
+}
+
+.nt-home-cta a:first-child:hover {
+  background: var(--yellow);
+  border-color: var(--yellow);
+}
+
+.nt-home-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.nt-section-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.nt-home-posts .nt-posts-list { margin-bottom: 28px; }
+
+.nt-more {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+  transition: color 0.15s;
+}
+
+.nt-more:hover { color: var(--yellow); }
+
+.nt-home-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.nt-dirlist { list-style: none; padding: 0; margin: 0; }
+
+.nt-dirlist li {
+  padding: 10px 0;
+  border-bottom: 1px dotted var(--line);
+  font-size: 13px;
+  font-family: var(--mono);
+}
+
+.nt-dirlist a { color: var(--fg-strong); transition: color 0.12s; }
+.nt-dirlist a:hover { color: var(--red); }
+
+.nt-sysrow {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dotted var(--line);
+  font-size: 11px;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.nt-sysrow > span:first-child { color: var(--dim); }
+.nt-yellow { color: var(--yellow); font-weight: 700; }
+.nt-green  { color: var(--green);  font-weight: 700; }
+
+@media (max-width: 900px) {
+  .nt-home-grid { grid-template-columns: 1fr; gap: 48px; }
+  .nt-home-title { font-size: clamp(32px, 8vw, 56px); }
+}
+
+/* ===== PULIDO FINAL v8 ===== */
+
+/* PROGRESS BAR */
+.nt-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--green);
+  box-shadow: 0 0 8px rgba(0, 255, 65, 0.5);
+  z-index: 200;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+[data-theme="light"] .nt-progress {
+  background: var(--red);
+  box-shadow: none;
+}
+
+/* BOOT SEQUENCE */
+.nt-boot {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease;
+}
+.nt-boot.nt-boot-out { opacity: 0; pointer-events: none; }
+.nt-boot-content {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--green);
+  text-shadow: 0 0 6px rgba(0, 255, 65, 0.4);
+  white-space: pre;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  max-width: 90vw;
+  padding: 20px;
+}
+
+/* BREADCRUMB dinámico (//CONTROL_ROOM/...) */
+.nt-system {
+  color: var(--green) !important;
+  text-shadow: 0 0 6px rgba(0, 255, 65, 0.35);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  font-size: 11px;
+}
+[data-theme="light"] .nt-system {
+  color: var(--red) !important;
+  text-shadow: none;
+}
+
+/* POST GRID ASIMÉTRICO */
+.nt-post-grid {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 64px;
+  align-items: start;
+  padding: 56px 0;
+}
+
+.nt-post-aside {
+  position: sticky;
+  top: calc(var(--bar) + 48px);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+}
+
+.nt-aside-block {
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.nt-aside-block:last-child {
+  border-bottom: none;
+}
+
+.nt-aside-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.nt-toc-aside ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.6;
+}
+.nt-toc-aside ul ul { padding-left: 12px; opacity: 0.7; }
+.nt-toc-aside li { margin-bottom: 6px; }
+.nt-toc-aside a { color: var(--dim); }
+.nt-toc-aside a:hover { color: var(--fg-strong); }
+
+/* Contenido principal (ya no centrado, ocupa su columna) */
+.nt-post-grid .nt-content {
+  margin: 0 !important;
+  max-width: 68ch;
+  padding: 0 !important;
+}
+
+/* Refuerzo de tipografía editorial dentro del contenido */
+.nt-post-grid .nt-content > p:first-of-type::first-letter {
+  font-family: var(--mono);
+  font-size: 5em;
+  line-height: 0.82;
+  float: left;
+  margin: 0.05em 0.12em 0 0;
+  color: var(--red);
+  font-weight: 800;
+}
+
+/* PULL QUOTES */
+.nt-pullquote,
+
+
+@media (max-width: 900px) {
+  .nt-pullquote,
+  
+}
+
+/* EMPTY STATES */
+.nt-post-nav-empty {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* FOCUS RINGS */
+:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+[data-theme="light"] :focus-visible {
+  outline-color: var(--red);
+}
+
+/* GRID DE FONDO MUY SUTIL */
+body {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+[data-theme="light"] body {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.015) 1px, transparent 1px);
+}
+
+/* PALETTE (CMD+K) */
+.nt-palette {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 15vh;
+}
+.nt-palette[hidden] { display: none !important; }
+.nt-palette-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+.nt-palette-panel {
+  position: relative;
+  width: min(600px, 92vw);
+  background: var(--bg);
+  border: 1px solid var(--green);
+  box-shadow: 0 0 40px rgba(0, 255, 65, 0.2);
+  font-family: var(--mono);
+  max-height: 60vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+[data-theme="light"] .nt-palette-panel {
+  border-color: var(--red);
+  box-shadow: 0 0 30px rgba(211, 47, 47, 0.15);
+}
+.nt-palette-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+}
+.nt-palette-prompt {
+  color: var(--green);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+[data-theme="light"] .nt-palette-prompt { color: var(--red); }
+.nt-palette-header input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--fg-strong);
+  font-family: var(--mono);
+  font-size: 14px;
+  outline: none;
+  letter-spacing: 0.04em;
+}
+.nt-palette-header input::placeholder {
+  color: var(--dim);
+  opacity: 0.6;
+}
+.nt-palette-hint {
+  font-size: 10px;
+  color: var(--dim);
+  letter-spacing: 0.14em;
+}
+.nt-palette-results {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  max-height: 40vh;
+}
+.nt-palette-item {
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 12px 18px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+  transition: background 0.1s;
+}
+.nt-palette-item:hover,
+.nt-palette-item.active {
+  background: var(--bg2);
+}
+.nt-palette-date {
+  color: var(--yellow);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-size: 10px;
+}
+.nt-palette-title {
+  color: var(--fg-strong);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nt-palette-arrow {
+  color: var(--green);
+  font-size: 14px;
+}
+.nt-palette-empty {
+  padding: 24px;
+  text-align: center;
+  color: var(--dim);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+}
+
+/* MOBILE FIXES */
+@media (max-width: 900px) {
+  .nt-post-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .nt-post-aside {
+    position: static;
+    order: -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .nt-aside-block { margin-bottom: 0; }
+}
+
+@media (max-width: 720px) {
+  .nt-alert {
+    padding: 6px 8px !important;
+    font-size: 9px !important;
+    letter-spacing: 0.08em !important;
+  }
+  .nt-alert-body {
+    line-height: 1.4;
+    overflow-wrap: break-word;
+  }
+  .nt-alert-mark { display: none; }
+
+  .nt-post-aside {
+    grid-template-columns: 1fr;
+  }
+
+  .nt-pullquote,
+  
+
+  .nt-palette-header input { font-size: 16px; } /* evita zoom iOS */
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .nt-cursor::after,
+  .nt-blink,
+  
+  body::before { display: none !important; }
+  .nt-progress { transition: none !important; }
+}
+
+/* ===== LAYOUT v9: 3 COLUMNAS (fix del vacío derecho) ===== */
+
+.nt-post-grid {
+  max-width: 1360px;
+  margin-inline: auto;
+  grid-template-columns: 200px minmax(0, 1fr) 160px;
+  gap: 56px;
+  padding: 56px clamp(16px, 3vw, 40px);
+}
+
+.nt-post-grid .nt-content {
+  margin: 0 !important;
+  max-width: none;
+  padding: 0 !important;
+  /* El contenido ocupa su columna (≈65ch en desktop), sin left-align flotante */
+}
+
+.nt-post-right {
+  position: sticky;
+  top: calc(var(--bar) + 48px);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-align: right;
+}
+
+.nt-right-block {
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.nt-right-block:last-child {
+  border-bottom: none;
+}
+
+.nt-right-value {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--fg-strong);
+  margin-top: 6px;
+}
+
+.nt-right-link {
+  color: var(--red);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  font-size: 10px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-top: 6px;
+}
+
+.nt-right-link:hover {
+  color: var(--yellow);
+}
+
+/* Ajustar padding del contenido para que respire dentro de la nueva columna */
+.nt-post-grid .nt-content {
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+/* Refinamiento: post-header también max-width para alinear con el grid */
+.nt-post-header,
+.nt-rule,
+.nt-post-footer,
+.nt-post-pagination {
+  max-width: 1360px;
+  margin-inline: auto;
+  padding-left: clamp(16px, 3vw, 40px);
+  padding-right: clamp(16px, 3vw, 40px);
+}
+
+/* Y el fileline + titlewrap también */
+.nt-post-header .nt-fileline,
+.nt-post-header .nt-post-readout {
+  max-width: none;
+}
+
+/* EMPTY STATES: más sutiles */
+.nt-post-nav-empty {
+  opacity: 0.25;
+}
+
+/* CLEARANCE en topbar con STATUS inline */
+.nt-clearance {
+  font-size: 10px !important;
+}
+
+.nt-clearance [data-nt-status] {
+  color: var(--green);
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+[data-theme="light"] .nt-clearance [data-nt-status] {
+  color: var(--red);
+}
+
+/* Responsive del nuevo layout */
+@media (max-width: 1100px) {
+  .nt-post-grid {
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 48px;
+  }
+  .nt-post-right {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .nt-post-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .nt-post-aside {
+    position: static;
+    order: -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .nt-aside-block { margin-bottom: 0; }
+}
+
+@media (max-width: 720px) {
+  .nt-post-aside {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== BRAND GRANDE (topbar) ===== */
+.nt-brand {
+  font-family: var(--mono);
+  font-weight: 800;
+  font-size: clamp(15px, 1.5vw, 19px) !important;
+  text-transform: uppercase;
+  letter-spacing: -0.015em !important;
+  color: var(--fg-strong) !important;
+  line-height: 1;
+}
+
+.nt-mark {
+  gap: 16px !important;
+}
+
+/* En pantallas medianas, el breadcrumb desaparece para dejar respirar al brand */
+@media (max-width: 1100px) {
+  .nt-system { display: none !important; }
+}
+
+@media (max-width: 720px) {
+  .nt-brand { font-size: 15px !important; letter-spacing: 0 !important; }
+}
+
+/* ===== FEATURED IMAGE (hero del ensayo) ===== */
+.nt-featured-image {
+  margin: 0 0 3rem 0;
+  padding: 0;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1.5rem;
+}
+
+.nt-featured-image img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+}
+
+.nt-featured-image figcaption {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim);
+  padding-top: 8px;
+  text-align: right;
+}
+
+.nt-featured-image figcaption::before {
+  content: "//SOURCE: ";
+  color: var(--yellow);
+}
+
+/* ===== IMÁGENES EN EL CUERPO ===== */
+.nt-content figure {
+  margin: 2.5rem 0;
+}
+
+.nt-content figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+}
+
+.nt-content figcaption {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dim);
+  padding-top: 8px;
+  text-align: right;
+  border-top: 1px solid var(--line);
+  margin-top: 6px;
+}
+
+.nt-content figcaption::before {
+  content: "// ";
+  color: var(--yellow);
+}
+
+/* ===== FOOTNOTES ===== */
+.nt-content sup {
+  font-size: 0.65em;
+  vertical-align: super;
+  line-height: 0;
+}
+
+.nt-content sup a {
+  color: var(--yellow);
+  text-decoration: none;
+  padding: 0 2px;
+  font-weight: 700;
+  border: none;
+}
+
+.nt-content sup a::before {
+  content: "[";
+}
+.nt-content sup a::after {
+  content: "]";
+}
+
+.nt-content sup a:hover {
+  color: var(--red);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== ENLACES EXTERNOS (con ↗) ===== */
+.nt-content a[target="_blank"]::after {
+  content: " ↗";
+  font-size: 0.85em;
+  color: var(--dim);
+  margin-left: 1px;
+}
+
+/* ===== EMPTY STATE si no hay featured image ===== */
+.nt-featured-image:empty {
+  display: none;
+}
+
+/* ===== Primer h2 en about/operator: título poético ===== */
+.nt-content.nt-about > h2:first-of-type {
+  font-size: 1.8rem;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--fg-strong);
+  border-bottom: none;
+  margin-top: 0;
+  font-family: var(--mono);
+  line-height: 1.2;
+}
+
+.nt-content > h2:first-of-type + p {
+  margin-top: 1.5rem;
+}
+
+/* =====================================================================
+   MOBILE REFRESH — iPhone 15 Pro Max (430×932) / Samsung S26 (412×915)
+   Breakpoints: 900px (tablet) · 480px (phone) · 380px (small phone)
+   ===================================================================== */
+
+/* ---- 1. TABLET / LARGE PHONE (≤ 900px) ---- */
+@media (max-width: 900px) {
+
+  html {
+    scroll-padding-top: 150px !important;
+  }
+
+  /* ---- TOPBAR: 3 filas ---- */
+  .nt-topbar {
+    height: auto !important;
+    min-height: 44px;
+    flex-wrap: wrap;
+    padding: 0 !important;
+    gap: 0 !important;
+    align-items: stretch;
+  }
+
+  /* Fila 1: brand + botón tema */
+  .nt-mark {
+    flex: 1 1 auto !important;
+    min-width: 0;
+    padding: 12px 16px !important;
+    align-items: center !important;
+  }
+
+  .nt-brand {
+    font-size: 14px !important;
+    letter-spacing: 0 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nt-system {
+    display: none !important;
+  }
+
+  .nt-theme-btn {
+    order: 2;
+    flex-shrink: 0;
+    padding: 0 16px !important;
+    margin: 0 !important;
+    border: none !important;
+    border-left: 1px solid var(--line) !important;
+  }
+
+  /* Fila 2: nav horizontal scrollable */
+  .nt-nav {
+    order: 3;
+    display: flex !important;
+    width: 100% !important;
+    margin: 0 !important;
+    border-top: 1px solid var(--line);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .nt-nav::-webkit-scrollbar { display: none; }
+
+  .nt-nav a {
+    flex-shrink: 0;
+    padding: 10px 14px !important;
+    font-size: 10px !important;
+    letter-spacing: 0.1em !important;
+    white-space: nowrap;
+    border-right: 1px solid var(--line);
+  }
+
+  .nt-nav a:last-child { border-right: none; }
+
+  /* Fila 3: status compacto */
+  .nt-status {
+    order: 4;
+    width: 100% !important;
+    padding: 6px 16px !important;
+    border-top: 1px solid var(--line);
+    font-size: 9px !important;
+    gap: 8px !important;
+    justify-content: space-between !important;
+    display: flex !important;
+    flex-wrap: wrap;
+  }
+
+  .nt-typewriter {
+    font-size: 9px !important;
+    min-width: 0 !important;
+    max-width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .nt-clearance {
+    font-size: 9px !important;
+    padding: 1px 6px !important;
+  }
+
+  .nt-hide-s {
+    display: inline !important;
+    font-size: 9px !important;
+  }
+
+  /* Sticky asides: quitar (topbar multi-fila no lo permite bien) */
+  .nt-post-aside,
+  .nt-post-right {
+    position: static !important;
+    top: auto !important;
+  }
+
+  /* Alert: compacto */
+  .nt-alert {
+    padding: 6px 14px !important;
+    font-size: 9px !important;
+    letter-spacing: 0.06em !important;
+    line-height: 1.4 !important;
+  }
+
+  .nt-alert-mark { display: none !important; }
+
+  .nt-alert-body {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* POST: single column */
+  .nt-post-grid {
+    grid-template-columns: 1fr !important;
+    padding: 40px 20px !important;
+    gap: 32px !important;
+    max-width: none !important;
+  }
+
+  .nt-post-aside {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    order: -1;
+  }
+
+  .nt-aside-block {
+    margin-bottom: 0 !important;
+    padding-bottom: 12px !important;
+  }
+
+  .nt-content {
+    font-size: 17px !important;
+    line-height: 1.7 !important;
+    max-width: none !important;
+  }
+
+  .nt-post-header,
+  .nt-rule,
+  .nt-post-footer,
+  .nt-post-pagination {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* HOME: single column */
+  .nt-home-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+}
+
+/* ---- 2. STANDARD PHONE (≤ 480px) — iPhone 15 Pro Max / Samsung S26 ---- */
+@media (max-width: 480px) {
+
+  html {
+    scroll-padding-top: 140px !important;
+  }
+
+  /* Topbar aún más ajustada */
+  .nt-mark { padding: 10px 14px !important; }
+  .nt-brand { font-size: 13px !important; }
+  .nt-theme-btn { padding: 0 14px !important; }
+
+  .nt-nav a {
+    padding: 9px 12px !important;
+    font-size: 9px !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .nt-status {
+    padding: 5px 14px !important;
+    font-size: 8px !important;
+    gap: 6px !important;
+  }
+
+  .nt-typewriter,
+  .nt-clearance,
+  .nt-hide-s {
+    font-size: 8px !important;
+  }
+
+  /* Alert muy compacto */
+  .nt-alert {
+    font-size: 8px !important;
+    padding: 5px 10px !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  /* Post */
+  .nt-post { padding: 28px 0 56px !important; }
+
+  .nt-post-title {
+    font-size: clamp(26px, 9vw, 44px) !important;
+    line-height: 1 !important;
+  }
+
+  .nt-post-subject {
+    font-size: 10px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .nt-stamp {
+    font-size: 9px !important;
+    padding: 3px 8px !important;
+    letter-spacing: 0.14em !important;
+    top: -4px !important;
+    right: 12px !important;
+  }
+
+  .nt-post-header {
+    padding-left: 14px !important;
+    border-left-width: 2px !important;
+  }
+
+  .nt-fileline {
+    flex-direction: column !important;
+    gap: 4px !important;
+    align-items: flex-start !important;
+    font-size: 9px !important;
+  }
+
+  .nt-post-readout {
+    gap: 8px !important;
+    font-size: 10px !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  /* Dossier single column */
+  .nt-dossier {
+    grid-template-columns: 1fr !important;
+    max-width: none !important;
+    padding: 12px 14px !important;
+  }
+
+  .nt-dossier-row {
+    font-size: 10px !important;
+    padding: 5px 0 !important;
+  }
+
+  /* Post grid */
+  .nt-post-grid { padding: 24px 14px !important; }
+  .nt-post-aside { grid-template-columns: 1fr !important; }
+  .nt-aside-label { font-size: 9px !important; }
+
+  /* Content */
+  .nt-content { font-size: 16px !important; }
+
+  .nt-content > p:first-of-type::first-letter {
+    font-size: 3.5em !important;
+    line-height: 0.85 !important;
+  }
+
+  .nt-content h2 { font-size: 1.2rem !important; }
+  .nt-content h3 { font-size: 1rem !important; }
+
+  
+
+  .nt-pullquote,
+  
+
+  /* Home */
+  .nt-home { padding: 28px 14px 56px !important; }
+
+  .nt-home-kicker { font-size: 9px !important; margin-bottom: 14px !important; }
+
+  .nt-home-title {
+    font-size: clamp(28px, 10vw, 46px) !important;
+    line-height: 0.98 !important;
+    margin-bottom: 20px !important;
+  }
+
+  .nt-home-desc { font-size: 15px !important; margin-bottom: 24px !important; }
+
+  .nt-home-cta { flex-direction: column; gap: 8px; }
+
+  .nt-home-cta a {
+    width: 100%;
+    text-align: center;
+    font-size: 10px !important;
+    padding: 12px 16px !important;
+  }
+
+  /* List */
+  .nt-list { padding: 28px 14px 56px !important; }
+
+  .nt-list-header {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .nt-section-num { font-size: clamp(48px, 16vw, 88px) !important; line-height: 0.8 !important; }
+  .nt-section-title { font-size: clamp(26px, 9vw, 44px) !important; }
+  .nt-list-stats { text-align: left !important; font-size: 9px !important; }
+
+  .nt-post-item a {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+    padding: 14px 0 !important;
+  }
+
+  .nt-post-index { font-size: 10px !important; }
+  .nt-post-name { font-size: 16px !important; line-height: 1.15 !important; }
+  .nt-post-readtime { font-size: 9px !important; }
+
+  /* Footer */
+  .nt-footer { padding: 20px 14px !important; }
+
+  .nt-footer-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    font-size: 9px !important;
+    padding: 12px 0 !important;
+  }
+
+  .nt-footer-center { flex-wrap: wrap !important; gap: 10px !important; }
+
+  .nt-footer-final {
+    font-size: 8px !important;
+    letter-spacing: 0.06em !important;
+    padding: 12px 0 !important;
+    text-align: left !important;
+  }
+
+  /* Boot */
+  .nt-boot-content {
+    font-size: 10px !important;
+    padding: 16px !important;
+    line-height: 1.6 !important;
+    overflow-x: auto !important;
+  }
+
+  /* Palette */
+  .nt-palette { padding-top: 8vh !important; }
+  .nt-palette-panel { width: 94vw !important; }
+  .nt-palette-header { padding: 12px 14px !important; }
+  .nt-palette-prompt, .nt-palette-hint { font-size: 9px !important; }
+  .nt-palette-header input { font-size: 14px !important; }
+
+  .nt-palette-item {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+    padding: 10px 14px !important;
+  }
+
+  .nt-palette-date { font-size: 9px !important; }
+  .nt-palette-title {
+    font-size: 11px !important;
+    white-space: normal !important;
+    text-overflow: clip !important;
+  }
+  .nt-palette-arrow { display: none !important; }
+
+  /* Post navigation */
+  .nt-post-nav { grid-template-columns: 1fr !important; gap: 12px !important; }
+  .nt-post-next { text-align: left !important; }
+  .nt-post-nav-title { font-size: 12px !important; }
+
+  /* Featured image full-bleed */
+  .nt-featured-image {
+    margin: 0 -14px 2rem !important;
+    padding: 0 0 1rem !important;
+  }
+
+  .nt-featured-image img {
+    border-left: none !important;
+    border-right: none !important;
+  }
+
+  /* Footnotes */
+  
+  
+
+  /* TOC */
+  .nt-toc-aside { font-size: 10px !important; }
+}
+
+/* ---- 3. VERY SMALL PHONE (≤ 380px) ---- */
+@media (max-width: 380px) {
+  html { scroll-padding-top: 130px !important; }
+
+  .nt-brand { font-size: 12px !important; }
+
+  .nt-nav a {
+    padding: 8px 9px !important;
+    font-size: 8px !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  .nt-post-title { font-size: clamp(22px, 8vw, 32px) !important; }
+  .nt-home-title { font-size: clamp(24px, 9vw, 40px) !important; }
+  .nt-content { font-size: 15px !important; }
+
+  .nt-kipple { display: none !important; }
+}
+
+/* =====================================================================
+   v11: MENÚ [≡] + PALETTE NAV
+   ===================================================================== */
+
+/* ---- Botón [≡]: oculto en desktop ---- */
+.nt-menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--fg);
+  padding: 0 14px;
+  font-family: var(--mono);
+  font-size: 16px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.12s;
+}
+
+.nt-menu-btn:hover {
+  background: var(--bg2);
+}
+
+@media (min-width: 901px) {
+  .nt-menu-btn { display: none !important; }
+}
+
+/* ---- Móvil: nav desaparece, [≡] aparece ---- */
+@media (max-width: 900px) {
+
+  /* Nav oculta */
+  .nt-nav { display: none !important; }
+
+  /* Fila 1: brand + [≡] + [◐] */
+  .nt-mark {
+    order: 1 !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+
+  .nt-menu-btn {
+    display: flex !important;
+    order: 2 !important;
+    border-left: 1px solid var(--line) !important;
+    padding: 0 14px !important;
+  }
+
+  .nt-theme-btn {
+    order: 3 !important;
+  }
+
+  /* Fila 2: status */
+  .nt-status {
+    order: 4 !important;
+    width: 100% !important;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 480px) {
+  .nt-menu-btn { padding: 0 12px !important; font-size: 15px; }
+}
+
+/* ---- Palette: navegación arriba ---- */
+.nt-palette-navitem {
+  grid-template-columns: 1fr auto !important;
+  padding: 14px 18px !important;
+  background: transparent;
+  transition: background 0.1s, padding-left 0.15s;
+}
+
+.nt-palette-navitem:hover,
+.nt-palette-navitem.active {
+  background: var(--bg2) !important;
+  padding-left: 22px !important;
+}
+
+.nt-palette-navitem.active .nt-palette-navlabel {
+  color: var(--green) !important;
+}
+
+[data-theme="light"] .nt-palette-navitem.active .nt-palette-navlabel {
+  color: var(--red) !important;
+}
+
+.nt-palette-navlabel {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-strong);
+}
+
+/* Separador DOSSIERS */
+.nt-palette-separator {
+  padding: 10px 18px !important;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  font-weight: 700;
+  background: var(--bg2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  list-style: none;
+  pointer-events: none;
+  user-select: none;
+}
+
+.nt-palette-separator span::before {
+  content: "// ";
+}
+
+/* Responsive del palette en mobile */
+@media (max-width: 480px) {
+  .nt-palette-navitem {
+    padding: 12px 14px !important;
+  }
+  .nt-palette-navitem.active {
+    padding-left: 18px !important;
+  }
+  .nt-palette-navlabel {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+  }
+  .nt-palette-separator {
+    padding: 8px 14px !important;
+    font-size: 8px;
+  }
+}
+
+/* =====================================================================
+   404 — FILE_NOT_FOUND
+   ===================================================================== */
+
+.nt-404 {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px clamp(16px, 3vw, 40px) 96px;
+  overflow: hidden;
+}
+
+/* Fileline superior */
+.nt-404-fileline {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.62;
+  margin-bottom: 48px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.nt-404-fileline span:last-child {
+  color: var(--red);
+  opacity: 1;
+  font-weight: 700;
+}
+
+/* Layout principal */
+.nt-404-main {
+  position: relative;
+  z-index: 2;
+}
+
+/* El "404" gigante */
+.nt-404-code {
+  font-family: var(--mono);
+  font-weight: 800;
+  font-size: clamp(120px, 26vw, 320px);
+  line-height: 0.82;
+  letter-spacing: -0.05em;
+  color: var(--fg-strong);
+  margin: 0 0 24px;
+  user-select: none;
+  position: relative;
+}
+
+.nt-404-code::after {
+  content: "404";
+  position: absolute;
+  inset: 0;
+  color: var(--red);
+  opacity: 0.15;
+  transform: translate(6px, 6px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Terminal de salida */
+.nt-404-terminal {
+  border-left: 3px solid var(--red);
+  padding: 16px 0 16px 24px;
+  margin-bottom: 48px;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+  max-width: 640px;
+}
+
+.nt-404-line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nt-404-err {
+  color: var(--red);
+  font-weight: 700;
+}
+
+/* Puntos animados "buscando" */
+.nt-404-dots::after {
+  content: "";
+  display: inline-block;
+  width: 1.5em;
+  text-align: left;
+  animation: nt-404-dots 1.2s steps(4, end) infinite;
+}
+
+@keyframes nt-404-dots {
+  0% { content: ""; }
+  25% { content: "."; }
+  50% { content: ".."; }
+  75%, 100% { content: "..."; }
+}
+
+/* Botones */
+.nt-404-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.nt-404-btn {
+  display: inline-block;
+  padding: 14px 22px;
+  border: 1px solid var(--fg-strong);
+  background: transparent;
+  color: var(--fg-strong);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.nt-404-btn:hover {
+  background: var(--fg-strong);
+  color: var(--bg);
+}
+
+.nt-404-btn-primary {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--bg);
+}
+
+.nt-404-btn-primary:hover {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--bg);
+}
+
+/* Footer del 404 */
+.nt-404-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.nt-404-footer span:last-child {
+  color: var(--yellow);
+  opacity: 1;
+  font-weight: 700;
+}
+
+/* Scanline animada sobre el bloque */
+.nt-404-scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 49%,
+    rgba(255, 59, 59, 0.06) 50%,
+    transparent 51%,
+    transparent 100%
+  );
+  background-size: 100% 200%;
+  animation: nt-404-scan 6s linear infinite;
+}
+
+@keyframes nt-404-scan {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 200%; }
+}
+
+[data-theme="light"] .nt-404-scan {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 49%,
+    rgba(211, 47, 47, 0.04) 50%,
+    transparent 51%,
+    transparent 100%
+  );
+  background-size: 100% 200%;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nt-404 { padding: 40px 20px 64px; }
+  .nt-404-terminal { font-size: 12px; padding-left: 18px; }
+}
+
+@media (max-width: 480px) {
+  .nt-404 { padding: 28px 14px 56px; }
+  .nt-404-code { font-size: clamp(96px, 32vw, 200px); margin-bottom: 16px; }
+  .nt-404-terminal {
+    font-size: 11px;
+    padding-left: 14px;
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+  .nt-404-line { white-space: normal; word-break: break-all; }
+  .nt-404-actions { flex-direction: column; gap: 8px; }
+  .nt-404-btn { text-align: center; padding: 12px 16px; font-size: 10px; }
+  .nt-404-footer { flex-direction: column; align-items: flex-start; }
+  .nt-404-fileline { font-size: 9px; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .nt-404-scan { display: none; }
+  .nt-404-dots::after { animation: none; content: "..."; }
+}
+
+/* =====================================================================
+   v13: POST REFINAMENTS
+   ===================================================================== */
+
+/* ---- Grid 2 columnas (eliminada la derecha) ---- */
+.nt-post-grid {
+  grid-template-columns: 200px minmax(0, 1fr) !important;
+  max-width: 1100px !important;
+  padding: 56px clamp(16px, 3vw, 40px) !important;
+  gap: 56px !important;
+}
+
+@media (max-width: 900px) {
+  .nt-post-grid {
+    grid-template-columns: 1fr !important;
+    padding: 40px 20px !important;
+    gap: 32px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nt-post-grid {
+    padding: 24px 14px !important;
+  }
+}
+
+/* ---- TÍTULO: sin uppercase, más chico, peso 700 ---- */
+.nt-post-title {
+  font-size: clamp(32px, 5vw, 64px) !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.05 !important;
+  margin: 4px 0 0 0 !important;
+  max-width: none !important;
+  color: var(--fg-strong) !important;
+}
+
+/* ---- SUBTÍTULO ---- */
+.nt-post-subtitle {
+  font-family: var(--mono);
+  font-size: clamp(15px, 1.8vw, 20px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  color: var(--dim);
+  margin: 10px 0 24px;
+  max-width: 60ch;
+}
+
+.nt-post-titlewrap {
+  margin-bottom: 24px !important;
+}
+
+/* El sello se ajusta al nuevo título más chico */
+.nt-stamp {
+  font-size: 10px !important;
+  padding: 4px 10px !important;
+  letter-spacing: 0.2em !important;
+  top: -2px !important;
+}
+
+/* ---- H3 en blanco/gris (no amarillo) ---- */
+.nt-content h3 {
+  color: var(--fg-strong) !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+  letter-spacing: -0.005em !important;
+  font-size: 1.15rem !important;
+  margin: 2.4rem 0 0.8rem !important;
+}
+
+/* ---- DROP CAP: opt-in vía front matter (dropcap: true) ---- */
+.nt-content > p:first-of-type::first-letter {
+  /* reset: quitamos la drop cap universal */
+  font-size: inherit !important;
+  line-height: inherit !important;
+  float: none !important;
+  margin: 0 !important;
+  color: inherit !important;
+  font-weight: inherit !important;
+  font-family: inherit !important;
+}
+
+.nt-content.dropcap > p:first-of-type::first-letter {
+  font-family: var(--mono) !important;
+  font-size: 4.5em !important;
+  line-height: 0.85 !important;
+  float: left !important;
+  margin: 0.08em 0.15em 0 0 !important;
+  color: var(--red) !important;
+  font-weight: 700 !important;
+}
+
+/* ---- BLOCKQUOTE: marcador // REF: ---- */
+
+
+
+
+/* Responsive */
+@media (max-width: 480px) {
+  .nt-post-title {
+    font-size: clamp(26px, 8vw, 42px) !important;
+  }
+  .nt-post-subtitle {
+    font-size: 14px !important;
+    margin: 8px 0 18px !important;
+  }
+  .nt-content h3 {
+    font-size: 1rem !important;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  /* nada extra */
+}
+
+/* =====================================================================
+   v14: LAYOUT FIX — alinear todo a 1360px, grid 3 columnas equilibrado
+   ===================================================================== */
+
+/* Header, rule, footer y grid COMPARTEN el mismo ancho (esto es lo que fallaba) */
+.nt-post-header,
+.nt-rule,
+.nt-post-footer,
+.nt-post-pagination,
+.nt-post-grid {
+  max-width: 1600px !important;
+  margin-inline: auto !important;
+  padding-left: clamp(16px, 2.5vw, 40px) !important;
+  padding-right: clamp(16px, 2.5vw, 40px) !important;
+}
+
+/* Grid: 3 columnas · aside 180 + content flexible + right rail 110 */
+.nt-post-grid {
+  grid-template-columns: 180px minmax(0, 1fr) 110px !important;
+  gap: 48px !important;
+  padding-top: 56px !important;
+  padding-bottom: 56px !important;
+  align-items: start;
+}
+
+/* Contenido: max-width generoso pero controlado (72ch ≈ 850px a 18px) */
+.nt-post-grid .nt-content {
+  max-width: 82ch !important;
+  margin-inline: auto !important;
+  width: 100%;
+}
+
+/* Right rail sticky */
+.nt-post-right {
+  position: sticky;
+  top: calc(var(--bar) + 48px);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-align: right;
+}
+
+.nt-right-block {
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.nt-right-block:last-child {
+  border-bottom: none;
+}
+
+.nt-right-value {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--fg-strong);
+  margin-top: 6px;
+}
+
+.nt-right-link {
+  color: var(--red);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  font-size: 10px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-top: 6px;
+  transition: color 0.15s;
+}
+
+.nt-right-link:hover {
+  color: var(--yellow);
+}
+
+/* Responsive: tablet */
+@media (max-width: 1100px) {
+  .nt-post-grid {
+    grid-template-columns: 180px minmax(0, 1fr) !important;
+    gap: 40px !important;
+  }
+  .nt-post-right {
+    display: none !important;
+  }
+}
+
+/* Responsive: phone */
+@media (max-width: 900px) {
+  .nt-post-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+  .nt-post-grid .nt-content {
+    max-width: none !important;
+  }
+  .nt-post-header,
+  .nt-rule,
+  .nt-post-footer,
+  .nt-post-pagination {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nt-post-grid {
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+  }
+  .nt-post-header,
+  .nt-rule,
+  .nt-post-footer,
+  .nt-post-pagination {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+}
+
+/* =====================================================================
+   SERIES NAV
+   ===================================================================== */
+
+.nt-series {
+  max-width: 1360px;
+  margin: 0 auto 0;
+  padding: 32px clamp(16px, 3vw, 48px) 32px;
+  border-top: 1px solid var(--line);
+}
+
+.nt-series-header {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.nt-series-label {
+  color: var(--dim);
+}
+
+.nt-series-name {
+  color: var(--yellow);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+}
+
+.nt-series-count {
+  color: var(--dim);
+  margin-left: auto;
+}
+
+.nt-series-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nt-series-item {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  border-left: 2px solid transparent;
+  transition: border-color 0.15s, background 0.12s;
+}
+
+.nt-series-item:hover {
+  background: var(--bg2);
+}
+
+.nt-series-item a {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 10px 14px;
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.nt-series-item a:hover {
+  color: var(--fg-strong);
+}
+
+.nt-series-current {
+  border-left-color: var(--red);
+  background: var(--bg2);
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 10px 14px;
+}
+
+.nt-series-marker {
+  color: var(--red);
+  font-weight: 700;
+  flex-shrink: 0;
+  width: 10px;
+}
+
+.nt-series-current .nt-series-marker {
+  color: var(--red);
+}
+
+.nt-series-item:not(.nt-series-current) .nt-series-marker {
+  color: var(--dim);
+}
+
+.nt-series-date {
+  color: var(--yellow);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.nt-series-title {
+  flex: 1;
+  font-weight: 600;
+  color: var(--fg-strong);
+  text-transform: none;
+  letter-spacing: -0.005em;
+}
+
+.nt-series-current .nt-series-title {
+  color: var(--fg-strong);
+}
+
+.nt-series-badge {
+  color: var(--red);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nt-series {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nt-series {
+    padding: 24px 14px;
+  }
+  .nt-series-header {
+    font-size: 9px;
+    gap: 8px;
+  }
+  .nt-series-name { font-size: 11px; }
+  .nt-series-count { display: none; }
+  .nt-series-item a,
+  .nt-series-current {
+    padding: 8px 10px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .nt-series-title { font-size: 11px; }
+  .nt-series-badge { display: none; }
+}
+
+/* =====================================================================
+   FLUID: ocupar toda la pantalla sin importar tamaño
+   ===================================================================== */
+
+/* Contenedor principal: full width, padding fluido */
+.nt-post {
+  max-width: none !important;
+  width: 100% !important;
+  padding: 56px clamp(24px, 4vw, 64px) 96px !important;
+}
+
+/* Grid: full width, columnas laterales fijas, centro fluido */
+.nt-post-grid {
+  max-width: none !important;
+  width: 100% !important;
+  grid-template-columns: 200px minmax(0, 1fr) 140px !important;
+  gap: clamp(32px, 4vw, 72px) !important;
+}
+
+/* Contenido: FULL FLUID, sin cap de ch. Se expande con la columna. */
+.nt-post-main .nt-content,
+.nt-post-grid .nt-content {
+  max-width: none !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+/* Header (fileline, título, readout) también full width de su columna */
+.nt-post-header,
+.nt-post-main > .nt-rule,
+.nt-post-footer {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* Títulos escalan con el viewport */
+.nt-post-title {
+  font-size: clamp(36px, 4.2vw, 72px) !important;
+}
+
+.nt-post-subtitle {
+  font-size: clamp(16px, 1.6vw, 24px) !important;
+}
+
+/* Responsive: tablet */
+@media (max-width: 1100px) {
+  .nt-post-grid {
+    grid-template-columns: minmax(0, 1fr) 140px !important;
+    gap: 40px !important;
+  }
+  .nt-post-aside { display: none !important; }
+  .nt-post-main { grid-column: 1 !important; }
+  .nt-post-right { grid-column: 2 !important; }
+}
+
+/* Responsive: phone */
+@media (max-width: 800px) {
+  .nt-post {
+    padding: 32px 20px 64px !important;
+  }
+  .nt-post-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  .nt-post-main { grid-column: 1 !important; }
+  .nt-post-right { display: none !important; }
+  .nt-post-title { font-size: clamp(28px, 7vw, 44px) !important; }
+  .nt-post-subtitle { font-size: 15px !important; }
+}
+
+@media (max-width: 480px) {
+  .nt-post { padding: 24px 14px 48px !important; }
+  .nt-post-title { font-size: clamp(24px, 8vw, 38px) !important; }
+}
+
+/* =====================================================================
+   v18: MOBILE TOPBAR + iOS SAFE AREA
+   ===================================================================== */
+
+/* Fuerza topbar sólido y por encima de todo */
+.nt-topbar {
+  z-index: 300 !important;
+  background: var(--bg) !important;
+}
+
+/* iOS: respeta el notch / Dynamic Island */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .nt-topbar {
+    padding-top: max(0px, env(safe-area-inset-top, 0px)) !important;
+  }
+}
+
+/* Mobile: hijos con fondo sólido + scroll-padding real */
+@media (max-width: 900px) {
+  .nt-topbar,
+  .nt-mark,
+  .nt-menu-btn,
+  .nt-theme-btn,
+  .nt-status {
+    background: var(--bg) !important;
+  }
+
+  .nt-main {
+    position: relative;
+    z-index: 1;
+  }
+
+  html {
+    scroll-padding-top: 120px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    scroll-padding-top: 110px !important;
+  }
+}
+
+/* =====================================================================
+   HOME HERO v2: split texto + panel de sistema
+   ===================================================================== */
+
+.nt-home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(320px, 1fr);
+  gap: clamp(40px, 6vw, 96px);
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 64px;
+  margin-bottom: 56px;
+}
+
+.nt-home-hero-left {
+  min-width: 0;
+}
+
+.nt-home-hero-right {
+  min-width: 0;
+}
+
+/* Panel de sistema */
+.nt-home-panel {
+  border: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  background: var(--bg);
+}
+
+.nt-home-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim);
+  background: var(--bg2);
+}
+
+.nt-home-panel-body {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.nt-home-panel-body .nt-sysrow {
+  padding: 7px 0;
+  font-size: 10px;
+}
+
+.nt-home-panel-body .nt-sysrow > span:first-child {
+  opacity: 0.55;
+  letter-spacing: 0.14em;
+}
+
+.nt-home-panel-footer {
+  padding: 10px 14px;
+  border-top: 1px solid var(--line);
+  background: var(--bg2);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--green);
+}
+
+.nt-typewriter-static {
+  display: inline-block;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .nt-home-hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-bottom: 48px;
+    margin-bottom: 40px;
+  }
+  .nt-home-hero-right {
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nt-home-hero {
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+    gap: 32px;
+  }
+  .nt-home-panel-body .nt-sysrow {
+    font-size: 9px;
+    padding: 6px 0;
+  }
+}
+
+/* =====================================================================
+   v19: BANNER — una línea en desktop, wrap en mobile
+   ===================================================================== */
+
+.nt-alert {
+  padding: 5px clamp(12px, 2vw, 24px) !important;
+  font-size: clamp(8px, 0.85vw, 10px) !important;
+  letter-spacing: 0.1em !important;
+  gap: 12px !important;
+  line-height: 1.4 !important;
+  min-height: 0 !important;
+}
+
+.nt-alert-body {
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.nt-alert-mark {
+  font-size: 10px !important;
+  flex-shrink: 0;
+}
+
+/* Mobile: permitir wrap, 2 líneas máximo */
+@media (max-width: 800px) {
+  .nt-alert {
+    padding: 6px 12px !important;
+    font-size: 9px !important;
+    letter-spacing: 0.06em !important;
+    gap: 8px !important;
+  }
+
+  .nt-alert-body {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  .nt-alert {
+    font-size: 8px !important;
+    padding: 5px 10px !important;
+  }
+}
+
+/* =====================================================================
+   v20: BANNER — wrap natural, sin cortes
+   ===================================================================== */
+
+.nt-alert {
+  padding: 6px clamp(12px, 2vw, 24px) !important;
+  font-size: clamp(9px, 0.82vw, 11px) !important;
+  letter-spacing: 0.1em !important;
+  gap: 10px !important;
+  line-height: 1.45 !important;
+  min-height: 0 !important;
+}
+
+.nt-alert-body {
+  flex: 1;
+  text-align: center;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  min-width: 0;
+  text-wrap: balance;
+}
+
+.nt-alert-mark {
+  font-size: 11px !important;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* Mobile: un poco más pequeño pero sigue fluyendo */
+@media (max-width: 800px) {
+  .nt-alert {
+    padding: 6px 12px !important;
+    font-size: 9px !important;
+    letter-spacing: 0.06em !important;
+    gap: 8px !important;
+    line-height: 1.5 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nt-alert {
+    font-size: 8px !important;
+    padding: 5px 10px !important;
+  }
+  .nt-alert-mark { font-size: 9px !important; }
+}
+
+/* =====================================================================
+   v21: BANNER — una sola línea en desktop, wrap solo en mobile
+   ===================================================================== */
+
+.nt-alert {
+  padding: 6px clamp(12px, 2vw, 24px) !important;
+  font-size: clamp(9px, 0.8vw, 11px) !important;
+  letter-spacing: 0.08em !important;
+  gap: 10px !important;
+  line-height: 1.4 !important;
+}
+
+.nt-alert-body {
+  flex: 1;
+  text-align: center;
+  white-space: nowrap !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap !important;
+  min-width: 0;
+}
+
+.nt-alert-mark {
+  font-size: 10px !important;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* Mobile: permitir wrap */
+@media (max-width: 800px) {
+  .nt-alert {
+    padding: 6px 12px !important;
+    font-size: 9px !important;
+    letter-spacing: 0.05em !important;
+    gap: 6px !important;
+  }
+  .nt-alert-body {
+    white-space: normal !important;
+    text-wrap: normal !important;
+    overflow: visible;
+    text-overflow: clip;
+    line-height: 1.5;
+  }
+  .nt-alert-mark { font-size: 9px !important; }
+}
+
+@media (max-width: 480px) {
+  .nt-alert {
+    font-size: 8px !important;
+    padding: 5px 10px !important;
+  }
+  .nt-alert-mark { display: none; }
+}
+
+/* =====================================================================
+   v22: BANNER — texto largo, wrap balanceado (sin cortes)
+   ===================================================================== */
+
+.nt-alert {
+  padding: 8px clamp(16px, 2.5vw, 32px) !important;
+  font-size: clamp(9px, 0.82vw, 11px) !important;
+  letter-spacing: 0.08em !important;
+  gap: 12px !important;
+  line-height: 1.5 !important;
+}
+
+.nt-alert-body {
+  flex: 1;
+  text-align: center;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  text-wrap: balance;
+  min-width: 0;
+  max-width: 1400px;
+}
+
+.nt-alert-mark {
+  font-size: 11px !important;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* Desktop medio: un poco más pequeño para no ocupar 3 líneas */
+@media (max-width: 1400px) {
+  .nt-alert {
+    font-size: 10px !important;
+    padding: 7px 20px !important;
+  }
+}
+
+@media (max-width: 1100px) {
+  .nt-alert {
+    font-size: 9px !important;
+    letter-spacing: 0.05em !important;
+    padding: 7px 16px !important;
+  }
+}
+
+/* Mobile: wrap normal */
+@media (max-width: 800px) {
+  .nt-alert {
+    padding: 6px 12px !important;
+    font-size: 9px !important;
+    gap: 8px !important;
+    line-height: 1.5 !important;
+  }
+  .nt-alert-mark { font-size: 9px !important; }
+}
+
+@media (max-width: 480px) {
+  .nt-alert {
+    font-size: 8px !important;
+    padding: 5px 10px !important;
+    letter-spacing: 0.04em !important;
+  }
+  .nt-alert-mark { display: none; }
+}
+
+/* =====================================================================
+   v23: BANNER — UNA LÍNEA en desktop, wrap solo mobile
+   ===================================================================== */
+
+.nt-alert {
+  padding: 7px clamp(16px, 2.5vw, 32px) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.08em !important;
+  gap: 12px !important;
+  line-height: 1.4 !important;
+}
+
+.nt-alert-body {
+  flex: 1;
+  text-align: center;
+  white-space: nowrap !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap !important;
+  min-width: 0;
+}
+
+.nt-alert-mark {
+  font-size: 10px !important;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* Achicar según pantalla para que siempre quepa en una línea */
+@media (max-width: 1400px) {
+  .nt-alert { font-size: 9px !important; letter-spacing: 0.06em !important; }
+}
+
+@media (max-width: 1200px) {
+  .nt-alert { font-size: 8.5px !important; letter-spacing: 0.05em !important; padding: 6px 16px !important; }
+}
+
+@media (max-width: 1000px) {
+  .nt-alert { font-size: 8px !important; letter-spacing: 0.04em !important; }
+}
+
+/* Mobile: permitir wrap (una línea en mobile es imposible) */
+@media (max-width: 800px) {
+  .nt-alert {
+    padding: 6px 12px !important;
+    font-size: 9px !important;
+    gap: 8px !important;
+    line-height: 1.5 !important;
+  }
+  .nt-alert-body {
+    white-space: normal !important;
+    text-wrap: balance !important;
+    overflow: visible;
+    text-overflow: clip;
+  }
+  .nt-alert-mark { font-size: 9px !important; }
+}
+
+@media (max-width: 480px) {
+  .nt-alert {
+    font-size: 8px !important;
+    padding: 5px 10px !important;
+    letter-spacing: 0.03em !important;
+  }
+  .nt-alert-mark { display: none; }
+}
+
+/* =====================================================================
+   BANNER FINAL: L1621_ART44 + SESSION_START
+   ===================================================================== */
+
+#nt-session-start {
+  color: var(--yellow);
+  font-weight: 700;
+}
+
+.nt-alert {
+  padding: 7px clamp(16px, 2.5vw, 32px) !important;
+  font-size: 9.5px !important;
+  letter-spacing: 0.06em !important;
+  gap: 10px !important;
+  line-height: 1.4 !important;
+}
+
+.nt-alert-body {
+  flex: 1;
+  text-align: center;
+  white-space: nowrap !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+@media (max-width: 1400px) {
+  .nt-alert { font-size: 8.5px !important; letter-spacing: 0.04em !important; }
+}
+@media (max-width: 1200px) {
+  .nt-alert { font-size: 8px !important; letter-spacing: 0.03em !important; padding: 6px 16px !important; }
+}
+@media (max-width: 1000px) {
+  .nt-alert { font-size: 7.5px !important; letter-spacing: 0.02em !important; }
+}
+@media (max-width: 800px) {
+  .nt-alert {
+    padding: 6px 12px !important;
+    font-size: 8.5px !important;
+    gap: 8px !important;
+    line-height: 1.5 !important;
+  }
+  .nt-alert-body {
+    white-space: normal !important;
+    overflow: visible;
+    text-overflow: clip;
+  }
+}
+@media (max-width: 480px) {
+  .nt-alert {
+    font-size: 7.5px !important;
+    padding: 5px 10px !important;
+    letter-spacing: 0.02em !important;
+  }
+  .nt-alert-mark { display: none; }
+}
+
+/* =====================================================================
+   BANNER RESPONSIVE: hide parts on mobile
+   ===================================================================== */
+
+/* Mobile: oculta el header de sistema y el MONITORING:ACTIVE (implícito) */
+@media (max-width: 800px) {
+  .nt-alert-sys,
+  .nt-alert-mon {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nt-alert-sys,
+  .nt-alert-mon {
+    display: none !important;
+  }
+}
+
+/* =====================================================================
+   BANNER FIX: forzar wrap en móvil
+   ===================================================================== */
+
+@media (max-width: 800px) {
+  .nt-alert {
+    display: flex !important;
+    align-items: flex-start !important;
+    padding: 8px 12px !important;
+    gap: 6px !important;
+  }
+
+  .nt-alert-body {
+    white-space: normal !important;
+    text-wrap: wrap !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    flex: 1 1 auto !important;
+    line-height: 1.5 !important;
+    font-size: 8.5px !important;
+    letter-spacing: 0.02em !important;
+    text-align: left !important;
+  }
+
+  .nt-alert-body span,
+  .nt-alert-body > span {
+    white-space: normal !important;
+  }
+
+  /* Si el header de sistema está oculto, no cuenta */
+  .nt-alert-sys,
+  .nt-alert-mon {
+    display: none !important;
+  }
+
+  .nt-alert-mark {
+    font-size: 10px !important;
+    flex-shrink: 0 !important;
+    align-self: flex-start !important;
+    margin-top: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nt-alert {
+    padding: 7px 10px !important;
+  }
+
+  .nt-alert-body {
+    font-size: 8px !important;
+    line-height: 1.55 !important;
+  }
+
+  .nt-alert-mark {
+    display: none !important;
+  }
+}
+
+/* =====================================================================
+   BANNER v2: dos versiones controladas
+   ===================================================================== */
+
+/* Base: desktop visible, mobile oculto */
+.nt-alert-desktop {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  flex: 1;
+  min-width: 0;
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+}
+
+.nt-alert-mobile {
+  display: none !important;
+}
+
+/* Mobile: oculta desktop, muestra mobile */
+@media (max-width: 800px) {
+  .nt-alert-desktop {
+    display: none !important;
+  }
+
+  .nt-alert-mobile {
+    display: block !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    text-align: center !important;
+    font-size: 9px !important;
+    letter-spacing: 0.04em !important;
+    line-height: 1.5 !important;
+    padding: 2px 4px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .nt-alert {
+    padding: 7px 12px !important;
+    gap: 8px !important;
+  }
+
+  .nt-alert-mark {
+    font-size: 10px !important;
+    align-self: center !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nt-alert {
+    padding: 6px 10px !important;
+  }
+
+  .nt-alert-mobile {
+    font-size: 8.5px !important;
+    line-height: 1.55 !important;
+  }
+
+  .nt-alert-mark {
+    font-size: 9px !important;
+  }
+}
+
+/* =====================================================================
+   BANNER FIX DEFINITIVO
+   ===================================================================== */
+
+/* Contenedor principal */
+.nt-alert {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 6px 16px !important;
+  border-top: 1px solid var(--red) !important;
+  border-bottom: 1px solid var(--red) !important;
+  background: var(--bg) !important;
+  gap: 12px !important;
+  font-family: var(--mono) !important;
+  line-height: 1.4 !important;
+}
+
+.nt-alert-mark {
+  color: var(--red) !important;
+  font-size: 11px !important;
+  flex-shrink: 0 !important;
+  animation: nt-pulse-alert 1.6s ease-in-out infinite !important;
+}
+
+/* Desktop */
+.nt-alert-desktop {
+  display: block !important;
+  font-size: 9.5px !important;
+  letter-spacing: 0.05em !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  text-align: center !important;
+  color: var(--fg) !important;
+}
+
+/* Mobile (oculto por defecto) */
+.nt-alert-mobile {
+  display: none !important;
+}
+
+#nt-session-start {
+  color: var(--yellow) !important;
+  font-weight: 700 !important;
+}
+
+/* ===== MEDIA QUERIES ===== */
+
+@media (max-width: 1400px) {
+  .nt-alert-desktop { font-size: 8.5px !important; letter-spacing: 0.03em !important; }
+}
+
+@media (max-width: 1100px) {
+  .nt-alert-desktop { font-size: 8px !important; letter-spacing: 0.02em !important; }
+}
+
+/* Mobile: cambia de versión */
+@media (max-width: 800px) {
+  .nt-alert {
+    padding: 8px 12px !important;
+    gap: 8px !important;
+  }
+  
+  .nt-alert-desktop {
+    display: none !important;
+  }
+  
+  .nt-alert-mobile {
+    display: block !important;
+    font-size: 9px !important;
+    letter-spacing: 0.05em !important;
+    white-space: normal !important;
+    text-align: center !important;
+    line-height: 1.5 !important;
+    color: var(--fg) !important;
+    overflow-wrap: break-word !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nt-alert-mobile { font-size: 8px !important; }
+  .nt-alert-mark { font-size: 9px !important; }
+}
+
+/* =====================================================================
+   HEADER FIX: Sin números, 2 columnas
+   ===================================================================== */
+
+.nt-list-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-end !important;
+  gap: 24px !important;
+  margin-bottom: 40px !important;
+}
+
+.nt-list-titlewrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.nt-list-stats {
+  text-align: right;
+  line-height: 1.9;
+}
+
+.nt-return {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+}
+
+.nt-return a {
+  color: var(--red);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.nt-return a:hover {
+  color: var(--yellow);
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .nt-list-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+  .nt-list-stats {
+    text-align: left;
+  }
+}
+
+/* Paginación */
+.nt-pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+}
+.nt-pagination a {
+  color: var(--red);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+}
+.nt-pagination a:hover { color: var(--yellow); }
+
+/* Shortcode de figura */
+
+
+
+
+
+/* Transición suave para el Kipple */
+#nt-kipple-status {
+  transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+/* ===== ESTILO DEL REPRODUCTOR YOUTUBE ===== */
+.nt-video-wrapper {
+  margin: 2.5rem 0;
+  border: 1px solid var(--line);
+  padding: 4px;
+  background: var(--bg2);
+}
+lite-youtube {
+  max-width: 100%;
+  border: 1px solid var(--line);
+  --lyt-play-btn-bg: var(--red);
+  --lyt-play-btn-hover-bg: var(--yellow);
+}
+
+ (Surveillance, Scanline, Terminal Links)
+   ===================================================================== */
+
+/* === 1. SURVEILLANCE IMAGE === */
+
+
+
+
+
+/* El badge REC */
+
+
+
+/* === 2. SCANLINE EN EL TÍTULO === */
+.nt-post-titlewrap {
+  position: relative;
+  overflow: hidden; /* Para que la línea no se salga */
+  padding-bottom: 10px;
+}
+
+
+
+
+  20% { opacity: 0.8; }
+  80% { opacity: 0.8; }
+  100% { left: 90%; width: 10%; opacity: 0; }
+}
+
+/* === 3. TERMINAL LINKS === */
+.nt-content a {
+  transition: all 0.15s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================================
+   v42: VHS MONITOR (Restaurado exactamente como estaba)
+   ===================================================================== */
+.nt-surveillance {
+  margin: 3rem 0 !important;
+  display: block;
+}
+.nt-vhs-frame {
+  border: 1px solid var(--line);
+  background: #000;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.nt-vhs-topbar, .nt-vhs-bottombar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: #000;
+}
+.nt-vhs-topbar { border-bottom: 1px solid var(--line); }
+.nt-vhs-bottombar { border-top: 1px solid var(--line); }
+.nt-rec { color: var(--red); }
+.nt-rec-dot { animation: blink 2s steps(1) infinite; margin-right: 4px; }
+.nt-cam-id { color: var(--dim); font-weight: 400; }
+.nt-cam-play { color: var(--green); }
+.nt-cam-time { color: var(--yellow); }
+.nt-vhs-image { position: relative; display: block; background: #000; }
+.nt-vhs-image img { display: block; width: 100%; border: none !important; filter: contrast(1.05); }
+.nt-vhs-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0px, rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 3px);
+}
+.nt-surveillance figcaption {
+  padding: 10px 0 0 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  text-align: right;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+
+/* =====================================================================
+   v57: HEADERS AJUSTADOS Y CITAS BICOLOR (Toque Comunista)
+   ===================================================================== */
+
+.nt-content {  }
+
+/* --- H2: Línea inferior verde ajustada al texto --- */
+.nt-content h2 {
+    font-family: var(--mono) !important; 
+  font-size: clamp(20px, 3vw, 24px) !important;
+  font-weight: 700 !important; 
+  text-transform: uppercase !important;
+  color: var(--fg-strong) !important; 
+  
+  margin: 4rem 0 2rem 0 !important;
+  padding: 0 2rem 12px 0 !important; /* 2rem a la derecha para que la línea se extienda "un poquito más" */
+  
+  /* fit-content hace que el borde no llegue al final de la pantalla */
+  display: flex !important;
+  width: fit-content !important;
+  
+  border-top: none !important; 
+  border-bottom: 1px solid var(--green) !important; 
+  letter-spacing: -0.01em !important;
+}
+
+.nt-content h2::before {
+  content: ">> " !important;
+  color: var(--red) !important; 
+  margin-right: 8px !important; 
+  font-weight: 900 !important;
+}
+
+.nt-content h2::after {
+  display: none !important; /* Sin línea derecha */
+}
+
+/* --- H3: Línea inferior amarilla ajustada al texto --- */
+.nt-content h3 {
+    font-family: var(--mono) !important; 
+  font-size: clamp(16px, 2vw, 18px) !important;
+  font-weight: 700 !important; 
+  text-transform: none !important;
+  color: var(--yellow) !important; 
+  
+  margin: 3rem 0 1rem 0 !important;
+  padding: 0 2rem 6px 0 !important;
+  
+  display: flex !important;
+  width: fit-content !important;
+  
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px dotted var(--yellow) !important; /* Línea amarilla restaurada */
+}
+
+.nt-content h3::before {
+  content: "> " !important;
+  color: var(--dim) !important; 
+  margin-right: 8px !important; 
+  font-weight: 400 !important;
+}
+
+/* Excepción About */
+.nt-content.nt-about > h2:first-of-type {
+   
+  border: none !important; 
+  padding: 0 !important; 
+  margin-bottom: 1rem !important;
+  display: block !important; /* Volver a block en About */
+  width: 100% !important;
+}
+.nt-content.nt-about > h2:first-of-type::before {
+  content: "" !important; 
+  display: none !important;
+}
+
+
+
+
+
+
+
+/* Asegurar que los párrafos dentro de la cita fluyan bien */
+
+
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 800px) {
+  
+  
+}
+
+/* =====================================================================
+   v60: CITAS INTEGRADAS (Textura, punto verde y suavizado)
+   ===================================================================== */
+
+
+
+/* Etiqueta integrada con punto verde */
+
+
+/* El punto verde específico usando un truco de color */
+
+/* Ajustamos el padding para que el punto no choque */
+
+
+
+
+
+/* Modo claro */
+[data-theme="light"] 
+
+@media (max-width: 800px) {
+  
+  
+}
+
+/* =====================================================================
+   v61: BLOCKQUOTE FINAL (Sin sobreposiciones, textura y verde fósforo)
+   ===================================================================== */
+
+.nt-content blockquote {
+  --bq-red: #c8102e;
+  --bq-gold: #d4af37;
+
+  position: relative !important;
+  margin: 3rem 0 !important;
+  
+  /* Textura sutil de terminal */
+  background-color: var(--bg2) !important;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.02) 0px,
+    rgba(255, 255, 255, 0.02) 1px,
+    transparent 1px,
+    transparent 4px
+  ) !important;
+
+  /* Doble línea comunista a la izquierda */
+  border-left: 2px solid var(--bq-red) !important;
+  box-shadow: -2px 0 0 0 var(--bq-gold) !important;
+  
+  /* Bordes superior e inferior casi invisibles para integrarse */
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-right: none !important;
+  
+  padding: 2.2rem 1.5rem 1.5rem 1.75rem !important; 
+  
+  font-family: var(--mono) !important;
+  font-size: 0.95em !important;
+  line-height: 1.7 !important;
+  color: var(--fg) !important; 
+  font-style: normal !important;
+}
+
+/* Etiqueta flotante en el borde (Ahora en Verde Fósforo) */
+.nt-content blockquote::before {
+  content: "● // INTERCEPTED_COMMUNICATION" !important;
+  position: absolute !important;
+  top: -6px !important; 
+  left: 1.25rem !important;
+  
+  /* Fondo de la página para "cortar" el borde superior */
+  background: var(--bg) !important; 
+  padding: 0 8px !important;
+  
+  /* Color Verde del sistema */
+  color: var(--green) !important; 
+  
+  font-family: var(--mono) !important;
+  font-size: 9px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.15em !important;
+  z-index: 2 !important;
+}
+
+/* Párrafos dentro de la cita */
+.nt-content blockquote p {
+  margin-bottom: 1em !important;
+}
+.nt-content blockquote p:last-of-type {
+  margin-bottom: 0 !important;
+}
+
+/* Ajuste de modo claro */
+[data-theme="light"] .nt-content blockquote {
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.02) 0px,
+    rgba(0, 0, 0, 0.02) 1px,
+    transparent 1px,
+    transparent 4px
+  ) !important;
+  border-top-color: rgba(0, 0, 0, 0.08) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+@media (max-width: 800px) {
+  .nt-content blockquote {
+    padding: 2rem 1rem 1rem 1.25rem !important;
+  }
+  .nt-content blockquote::before {
+    left: 0.75rem !important;
+    font-size: 8px !important;
+    letter-spacing: 0.1em !important;
+  }
+}
+
+/* =====================================================================
+   TEST VHS OVERDRIVE (Grano, Tracking y Color Bleeding)
+   ===================================================================== */
+
+/* 1. Filtro de color "quemado" */
+.nt-vhs-image img {
+  filter: contrast(1.15) saturate(1.2) brightness(0.95) !important;
+}
+
+/* 2. Grano de película (usando un SVG de ruido) */
+.nt-vhs-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.nt-vhs-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.12'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* 3. Línea de Tracking (Interferencia) */
+.nt-vhs-image .nt-vhs-tracking {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 4;
+  background: linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 60%
+  );
+  background-size: 100% 200%;
+  animation: vhsTracking 6s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes vhsTracking {
+  0% { background-position: 0 -100%; }
+  100% { background-position: 0 100%; }
+}
+
+
+
+/* =====================================================================
+   v65: VHS HOME RECORDING (El VHS de barrio / Los Simpsons grabados)
+   ===================================================================== */
+
+/* 1. Imagen: Borrosa, colores sangrados y aberración cromática */
+.nt-vhs-image img {
+  /* Blur de 0.7px (pierde nitidez), saturación alta, y sombras rojas/azules */
+  filter: 
+    blur(0.7px) 
+    contrast(1.25) 
+    saturate(1.4) 
+    brightness(0.95) 
+    drop-shadow(1.5px 0 0 rgba(255, 0, 0, 0.4)) 
+    drop-shadow(-1.5px 0 0 rgba(0, 255, 255, 0.4)) !important;
+  animation: none !important; 
+}
+
+/* 2. Contenedor: Viñeta CRT + un toque de estática extra */
+.nt-vhs-image {
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 90px rgba(0,0,0,0.85); /* Esquinas bien oscuras */
+}
+
+/* 3. Scanlines y Ruido (Más intensos) */
+.nt-vhs-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.35) 0px,
+    rgba(0, 0, 0, 0.35) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+.nt-vhs-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.35'/%3E%3C/svg%3E") !important;
+  mix-blend-mode: overlay;
+}
+
+/* 4. El Head Switching Noise (La línea de interferencia de abajo) */
+.nt-vhs-image .nt-vhs-tracking {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 15%; /* Solo ocupa la parte de abajo */
+  pointer-events: none;
+  z-index: 4;
+  
+  /* Simulamos la estática y las líneas de la cinta dañada */
+  background: 
+    linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.1) 20%, rgba(0, 0, 0, 0.8) 40%, rgba(255, 255, 255, 0.2) 60%, rgba(0, 0, 0, 0.9) 100%),
+    repeating-linear-gradient(90deg, transparent 0, transparent 10px, rgba(255, 255, 255, 0.2) 10px, rgba(255, 255, 255, 0.2) 12px) !important;
+  
+  mix-blend-mode: overlay;
+  animation: none !important;
+}
+
+/* 5. Simulamos una "gota" de cinta dañada (línea blanca fija en el medio) */
+.nt-vhs-image .nt-vhs-tracking::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 5px rgba(255,255,255,0.8);
+  opacity: 0.7;
+}
+
+/* =====================================================================
+   FINAL POLISH (Los últimos 4 detalles para el 10000/10)
+   ===================================================================== */
+
+/* 1. El texto del VHS (REC/PLAY) con aberración cromática sutil */
+.nt-vhs-topbar span, 
+.nt-vhs-bottombar span {
+  text-shadow: 
+    0.5px 0 0 rgba(255, 0, 0, 0.6), 
+    -0.5px 0 0 rgba(0, 255, 255, 0.6) !important;
+}
+
+/* 2. Citas: Más aire arriba y etiqueta perfectamente alineada */
+.nt-content blockquote {
+  padding-top: 2.5rem !important; /* Un poco más de aire */
+}
+.nt-content blockquote::before {
+  top: -7px !important; /* Un pixel más arriba */
+  left: 1rem !important;
+}
+.nt-content blockquote p:first-of-type {
+  margin-top: 0.5rem !important; /* El texto no choca con la etiqueta */
+}
+
+/* 3. Notas al pie (Footnotes): Integradas a la estética comunista */
+
+
+
+/* 4. Fondo de "señal perdida" en el contenedor de la imagen */
+.nt-vhs-image {
+  background-color: #050505 !important;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px) !important;
+  background-size: 10px 10px !important;
+}
+
+/* Ajustes para Modo Claro */
+[data-theme="light"] 
+[data-theme="light"] .nt-vhs-image {
+  background-color: #111 !important;
+}
+
+
+/* =====================================================================
+   FOOTNOTES: Estado Original (Limpio, sin CLASSIFIED)
+   ===================================================================== */
+.nt-content .footnotes {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  font-family: var(--mono);
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+}
+.nt-content .footnotes::before {
+  content: "// FOOTNOTES";
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--yellow);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.nt-content .footnotes ol {
+  padding-left: 0;
+  list-style: none;
+  counter-reset: footnote;
+}
+.nt-content .footnotes li {
+  padding: 8px 0 8px 40px;
+  position: relative;
+  border-bottom: 1px dotted var(--line);
+  color: var(--dim);
+}
+.nt-content .footnotes li::before {
+  content: "[" counter(footnote) "]";
+  counter-increment: footnote;
+  position: absolute;
+  left: 0;
+  color: var(--yellow);
+  font-weight: 700;
+}
+.nt-content .footnotes a {
+  color: var(--red);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  word-break: break-word;
+}
+
+/* =====================================================================
+   READABILITY MASTER (Tipografía y Ritmo, sin tocar layout)
+   ===================================================================== */
+
+/* 1. Ajustes globales del cuerpo de texto */
+.nt-content {
+  font-size: 19px !important;
+  line-height: 1.8 !important;
+  letter-spacing: 0.015em !important;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  /* Suaviza el color del texto para evitar la fatiga visual */
+  color: #d4d4d4 !important; 
+}
+
+/* 2. El texto en negrita, los títulos y enlaces sí se quedan brillantes */
+.nt-content strong, 
+.nt-content b, 
+.nt-content h2, 
+.nt-content h3, 
+.nt-content h4 {
+  color: var(--fg-strong) !important;
+}
+
+/* 3. Espaciado perfecto entre párrafos */
+.nt-content p {
+  margin-bottom: 1.6em !important;
+  text-wrap: pretty !important; /* Evita palabras huérfanas al final de línea */
+}
+
+/* 4. Listas con más aire */
+.nt-content ul, 
+.nt-content ol {
+  margin-bottom: 1.6em !important;
+  line-height: 1.7 !important;
+}
+
+.nt-content li {
+  margin-bottom: 0.6em !important;
+}
+
+/* 5. Las citas también ganan legibilidad */
+.nt-content blockquote {
+  line-height: 1.8 !important;
+  font-size: 1em !important; /* Igual al texto del cuerpo */
+}
+
+/* =====================================================================
+   Ajustes específicos para el Modo Claro (Fondo Blanco)
+   ===================================================================== */
+[data-theme="light"] .nt-content {
+  color: #2a2a2a !important; /* Un gris muy oscuro para no lastimar en fondo blanco */
+}
+
+/* =====================================================================
+   Ajustes para Móvil (Pantallas más pequeñas)
+   ===================================================================== */
+@media (max-width: 800px) {
+  .nt-content {
+    font-size: 17px !important;
+    line-height: 1.7 !important;
+    letter-spacing: 0.01em !important;
+  }
+  .nt-content p {
+    margin-bottom: 1.4em !important;
+  }
+}
+
+
+
+
+
+
+/* =====================================================================
+   HERO SERIES PANEL (El equilibrio perfecto)
+   ===================================================================== */
+
+/* El panel vuelve al borde normal de 1px */
+.nt-hero-series-panel {
+  border: 1px solid var(--line) !important;
+  box-shadow: none !important;
+}
+
+.nt-hero-series-panel .nt-home-panel-header {
+  border-bottom: 1px solid var(--line) !important;
+  color: var(--dim) !important;
+}
+
+/* Los items de las series */
+.nt-hero-series-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px dotted var(--line);
+  border-left: 2px solid transparent;
+  font-family: var(--mono);
+  text-decoration: none;
+  transition: all 0.15s ease-in-out;
+}
+
+.nt-hero-series-item:last-child {
+  border-bottom: none;
+}
+
+/* Hover sutil: solo se enciende el borde y el título */
+.nt-hero-series-item:hover {
+  background: var(--bg);
+  border-left-color: var(--yellow);
+}
+
+.nt-series-arrow {
+  color: var(--dim);
+  font-weight: 800;
+  margin-right: 12px;
+  font-size: 14px;
+  transition: color 0.15s ease;
+}
+
+.nt-hero-series-item:hover .nt-series-arrow {
+  color: var(--yellow);
+}
+
+.nt-series-title {
+  color: var(--fg-strong);
+  font-size: 16px; /* Tamaño legible pero no gigante */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  flex: 1;
+  transition: color 0.15s ease;
+  line-height: 1.2;
+}
+
+.nt-hero-series-item:hover .nt-series-title {
+  color: var(--yellow);
+}
+
+.nt-series-count {
+  color: var(--dim);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  transition: color 0.15s ease;
+}
+
+.nt-hero-series-item:hover .nt-series-count {
+  color: var(--yellow);
+}
+
+@media (max-width: 800px) {
+  .nt-series-title { font-size: 14px; }
+  .nt-series-arrow { font-size: 12px; }
+  .nt-hero-series-item { padding: 10px 10px; }
+}
+
+/* =====================================================================
+   ANCHOR LINKS Y BOTÓN DE COPIAR
+   ===================================================================== */
+
+/* 1. Anchor Link (#) */
+
+
+/* Mostrar solo al pasar el mouse por el título */
+
+
+/* El pre pierde su margen para que el wrapper lo controle */
+.nt-code-wrapper pre {
+  margin: 0 !important;
+}
+
+.nt-copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 4px 8px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.nt-copy-btn:hover {
+  color: var(--yellow);
+  border-color: var(--yellow);
+  background: var(--bg);
+}
+
+/* Ocultar el botón en móvil (para no tapar el código) */
+@media (max-width: 800px) {
+  .nt-copy-btn { display: none; }
+   /* En móvil no hay hover, así que mostramos el # siempre */
+}
+
+
+
+/* =====================================================================
+   UNIFIED SHARE BUTTON (Igual arriba y abajo)
+   ===================================================================== */
+
+
+
+
+
+
+
+
+
+
+
+.nt-share-icon {
+  font-size: 14px;
+  font-weight: 900;
+}
+
+/* Alineación específica para el de arriba */
+
+
+/* Ajustes responsive */
+@media (max-width: 800px) {
+  
+  
+  
+}
+
+/* =====================================================================
+   CLEAR SHARE BUTTON (Solo arriba, texto dinámico)
+   ===================================================================== */
+
+.nt-share-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+
+
+
+
+
+
+.nt-share-icon {
+  font-size: 14px;
+  font-weight: 900;
+}
+
+@media (max-width: 800px) {
+  .nt-share-row {
+    justify-content: stretch;
+    margin-top: 20px;
+  }
+  
+}
+
+/* =====================================================================
+   TACTICAL SHARE BUTTON (Estilo Terminal de los 90)
+   ===================================================================== */
+
+.nt-share-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid var(--yellow);
+  color: var(--yellow);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 1 !important;
+}
+
+.nt-share-inline:hover {
+  background: var(--yellow);
+  color: var(--bg);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+}
+
+.nt-share-inline.copied {
+  border-color: var(--green);
+  color: var(--green);
+  background: transparent;
+  box-shadow: none;
+}
+
+.nt-share-icon {
+  font-size: 13px;
+  font-weight: 900;
+}
+
+@media (max-width: 800px) {
+  .nt-share-row {
+    justify-content: stretch;
+    margin-top: 20px;
+  }
+  .nt-share-inline {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+    font-size: 11px;
+  }
+}
+
+/* =====================================================================
+   MOBILE LEGIBILITY (Lectura perfecta en Celular)
+   ===================================================================== */
+
+@media (max-width: 800px) {
+  /* Márgenes laterales (20px = el "safe area" del pulgar) */
+  .nt-post-body {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 32px !important;
+  }
+
+  /* Tipografía para pantallas pequeñas */
+  .nt-content {
+    font-size: 18px !important; /* Letra más grande para leer sin forzar la vista */
+    line-height: 1.8 !important;
+    letter-spacing: 0.01em !important;
+    hyphens: auto !important; /* Corta las palabras largas con guion */
+    -webkit-hyphens: auto !important;
+  }
+
+  /* Párrafos con más aire */
+  .nt-content p {
+    margin-bottom: 1.6em !important;
+    text-wrap: pretty !important; 
+  }
+
+  /* Títulos ajustados al ancho del celular */
+  .nt-title, .nt-post-title {
+    font-size: clamp(26px, 8vw, 36px) !important;
+    line-height: 1.1 !important;
+  }
+
+  /* Headers (H2/H3) con un poquito más de margen */
+  .nt-content h2, .nt-content h3 {
+    margin-top: 2.5rem !important;
+    word-break: break-word !important;
+  }
+
+  /* El botón de compartir un poco más grande para el dedo */
+  .nt-share-inline {
+    padding: 14px 20px !important;
+    font-size: 12px !important;
+  }
+
+  /* Imágenes VHS: Ajustar para que el desenfoque no maree en pantallas chicas */
+  .nt-vhs-image img {
+    filter: contrast(1.2) saturate(1.3) sepia(0.2) !important; /* Sin blur en celular */
+  }
+
+  /* Ajustar el panel de series en el Hero */
+  .nt-hero-series-item {
+    padding: 14px 10px !important;
+  }
+  .nt-series-title {
+    font-size: 16px !important;
+  }
+}
+
+/* Pantallas muy pequeñas (iPhone SE, etc.) */
+@media (max-width: 380px) {
+  .nt-content {
+    font-size: 17px !important;
+  }
+  .nt-post-body {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}

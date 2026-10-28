@@ -65,12 +65,17 @@
             <span class="nt-hide-s">BOG_CO <span id="nt-clock">--:--:--</span></span>
         </div>
         <button class="nt-menu-btn" id="nt-menu-btn" aria-label="Abrir menú" title="/">[≡]</button>
+                <button class="nt-search-trigger" id="nt-search-trigger" aria-label="Buscar en el sistema">
+            <span class="nt-search-icon">⌕</span>
+            <span class="nt-search-label">GREP: search_dossiers...</span>
+            <span class="nt-search-shortcut">Ctrl+K</span>
+        </button>
         <button class="nt-theme-btn" id="nt-theme-toggle" aria-label="Cambiar tema" title="T">[◐]</button>
     </header>
 
     <div class="nt-alert" role="alert">
         <span class="nt-alert-mark">⚠</span>
-        <span class="nt-alert-desktop">[NT_LABS_SYS:L1621_ART44 · SESSION_START:<span id="nt-session-start">--:--:--</span>] &gt;&gt; MONITORING:ACTIVE · RESISTANCE AND UNAUTHORIZED ACCESS ARE PROHIBITED AND SUBJECT TO TERMINATION · BIENVENIDO A LA PATRIA MILAGRO · CONSENT:NOT_REQUIRED</span>
+        <span class="nt-alert-desktop">[NT_LABS_SYS:L1621_ART44 · SESSION_START:<span id="nt-session-start">--:--:--</span>] &gt;&gt; MONITORING:ACTIVE · BIENVENIDO A LA PATRIA MILAGRO · RESISTANCE AND UNAUTHORIZED ACCESS ARE PROHIBITED AND SUBJECT TO TERMINATION · CONSENT:NOT_REQUIRED</span>
         <span class="nt-alert-mobile">MONITORING:ACTIVE · BIENVENIDO A LA PATRIA MILAGRO · CONSENT:NOT_REQUIRED</span>
         <span class="nt-alert-mark">⚠</span>
     </div>
@@ -113,7 +118,7 @@
     <script>
     window.NT_POSTS = [
         {{ range where .Site.RegularPages "Section" "posts" }}
-        { title: {{ .Title | jsonify }}, url: {{ .Permalink | jsonify }}, date: {{ .Date.Format "2006-01-02" | jsonify }}, tags: [{{ range .Params.tags }}{{ . | jsonify }},{{ end }}] },
+        { title: {{ .Title | jsonify | safeJS }}, url: {{ .RelPermalink | jsonify | safeJS }}, date: {{ .Date.Format "2006-01-02" | jsonify | safeJS }}, tags: [{{ range .Params.tags }}{{ . | jsonify | safeJS }},{{ end }}] },
         {{ end }}
     ];
     </script>
@@ -255,6 +260,8 @@
         }
 
         // ---- COMMAND PALETTE ----
+        var searchBtn = document.getElementById('nt-search-trigger');
+        if (searchBtn) searchBtn.addEventListener('click', openPalette);
         var palette = document.getElementById('nt-palette');
         var pInput = document.getElementById('nt-palette-input');
         var pResults = document.getElementById('nt-palette-results');
@@ -397,5 +404,109 @@
     })();
     </script>
     {{ block "scripts" . }}{{ end }}
+
+    <script>
+    // nt-copy-logic
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.nt-content pre').forEach(pre => {
+            // Crear el contenedor
+            const wrapper = document.createElement('div');
+            wrapper.className = 'nt-code-wrapper';
+            pre.parentNode.insertBefore(wrapper, pre);
+            wrapper.appendChild(pre);
+
+            // Crear el botón
+            const btn = document.createElement('button');
+            btn.className = 'nt-copy-btn';
+            btn.innerText = '[ COPY ]';
+            btn.setAttribute('aria-label', 'Copiar código');
+            wrapper.appendChild(btn);
+
+            // Lógica de copiado
+            btn.addEventListener('click', () => {
+                const code = pre.querySelector('code');
+                if (code) {
+                    navigator.clipboard.writeText(code.innerText).then(() => {
+                        btn.innerText = '[ COPIED ]';
+                        btn.style.color = 'var(--green)';
+                        btn.style.borderColor = 'var(--green)';
+                        setTimeout(() => {
+                            btn.innerText = '[ COPY ]';
+                            btn.style.color = '';
+                            btn.style.borderColor = '';
+                        }, 2000);
+                    });
+                }
+            });
+        });
+    });
+    </script>
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    <script>
+    // nt-share-logic
+    document.addEventListener('DOMContentLoaded', () => {
+        const btns = document.querySelectorAll('.nt-share-inline');
+        const isShareSupported = !!navigator.share;
+        
+        btns.forEach(btn => {
+            const textSpan = btn.querySelector('.nt-share-text');
+            
+            // Asignar texto según el entorno
+            if (textSpan) {
+                textSpan.textContent = isShareSupported ? 'TRANSMIT' : 'EXTRACT_LINK';
+            }
+            
+            btn.addEventListener('click', async (e) => {
+                e.preventDefault();
+                const url = btn.dataset.url;
+                const title = btn.dataset.title;
+                
+                if (isShareSupported) {
+                    try {
+                        await navigator.share({ title, url });
+                        return;
+                    } catch (err) {}
+                }
+                
+                const copyToClipboard = async () => {
+                    try {
+                        await navigator.clipboard.writeText(url);
+                    } catch (err) {
+                        const ta = document.createElement('textarea');
+                        ta.value = url;
+                        document.body.appendChild(ta);
+                        ta.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(ta);
+                    }
+                    
+                    if (textSpan) textSpan.textContent = 'EXTRACTED ✓';
+                    btn.classList.add('copied');
+                    
+                    setTimeout(() => {
+                        if (textSpan) textSpan.textContent = isShareSupported ? 'TRANSMIT' : 'EXTRACT_LINK';
+                        btn.classList.remove('copied');
+                    }, 2000);
+                };
+                
+                copyToClipboard();
+            });
+        });
+    });
+    </script>
+
 </body>
 </html>

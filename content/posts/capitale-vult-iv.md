@@ -4,7 +4,7 @@ date: 2026-10-24T11:39:19-05:00
 draft: false
 dropcap: true
 ++++++toc: false
-series: [capitale-vult]
+series: ["Capitale Vult"]
 tags: [neoliberalismo, liberalismo, keynesianismo]
 ---
 Desde mediados de la década de los setenta, el término comenzó a ser utilizado frecuentemente por académicos progresistas y de izquierda para describir algo así como una doctrina de filosofía política y de economía según la cual una sociedad funcional y deseable debe organizarse en torno a instituciones políticas liberales (libertad negativa, rule of law, derechos individuales, propiedad privada y contrato) y una economía capitalista de mercado, con un Estado de bienestar modesto pero con un núcleo de obligación moral (alivio de la pobreza, seguro social, bienes públicos), una democracia instrumental y constitucionalmente limitada, y una preferencia por reglas sobre discrecionalidad y por salida sobre voz. Surge como reacción al colectivismo del siglo XX y comparte un ethos político (responsabilidad, disciplina, competencia, desconfianza del poder político) y un escepticismo epistémico selectivo (los fines individuales son incognoscibles; el marco institucional no). No es una teoría de la justicia distributiva, pero sí es una teoría de la legitimidad (contractualista) con ideales regulativos (libertarismo o anarquía filosófica) que no se traducen directamente en política por razones de factibilidad.

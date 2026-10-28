@@ -1,0 +1,25 @@
+{{ define "main" }}
+<section class="nt-list">
+    <header class="nt-list-header">
+        <div class="nt-list-titlewrap">
+            <div class="nt-post-subject">//ARCHIVE_INDEX:</div>
+            <h1 class="nt-section-title">Series</h1>
+        </div>
+        <div class="nt-list-stats">
+            NODE_PATH: /VAR/SERIES<br>
+            TOTAL_ARCHIVES: {{ len .Data.Terms }}
+        </div>
+    </header>
+    <hr class="nt-rule">
+    
+    <div class="nt-tags-grid">
+        {{ range .Data.Terms.ByCount }}
+        <a href="{{ .Page.Permalink }}" class="nt-tag-node">
+            <span class="nt-tag-hash">>></span>
+            <span class="nt-tag-name">{{ .Page.Title }}</span>
+            <span class="nt-tag-count">[{{ .Count }} files]</span>
+        </a>
+        {{ end }}
+    </div>
+</section>
+{{ end }}

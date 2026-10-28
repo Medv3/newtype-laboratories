@@ -262,13 +262,7 @@ button { font-family: inherit; color: inherit; }
 
 .nt-content a:hover { color: var(--yellow); }
 
-.nt-content blockquote {
-  margin: 2rem 0;
-  padding: 0.75rem 1.25rem;
-  border-left: 3px solid var(--red);
-  font-style: italic;
-  opacity: 0.9;
-}
+
 
 .nt-content ul,
 .nt-content ol {
@@ -303,13 +297,7 @@ button { font-family: inherit; color: inherit; }
   padding: 0;
 }
 
-.nt-content img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 2rem auto;
-  border: 1px solid var(--line);
-}
+
 
 .nt-content iframe {
   border: 1px solid var(--line);
@@ -546,15 +534,9 @@ button { font-family: inherit; color: inherit; }
 }
 
 /* === TOPBAR STATUS === */
-.nt-rec {
-  color: var(--red);
-  font-weight: 700;
-}
 
-.nt-rec-dot {
-  animation: nt-pulse-alert 1s steps(1) infinite;
-  margin-right: 4px;
-}
+
+
 
 .nt-clearance {
   padding: 2px 8px;
@@ -802,10 +784,7 @@ button { font-family: inherit; color: inherit; }
 }
 
 /* REC más sutil, no tan agresivo */
-.nt-rec {
-  color: var(--red) !important;
-  opacity: 0.9 !important;
-}
+
 
 /* Post header: el spine rojo más refinado */
 .nt-post-header {
@@ -937,10 +916,7 @@ body::before {
 .nt-typewriter,
 .nt-hide-s,
 #nt-clock,
-.nt-rec {
-  color: var(--green) !important;
-  text-shadow: 0 0 6px rgba(0, 255, 65, 0.35);
-}
+
 
 [data-theme="light"] .nt-system,
 [data-theme="light"] .nt-typewriter,
@@ -1305,26 +1281,11 @@ body::before {
 
 /* PULL QUOTES */
 .nt-pullquote,
-.nt-content blockquote.nt-pullquote {
-  margin: 2.5em -20px 2.5em -80px;
-  padding: 20px 20px 20px 24px;
-  border-left: 3px solid var(--red);
-  font-family: var(--mono);
-  font-size: 1.3em;
-  line-height: 1.4;
-  font-style: normal;
-  color: var(--fg-strong);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  text-transform: uppercase;
-  background: transparent;
-}
+
 
 @media (max-width: 900px) {
   .nt-pullquote,
-  .nt-content blockquote.nt-pullquote {
-    margin: 2em 0;
-  }
+  
 }
 
 /* EMPTY STATES */
@@ -1503,10 +1464,7 @@ body {
   }
 
   .nt-pullquote,
-  .nt-content blockquote.nt-pullquote {
-    margin: 2em 0;
-    font-size: 1.1em;
-  }
+  
 
   .nt-palette-header input { font-size: 16px; } /* evita zoom iOS */
 }
@@ -1521,11 +1479,7 @@ body {
   }
   .nt-cursor::after,
   .nt-blink,
-  .nt-rec-dot,
-  .nt-alert-mark,
-  .nt-typewriter {
-    animation: none !important;
-  }
+  
   body::before { display: none !important; }
   .nt-progress { transition: none !important; }
 }
@@ -1772,57 +1726,19 @@ body {
   color: var(--red);
 }
 
-.nt-content .footnotes {
-  margin-top: 4rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--line);
-  font-size: 13px;
-  font-family: var(--mono);
-  letter-spacing: 0.01em;
-  line-height: 1.6;
-}
 
-.nt-content .footnotes::before {
-  content: "// FOOTNOTES";
-  display: block;
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  color: var(--yellow);
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
 
-.nt-content .footnotes ol {
-  padding-left: 0;
-  list-style: none;
-}
 
-.nt-content .footnotes li {
-  padding: 8px 0 8px 40px;
-  position: relative;
-  border-bottom: 1px dotted var(--line);
-  color: var(--dim);
-}
 
-.nt-content .footnotes li::before {
-  content: "[" counter(footnote) "]";
-  counter-increment: footnote;
-  position: absolute;
-  left: 0;
-  color: var(--yellow);
-  font-weight: 700;
-}
 
-.nt-content .footnotes ol {
-  counter-reset: footnote;
-}
 
-.nt-content .footnotes a {
-  color: var(--red);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  word-break: break-word;
-}
+
+
+
+
+
+
+
 
 /* ===== ENLACES EXTERNOS (con ↗) ===== */
 .nt-content a[target="_blank"]::after {
@@ -2128,17 +2044,10 @@ body {
   .nt-content h2 { font-size: 1.2rem !important; }
   .nt-content h3 { font-size: 1rem !important; }
 
-  .nt-content blockquote {
-    padding: 12px 14px !important;
-    margin: 1.5rem 0 !important;
-  }
+  
 
   .nt-pullquote,
-  .nt-content blockquote.nt-pullquote {
-    margin: 2rem 0 !important;
-    padding: 14px 16px !important;
-    font-size: 1em !important;
-  }
+  
 
   /* Home */
   .nt-home { padding: 28px 14px 56px !important; }
@@ -2251,8 +2160,8 @@ body {
   }
 
   /* Footnotes */
-  .nt-content .footnotes { font-size: 11px !important; margin-top: 2.5rem !important; }
-  .nt-content .footnotes li { padding: 6px 0 6px 32px !important; }
+  
+  
 
   /* TOC */
   .nt-toc-aside { font-size: 10px !important; }
@@ -2734,24 +2643,9 @@ body {
 }
 
 /* ---- BLOCKQUOTE: marcador // REF: ---- */
-.nt-content blockquote:not(.nt-pullquote) {
-  padding: 16px 20px 16px 24px !important;
-  margin: 2rem 0 !important;
-  position: relative;
-}
 
-.nt-content blockquote:not(.nt-pullquote)::before {
-  content: "// REF:";
-  display: block;
-  font-family: var(--mono);
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  color: var(--yellow);
-  font-weight: 700;
-  margin-bottom: 12px;
-  font-style: normal;
-  line-height: 1;
-}
+
+
 
 /* Responsive */
 @media (max-width: 480px) {
@@ -3845,127 +3739,6 @@ body {
 }
 
 /* =====================================================================
-   FINAL POLISH: Colors & UI Micro-interactions
-   ===================================================================== */
-
-:root {
-  /* Ajustamos el rojo a uno más puro y agresivo */
-  --red: #ff2a2a;
-  --red-dim: rgba(255, 42, 42, 0.15);
-}
-
-[data-theme="light"] {
-  --red: #d32f2f;
-  --red-dim: rgba(211, 47, 47, 0.1);
-}
-
-/* 1. Selección de texto estilo terminal (Ámbar sobre negro) */
-::selection {
-  background: var(--yellow) !important;
-  color: var(--bg) !important;
-}
-
-/* 2. Scrollbar minimalista (Cyberpunk) */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg);
-  border-left: 1px solid var(--line);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--bg2);
-  border: 1px solid var(--line);
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--green);
-  border-color: var(--green);
-}
-[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
-  background: var(--red);
-  border-color: var(--red);
-}
-
-/* 3. Enlaces en el cuerpo (más precisos) */
-.nt-content a {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-  text-decoration-color: var(--red);
-  transition: color 0.2s, text-decoration-color 0.2s;
-}
-.nt-content a:hover {
-  color: var(--yellow);
-  text-decoration-color: var(--yellow);
-}
-
-/* 4. Ajuste sutil al Drop Cap para que respire mejor */
-.nt-content.dropcap > p:first-of-type::first-letter {
-  margin-top: 0.05em;
-  margin-right: 0.1em;
-}
-
-/* 5. Ajuste al Blockquote (// REF) para que el ámbar resalte más */
-.nt-content blockquote:not(.nt-pullquote)::before {
-  color: var(--yellow) !important;
-  text-shadow: 0 0 8px rgba(255, 176, 0, 0.3); /* Sutil glow de fósforo */
-}
-
-/* ===== TAGS GRID ===== */
-.nt-tags-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
-  padding: 32px 0;
-}
-
-.nt-tag-node {
-  display: flex;
-  align-items: center;
-  padding: 16px 20px;
-  border: 1px solid var(--line);
-  font-family: var(--mono);
-  text-decoration: none;
-  transition: background 0.15s, border-color 0.15s, padding-left 0.2s;
-}
-
-.nt-tag-node:hover {
-  background: var(--bg2);
-  border-color: var(--yellow);
-  padding-left: 24px;
-}
-
-.nt-tag-hash {
-  color: var(--red);
-  font-weight: 700;
-  margin-right: 8px;
-  font-size: 14px;
-}
-
-.nt-tag-name {
-  color: var(--fg-strong);
-  font-size: 14px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  flex: 1;
-}
-
-.nt-tag-count {
-  color: var(--yellow);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-}
-
-/* Asegurar que el árabe en el subtítulo se lea bien */
-.nt-post-subtitle {
-  font-family: var(--mono), 'Noto Sans Arabic', 'Tahoma', 'Arial', sans-serif !important;
-  line-height: 1.6 !important;
-}
-
-/* =====================================================================
    HEADER FIX: Sin números, 2 columnas
    ===================================================================== */
 
@@ -4040,29 +3813,10 @@ body {
 .nt-pagination a:hover { color: var(--yellow); }
 
 /* Shortcode de figura */
-.nt-figure {
-  margin: 2.5rem 0;
-}
-.nt-figure img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border: 1px solid var(--line);
-}
-.nt-figure figcaption {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--dim);
-  padding-top: 8px;
-  text-align: right;
-  border-top: 1px solid var(--line);
-  margin-top: 6px;
-}
-.nt-figure figcaption::before {
-  content: "";
-}
+
+
+
+
 
 /* Transición suave para el Kipple */
 #nt-kipple-status {
@@ -4087,35 +3841,13 @@ lite-youtube {
    ===================================================================== */
 
 /* === 1. SURVEILLANCE IMAGE === */
-.nt-surveillance {
-  position: relative;
-  overflow: hidden;
-}
 
-.nt-surveillance img {
-  filter: grayscale(100%) contrast(1.1);
-  transition: filter 0.4s ease, transform 0.4s ease;
-}
+
+
 
 
 /* El badge REC */
-.nt-cam-badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: rgba(10, 10, 10, 0.8);
-  color: var(--red);
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  padding: 4px 8px;
-  border: 1px solid var(--red);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 2;
-  pointer-events: none;
-}
+
 
 
 /* === 2. SCANLINE EN EL TÍTULO === */
@@ -4125,21 +3857,9 @@ lite-youtube {
   padding-bottom: 10px;
 }
 
-.nt-post-titlewrap::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 1px;
-  width: 30%;
-  background: var(--green);
-  box-shadow: 0 0 8px var(--green);
-  opacity: 0.6;
-  animation: nt-scan-title 4s ease-in-out infinite;
-}
 
-@keyframes nt-scan-title {
-  0% { left: 0%; width: 10%; opacity: 0; }
+
+
   20% { opacity: 0.8; }
   80% { opacity: 0.8; }
   100% { left: 90%; width: 10%; opacity: 0; }
@@ -4154,121 +3874,6 @@ lite-youtube {
 
 
 
-/* =====================================================================
-   v31: SOBRIEDAD Y JERARQUÍA (Archivo Negro)
-   ===================================================================== */
-
-/* === 1. ENCABEZADOS H2: Caja cerrada y numeración === */
-.nt-content { counter-reset: h2counter; }
-
-.nt-content h2 {
-  counter-reset: h3counter; 
-  counter-increment: h2counter;
-  font-family: var(--mono) !important; 
-  font-size: clamp(20px, 3vw, 24px) !important;
-  font-weight: 700 !important; 
-  text-transform: uppercase !important;
-  color: var(--fg-strong) !important; 
-  margin: 4rem 0 2rem 0 !important;
-  padding: 1rem 0 !important; 
-  border-top: 1px solid var(--line) !important; 
-  border-bottom: 1px solid var(--line) !important;
-  display: flex !important; 
-  align-items: center !important; 
-  letter-spacing: -0.01em !important;
-}
-
-/* El prefijo >> 01 */
-.nt-content h2::before {
-  content: ">> " counter(h2counter, decimal-leading-zero) " " !important;
-  color: var(--red) !important; 
-  margin-right: 12px !important; 
-  font-weight: 900 !important;
-}
-
-/* === 2. ENCABEZADOS H3: Subsecciones === */
-.nt-content h3 {
-  counter-increment: h3counter;
-  font-family: var(--mono) !important; 
-  font-size: clamp(16px, 2vw, 18px) !important;
-  font-weight: 700 !important; 
-  text-transform: none !important;
-  color: var(--yellow) !important; 
-  margin: 3rem 0 1rem 0 !important;
-  padding: 0 !important; 
-  border: none !important;
-}
-
-.nt-content h3::before {
-  content: "> " counter(h2counter, decimal-leading-zero) "." counter(h3counter, decimal-leading-zero) " " !important;
-  color: var(--dim) !important; 
-  margin-right: 8px !important; 
-  font-weight: 400 !important;
-}
-
-/* === 3. EXCEPCIÓN: Título de About (Intacto) === */
-.nt-content.nt-about > h2:first-of-type {
-  counter-increment: none !important; 
-  border: none !important; 
-  padding: 0 !important; 
-  margin-bottom: 1rem !important;
-}
-.nt-content.nt-about > h2:first-of-type::before {
-  content: "" !important; 
-  display: none !important;
-}
-
-/* === 4. ENLACES: Subrayado sobrio === */
-.nt-content a {
-  color: var(--red) !important;
-  text-decoration: underline !important;
-  text-decoration-thickness: 1px !important;
-  text-underline-offset: 3px !important;
-  transition: color 0.15s ease !important;
-}
-.nt-content a:hover {
-  color: var(--yellow) !important;
-}
-.nt-content a[target="_blank"]::after {
-  content: " ↗";
-  font-size: 0.85em;
-  color: var(--dim);
-}
-
-/* =====================================================================
-   v32: SURVEILLANCE BADGE (Estático, sin distracciones)
-   ===================================================================== */
-
-.nt-surveillance {
-  position: relative;
-  overflow: hidden;
-}
-
-/* El badge REC: siempre visible, pero sutil para no tapar la imagen */
-.nt-cam-badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: rgba(10, 10, 10, 0.85);
-  color: var(--red);
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  padding: 4px 8px;
-  border: 1px solid var(--red);
-  z-index: 2;
-  pointer-events: none; /* No interfiere con clics */
-  opacity: 0.8; /* Ligeramente transparente para que no sea agresivo */
-}
-
-/* Aseguramos que las imágenes se vean normales, sin filtros ni hover */
-.nt-surveillance img {
-  filter: none !important;
-  transform: none !important;
-}
-
-
 
 
 
@@ -4278,15 +3883,12 @@ lite-youtube {
 
 
 /* =====================================================================
-   v42: CLINICAL SURVEILLANCE (Flat, Brutalista, Sin 3D)
+   v42: VHS MONITOR (Restaurado exactamente como estaba)
    ===================================================================== */
-
 .nt-surveillance {
   margin: 3rem 0 !important;
   display: block;
 }
-
-/* El marco: solo un borde fino de 1px, sin padding ni redondeos */
 .nt-vhs-frame {
   border: 1px solid var(--line);
   background: #000;
@@ -4294,8 +3896,6 @@ lite-youtube {
   border-radius: 0;
   box-shadow: none;
 }
-
-/* Las barras VHS (negras, planas) */
 .nt-vhs-topbar, .nt-vhs-bottombar {
   display: flex;
   justify-content: space-between;
@@ -4308,47 +3908,22 @@ lite-youtube {
   text-transform: uppercase;
   background: #000;
 }
-
 .nt-vhs-topbar { border-bottom: 1px solid var(--line); }
 .nt-vhs-bottombar { border-top: 1px solid var(--line); }
-
-/* Colores de los textos */
 .nt-rec { color: var(--red); }
 .nt-rec-dot { animation: blink 2s steps(1) infinite; margin-right: 4px; }
 .nt-cam-id { color: var(--dim); font-weight: 400; }
 .nt-cam-play { color: var(--green); }
 .nt-cam-time { color: var(--yellow); }
-
-/* La imagen: con un rayado sutil encima (usando un pseudo-elemento en el contenedor) */
-.nt-vhs-image {
-  position: relative;
-  display: block;
-  background: #000;
-}
-
-.nt-vhs-image img {
-  display: block;
-  width: 100%;
-  border: none !important;
-  filter: contrast(1.05); /* Un toque muy sutil de contraste, nada de vintage */
-}
-
-/* Las scanlines sutiles (el único efecto de "pantalla") */
+.nt-vhs-image { position: relative; display: block; background: #000; }
+.nt-vhs-image img { display: block; width: 100%; border: none !important; filter: contrast(1.05); }
 .nt-vhs-image::after {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.15) 0px,
-    rgba(0, 0, 0, 0.15) 1px,
-    transparent 1px,
-    transparent 3px
-  );
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0px, rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 3px);
 }
-
-/* Pie de foto */
 .nt-surveillance figcaption {
   padding: 10px 0 0 0 !important;
   margin: 0 !important;
@@ -4360,4 +3935,1388 @@ lite-youtube {
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+
+/* =====================================================================
+   v57: HEADERS AJUSTADOS Y CITAS BICOLOR (Toque Comunista)
+   ===================================================================== */
+
+.nt-content {  }
+
+/* --- H2: Línea inferior verde ajustada al texto --- */
+.nt-content h2 {
+    font-family: var(--mono) !important; 
+  font-size: clamp(20px, 3vw, 24px) !important;
+  font-weight: 700 !important; 
+  text-transform: uppercase !important;
+  color: var(--fg-strong) !important; 
+  
+  margin: 4rem 0 2rem 0 !important;
+  padding: 0 2rem 12px 0 !important; /* 2rem a la derecha para que la línea se extienda "un poquito más" */
+  
+  /* fit-content hace que el borde no llegue al final de la pantalla */
+  display: flex !important;
+  width: fit-content !important;
+  
+  border-top: none !important; 
+  border-bottom: 1px solid var(--green) !important; 
+  letter-spacing: -0.01em !important;
+}
+
+.nt-content h2::before {
+  content: ">> " !important;
+  color: var(--red) !important; 
+  margin-right: 8px !important; 
+  font-weight: 900 !important;
+}
+
+.nt-content h2::after {
+  display: none !important; /* Sin línea derecha */
+}
+
+/* --- H3: Línea inferior amarilla ajustada al texto --- */
+.nt-content h3 {
+    font-family: var(--mono) !important; 
+  font-size: clamp(16px, 2vw, 18px) !important;
+  font-weight: 700 !important; 
+  text-transform: none !important;
+  color: var(--yellow) !important; 
+  
+  margin: 3rem 0 1rem 0 !important;
+  padding: 0 2rem 6px 0 !important;
+  
+  display: flex !important;
+  width: fit-content !important;
+  
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px dotted var(--yellow) !important; /* Línea amarilla restaurada */
+}
+
+.nt-content h3::before {
+  content: "> " !important;
+  color: var(--dim) !important; 
+  margin-right: 8px !important; 
+  font-weight: 400 !important;
+}
+
+/* Excepción About */
+.nt-content.nt-about > h2:first-of-type {
+   
+  border: none !important; 
+  padding: 0 !important; 
+  margin-bottom: 1rem !important;
+  display: block !important; /* Volver a block en About */
+  width: 100% !important;
+}
+.nt-content.nt-about > h2:first-of-type::before {
+  content: "" !important; 
+  display: none !important;
+}
+
+
+
+
+
+
+
+/* Asegurar que los párrafos dentro de la cita fluyan bien */
+
+
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 800px) {
+  
+  
+}
+
+/* =====================================================================
+   v60: CITAS INTEGRADAS (Textura, punto verde y suavizado)
+   ===================================================================== */
+
+
+
+/* Etiqueta integrada con punto verde */
+
+
+/* El punto verde específico usando un truco de color */
+
+/* Ajustamos el padding para que el punto no choque */
+
+
+
+
+
+/* Modo claro */
+[data-theme="light"] 
+
+@media (max-width: 800px) {
+  
+  
+}
+
+/* =====================================================================
+   v61: BLOCKQUOTE FINAL (Sin sobreposiciones, textura y verde fósforo)
+   ===================================================================== */
+
+.nt-content blockquote {
+  --bq-red: #c8102e;
+  --bq-gold: #d4af37;
+
+  position: relative !important;
+  margin: 3rem 0 !important;
+  
+  /* Textura sutil de terminal */
+  background-color: var(--bg2) !important;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.02) 0px,
+    rgba(255, 255, 255, 0.02) 1px,
+    transparent 1px,
+    transparent 4px
+  ) !important;
+
+  /* Doble línea comunista a la izquierda */
+  border-left: 2px solid var(--bq-red) !important;
+  box-shadow: -2px 0 0 0 var(--bq-gold) !important;
+  
+  /* Bordes superior e inferior casi invisibles para integrarse */
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-right: none !important;
+  
+  padding: 2.2rem 1.5rem 1.5rem 1.75rem !important; 
+  
+  font-family: var(--mono) !important;
+  font-size: 0.95em !important;
+  line-height: 1.7 !important;
+  color: var(--fg) !important; 
+  font-style: normal !important;
+}
+
+/* Etiqueta flotante en el borde (Ahora en Verde Fósforo) */
+.nt-content blockquote::before {
+  content: "● // INTERCEPTED_COMMUNICATION" !important;
+  position: absolute !important;
+  top: -6px !important; 
+  left: 1.25rem !important;
+  
+  /* Fondo de la página para "cortar" el borde superior */
+  background: var(--bg) !important; 
+  padding: 0 8px !important;
+  
+  /* Color Verde del sistema */
+  color: var(--green) !important; 
+  
+  font-family: var(--mono) !important;
+  font-size: 9px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.15em !important;
+  z-index: 2 !important;
+}
+
+/* Párrafos dentro de la cita */
+.nt-content blockquote p {
+  margin-bottom: 1em !important;
+}
+.nt-content blockquote p:last-of-type {
+  margin-bottom: 0 !important;
+}
+
+/* Ajuste de modo claro */
+[data-theme="light"] .nt-content blockquote {
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.02) 0px,
+    rgba(0, 0, 0, 0.02) 1px,
+    transparent 1px,
+    transparent 4px
+  ) !important;
+  border-top-color: rgba(0, 0, 0, 0.08) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+@media (max-width: 800px) {
+  .nt-content blockquote {
+    padding: 2rem 1rem 1rem 1.25rem !important;
+  }
+  .nt-content blockquote::before {
+    left: 0.75rem !important;
+    font-size: 8px !important;
+    letter-spacing: 0.1em !important;
+  }
+}
+
+/* =====================================================================
+   TEST VHS OVERDRIVE (Grano, Tracking y Color Bleeding)
+   ===================================================================== */
+
+/* 1. Filtro de color "quemado" */
+.nt-vhs-image img {
+  filter: contrast(1.15) saturate(1.2) brightness(0.95) !important;
+}
+
+/* 2. Grano de película (usando un SVG de ruido) */
+.nt-vhs-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.nt-vhs-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.12'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* 3. Línea de Tracking (Interferencia) */
+.nt-vhs-image .nt-vhs-tracking {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 4;
+  background: linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 60%
+  );
+  background-size: 100% 200%;
+  animation: vhsTracking 6s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes vhsTracking {
+  0% { background-position: 0 -100%; }
+  100% { background-position: 0 100%; }
+}
+
+
+
+/* =====================================================================
+   v65: VHS HOME RECORDING (El VHS de barrio / Los Simpsons grabados)
+   ===================================================================== */
+
+/* 1. Imagen: Borrosa, colores sangrados y aberración cromática */
+.nt-vhs-image img {
+  /* Blur de 0.7px (pierde nitidez), saturación alta, y sombras rojas/azules */
+  filter: 
+    blur(0.7px) 
+    contrast(1.25) 
+    saturate(1.4) 
+    brightness(0.95) 
+    drop-shadow(1.5px 0 0 rgba(255, 0, 0, 0.4)) 
+    drop-shadow(-1.5px 0 0 rgba(0, 255, 255, 0.4)) !important;
+  animation: none !important; 
+}
+
+/* 2. Contenedor: Viñeta CRT + un toque de estática extra */
+.nt-vhs-image {
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 90px rgba(0,0,0,0.85); /* Esquinas bien oscuras */
+}
+
+/* 3. Scanlines y Ruido (Más intensos) */
+.nt-vhs-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.35) 0px,
+    rgba(0, 0, 0, 0.35) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+.nt-vhs-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.35'/%3E%3C/svg%3E") !important;
+  mix-blend-mode: overlay;
+}
+
+/* 4. El Head Switching Noise (La línea de interferencia de abajo) */
+.nt-vhs-image .nt-vhs-tracking {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 15%; /* Solo ocupa la parte de abajo */
+  pointer-events: none;
+  z-index: 4;
+  
+  /* Simulamos la estática y las líneas de la cinta dañada */
+  background: 
+    linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.1) 20%, rgba(0, 0, 0, 0.8) 40%, rgba(255, 255, 255, 0.2) 60%, rgba(0, 0, 0, 0.9) 100%),
+    repeating-linear-gradient(90deg, transparent 0, transparent 10px, rgba(255, 255, 255, 0.2) 10px, rgba(255, 255, 255, 0.2) 12px) !important;
+  
+  mix-blend-mode: overlay;
+  animation: none !important;
+}
+
+/* 5. Simulamos una "gota" de cinta dañada (línea blanca fija en el medio) */
+.nt-vhs-image .nt-vhs-tracking::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 5px rgba(255,255,255,0.8);
+  opacity: 0.7;
+}
+
+/* =====================================================================
+   FINAL POLISH (Los últimos 4 detalles para el 10000/10)
+   ===================================================================== */
+
+/* 1. El texto del VHS (REC/PLAY) con aberración cromática sutil */
+.nt-vhs-topbar span, 
+.nt-vhs-bottombar span {
+  text-shadow: 
+    0.5px 0 0 rgba(255, 0, 0, 0.6), 
+    -0.5px 0 0 rgba(0, 255, 255, 0.6) !important;
+}
+
+/* 2. Citas: Más aire arriba y etiqueta perfectamente alineada */
+.nt-content blockquote {
+  padding-top: 2.5rem !important; /* Un poco más de aire */
+}
+.nt-content blockquote::before {
+  top: -7px !important; /* Un pixel más arriba */
+  left: 1rem !important;
+}
+.nt-content blockquote p:first-of-type {
+  margin-top: 0.5rem !important; /* El texto no choca con la etiqueta */
+}
+
+/* 3. Notas al pie (Footnotes): Integradas a la estética comunista */
+
+
+
+/* 4. Fondo de "señal perdida" en el contenedor de la imagen */
+.nt-vhs-image {
+  background-color: #050505 !important;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px) !important;
+  background-size: 10px 10px !important;
+}
+
+/* Ajustes para Modo Claro */
+[data-theme="light"] 
+[data-theme="light"] .nt-vhs-image {
+  background-color: #111 !important;
+}
+
+
+/* =====================================================================
+   FOOTNOTES: Estado Original (Limpio, sin CLASSIFIED)
+   ===================================================================== */
+.nt-content .footnotes {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  font-family: var(--mono);
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+}
+.nt-content .footnotes::before {
+  content: "// FOOTNOTES";
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--yellow);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.nt-content .footnotes ol {
+  padding-left: 0;
+  list-style: none;
+  counter-reset: footnote;
+}
+.nt-content .footnotes li {
+  padding: 8px 0 8px 40px;
+  position: relative;
+  border-bottom: 1px dotted var(--line);
+  color: var(--dim);
+}
+.nt-content .footnotes li::before {
+  content: "[" counter(footnote) "]";
+  counter-increment: footnote;
+  position: absolute;
+  left: 0;
+  color: var(--yellow);
+  font-weight: 700;
+}
+.nt-content .footnotes a {
+  color: var(--red);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  word-break: break-word;
+}
+
+/* =====================================================================
+   READABILITY MASTER (Tipografía y Ritmo, sin tocar layout)
+   ===================================================================== */
+
+/* 1. Ajustes globales del cuerpo de texto */
+.nt-content {
+  font-size: 19px !important;
+  line-height: 1.8 !important;
+  letter-spacing: 0.015em !important;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  /* Suaviza el color del texto para evitar la fatiga visual */
+  color: #d4d4d4 !important; 
+}
+
+/* 2. El texto en negrita, los títulos y enlaces sí se quedan brillantes */
+.nt-content strong, 
+.nt-content b, 
+.nt-content h2, 
+.nt-content h3, 
+.nt-content h4 {
+  color: var(--fg-strong) !important;
+}
+
+/* 3. Espaciado perfecto entre párrafos */
+.nt-content p {
+  margin-bottom: 1.6em !important;
+  text-wrap: pretty !important; /* Evita palabras huérfanas al final de línea */
+}
+
+/* 4. Listas con más aire */
+.nt-content ul, 
+.nt-content ol {
+  margin-bottom: 1.6em !important;
+  line-height: 1.7 !important;
+}
+
+.nt-content li {
+  margin-bottom: 0.6em !important;
+}
+
+/* 5. Las citas también ganan legibilidad */
+.nt-content blockquote {
+  line-height: 1.8 !important;
+  font-size: 1em !important; /* Igual al texto del cuerpo */
+}
+
+/* =====================================================================
+   Ajustes específicos para el Modo Claro (Fondo Blanco)
+   ===================================================================== */
+[data-theme="light"] .nt-content {
+  color: #2a2a2a !important; /* Un gris muy oscuro para no lastimar en fondo blanco */
+}
+
+/* =====================================================================
+   Ajustes para Móvil (Pantallas más pequeñas)
+   ===================================================================== */
+@media (max-width: 800px) {
+  .nt-content {
+    font-size: 17px !important;
+    line-height: 1.7 !important;
+    letter-spacing: 0.01em !important;
+  }
+  .nt-content p {
+    margin-bottom: 1.4em !important;
+  }
+}
+
+
+
+
+
+
+/* =====================================================================
+   HERO SERIES PANEL (El equilibrio perfecto)
+   ===================================================================== */
+
+/* El panel vuelve al borde normal de 1px */
+.nt-hero-series-panel {
+  border: 1px solid var(--line) !important;
+  box-shadow: none !important;
+}
+
+.nt-hero-series-panel .nt-home-panel-header {
+  border-bottom: 1px solid var(--line) !important;
+  color: var(--dim) !important;
+}
+
+/* Los items de las series */
+.nt-hero-series-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px dotted var(--line);
+  border-left: 2px solid transparent;
+  font-family: var(--mono);
+  text-decoration: none;
+  transition: all 0.15s ease-in-out;
+}
+
+.nt-hero-series-item:last-child {
+  border-bottom: none;
+}
+
+/* Hover sutil: solo se enciende el borde y el título */
+.nt-hero-series-item:hover {
+  background: var(--bg);
+  border-left-color: var(--yellow);
+}
+
+.nt-series-arrow {
+  color: var(--dim);
+  font-weight: 800;
+  margin-right: 12px;
+  font-size: 14px;
+  transition: color 0.15s ease;
+}
+
+.nt-hero-series-item:hover .nt-series-arrow {
+  color: var(--yellow);
+}
+
+.nt-series-title {
+  color: var(--fg-strong);
+  font-size: 16px; /* Tamaño legible pero no gigante */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  flex: 1;
+  transition: color 0.15s ease;
+  line-height: 1.2;
+}
+
+.nt-hero-series-item:hover .nt-series-title {
+  color: var(--yellow);
+}
+
+.nt-series-count {
+  color: var(--dim);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  transition: color 0.15s ease;
+}
+
+.nt-hero-series-item:hover .nt-series-count {
+  color: var(--yellow);
+}
+
+@media (max-width: 800px) {
+  .nt-series-title { font-size: 14px; }
+  .nt-series-arrow { font-size: 12px; }
+  .nt-hero-series-item { padding: 10px 10px; }
+}
+
+/* =====================================================================
+   ANCHOR LINKS Y BOTÓN DE COPIAR
+   ===================================================================== */
+
+/* 1. Anchor Link (#) */
+
+
+/* Mostrar solo al pasar el mouse por el título */
+
+
+/* El pre pierde su margen para que el wrapper lo controle */
+.nt-code-wrapper pre {
+  margin: 0 !important;
+}
+
+.nt-copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 4px 8px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.nt-copy-btn:hover {
+  color: var(--yellow);
+  border-color: var(--yellow);
+  background: var(--bg);
+}
+
+/* Ocultar el botón en móvil (para no tapar el código) */
+@media (max-width: 800px) {
+  .nt-copy-btn { display: none; }
+   /* En móvil no hay hover, así que mostramos el # siempre */
+}
+
+
+
+/* =====================================================================
+   UNIFIED SHARE BUTTON (Igual arriba y abajo)
+   ===================================================================== */
+
+
+
+
+
+
+
+
+
+
+
+.nt-share-icon {
+  font-size: 14px;
+  font-weight: 900;
+}
+
+/* Alineación específica para el de arriba */
+
+
+/* Ajustes responsive */
+@media (max-width: 800px) {
+  
+  
+  
+}
+
+/* =====================================================================
+   CLEAR SHARE BUTTON (Solo arriba, texto dinámico)
+   ===================================================================== */
+
+.nt-share-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+
+
+
+
+
+
+.nt-share-icon {
+  font-size: 14px;
+  font-weight: 900;
+}
+
+@media (max-width: 800px) {
+  .nt-share-row {
+    justify-content: stretch;
+    margin-top: 20px;
+  }
+  
+}
+
+/* =====================================================================
+   TACTICAL SHARE BUTTON (Estilo Terminal de los 90)
+   ===================================================================== */
+
+.nt-share-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid var(--yellow);
+  color: var(--yellow);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 1 !important;
+}
+
+.nt-share-inline:hover {
+  background: var(--yellow);
+  color: var(--bg);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+}
+
+.nt-share-inline.copied {
+  border-color: var(--green);
+  color: var(--green);
+  background: transparent;
+  box-shadow: none;
+}
+
+.nt-share-icon {
+  font-size: 13px;
+  font-weight: 900;
+}
+
+@media (max-width: 800px) {
+  .nt-share-row {
+    justify-content: stretch;
+    margin-top: 20px;
+  }
+  .nt-share-inline {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+    font-size: 11px;
+  }
+}
+
+/* =====================================================================
+   MOBILE LEGIBILITY (Lectura perfecta en Celular)
+   ===================================================================== */
+
+@media (max-width: 800px) {
+  /* Márgenes laterales (20px = el "safe area" del pulgar) */
+  .nt-post-body {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 32px !important;
+  }
+
+  /* Tipografía para pantallas pequeñas */
+  .nt-content {
+    font-size: 18px !important; /* Letra más grande para leer sin forzar la vista */
+    line-height: 1.8 !important;
+    letter-spacing: 0.01em !important;
+    hyphens: auto !important; /* Corta las palabras largas con guion */
+    -webkit-hyphens: auto !important;
+  }
+
+  /* Párrafos con más aire */
+  .nt-content p {
+    margin-bottom: 1.6em !important;
+    text-wrap: pretty !important; 
+  }
+
+  /* Títulos ajustados al ancho del celular */
+  .nt-title, .nt-post-title {
+    font-size: clamp(26px, 8vw, 36px) !important;
+    line-height: 1.1 !important;
+  }
+
+  /* Headers (H2/H3) con un poquito más de margen */
+  .nt-content h2, .nt-content h3 {
+    margin-top: 2.5rem !important;
+    word-break: break-word !important;
+  }
+
+  /* El botón de compartir un poco más grande para el dedo */
+  .nt-share-inline {
+    padding: 14px 20px !important;
+    font-size: 12px !important;
+  }
+
+  /* Imágenes VHS: Ajustar para que el desenfoque no maree en pantallas chicas */
+  .nt-vhs-image img {
+    filter: contrast(1.2) saturate(1.3) sepia(0.2) !important; /* Sin blur en celular */
+  }
+
+  /* Ajustar el panel de series en el Hero */
+  .nt-hero-series-item {
+    padding: 14px 10px !important;
+  }
+  .nt-series-title {
+    font-size: 16px !important;
+  }
+}
+
+/* Pantallas muy pequeñas (iPhone SE, etc.) */
+@media (max-width: 380px) {
+  .nt-content {
+    font-size: 17px !important;
+  }
+  .nt-post-body {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+/* =====================================================================
+   FIX: Modo claro cálido + Blockquotes móvil más pequeños
+   ===================================================================== */
+
+/* 1. Modo claro: menos blanco, más "papel" */
+[data-theme="light"] {
+  --bg: #e8e3d8;       /* Papel envejecido, cálido */
+  --bg2: #ddd7c9;      /* Secundario un poco más oscuro */
+  --fg: #1a1a1a;       /* Texto principal */
+  --fg-strong: #000000; /* Títulos siguen negros */
+  --line: rgba(26, 26, 26, 0.18);  /* Líneas un poco más visibles */
+}
+
+/* 2. Blockquotes en móvil: proporcional y legible */
+@media (max-width: 800px) {
+  .nt-content blockquote {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    padding: 2rem 1rem 1rem 1.25rem !important;
+    margin: 2rem 0 !important;
+  }
+  
+  .nt-content blockquote::before {
+    font-size: 8px !important;
+    left: 0.75rem !important;
+    letter-spacing: 0.1em !important;
+  }
+  
+  /* En móvil, que las citas no se alejen de los márgenes del texto */
+  .nt-content blockquote p {
+    margin-bottom: 0.8em !important;
+  }
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 380px) {
+  .nt-content blockquote {
+    font-size: 14px !important;
+    padding: 1.8rem 0.9rem 0.9rem 1.1rem !important;
+  }
+}
+
+/* =====================================================================
+   LIGHT MODE v2: Papel en capas (Jerarquía visual real)
+   ===================================================================== */
+
+/* 1. Paleta de papel en capas + acentos con contraste real */
+[data-theme="light"] {
+  --bg: #e5dfd1;           /* Papel principal (crema) */
+  --bg2: #d4ccb8;          /* Paneles, topbar, headers (más oscuro) */
+  --bg3: #c4bba4;          /* Cajas internas (dossier, code blocks) */
+  --fg: #1a1815;           /* Texto (casi negro, cálido) */
+  --fg-strong: #000000;    /* Títulos */
+  --dim: #5a5245;          /* Gris cálido visible (no se lava) */
+  --faint: #8a7f6c;        /* Gris medio */
+  --line: rgba(26, 24, 21, 0.22);  /* Líneas visibles */
+  --red: #a81f1f;          /* Rojo profundo, contraste AAA */
+  --yellow: #8a6500;       /* Ámbar oscuro (se lee bien) */
+  --green: #005c1f;        /* Verde profundo */
+}
+
+/* 2. TOPBAR: usa bg2 para diferenciarse del fondo principal */
+[data-theme="light"] .nt-topbar {
+  background: var(--bg2) !important;
+}
+
+/* 3. Alert banner: fondo cálido con borde rojo visible */
+[data-theme="light"] .nt-alert {
+  background: rgba(168, 31, 31, 0.06) !important;
+  color: var(--red) !important;
+  border-bottom-color: var(--red) !important;
+}
+
+/* 4. PANELES (Home): bg2 para destacar */
+[data-theme="light"] .nt-home-panel {
+  background: var(--bg2) !important;
+  border-color: var(--line) !important;
+}
+
+[data-theme="light"] .nt-home-panel-header {
+  background: var(--bg3) !important;
+  border-bottom-color: var(--line) !important;
+}
+
+/* 5. ASIDE (FILE_META, TOC): bg2 sutil */
+[data-theme="light"] .nt-aside-block {
+  background: var(--bg2);
+  padding: 12px;
+  margin-left: -12px;
+}
+
+/* 6. DOSSIER Y METADATOS: bg2 con padding */
+[data-theme="light"] .nt-post-meta,
+[data-theme="light"] .nt-post-readout {
+  background: var(--bg2);
+  padding: 8px 12px;
+  margin-left: -12px;
+  margin-right: -12px;
+}
+
+/* 7. BLOCKQUOTES: bg2 cálido */
+[data-theme="light"] .nt-content blockquote {
+  background: var(--bg2) !important;
+  border-top-color: rgba(26, 24, 21, 0.12) !important;
+  border-bottom-color: rgba(26, 24, 21, 0.12) !important;
+}
+
+[data-theme="light"] .nt-content blockquote::before {
+  background: var(--bg2) !important;
+  color: var(--green) !important;
+}
+
+/* 8. H3 y sus fondos: bg2 */
+[data-theme="light"] .nt-content h3 {
+  background: var(--bg2) !important;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: -16px;
+  margin-right: -16px;
+}
+
+/* 9. Bloque de código: bg3 para contraste interno */
+[data-theme="light"] .nt-content pre,
+[data-theme="light"] .nt-content code {
+  background: var(--bg3) !important;
+  border-color: var(--line) !important;
+}
+
+[data-theme="light"] .nt-copy-btn {
+  background: var(--bg3);
+  border-color: var(--line);
+  color: var(--dim);
+}
+
+/* 10. Filas de la home (recent intake) */
+[data-theme="light"] .nt-post-item a:hover {
+  background: var(--bg2) !important;
+}
+
+/* 11. Header de series en el hero */
+[data-theme="light"] .nt-hero-series-item:hover {
+  background: var(--bg3) !important;
+}
+
+/* 12. Footer: bg2 para cerrar la página */
+[data-theme="light"] .nt-footer {
+  background: var(--bg2) !important;
+}
+
+/* 13. Botón de compartir: borde amarillo más visible */
+[data-theme="light"] .nt-share-inline {
+  color: var(--yellow) !important;
+  border-color: var(--yellow) !important;
+}
+
+[data-theme="light"] .nt-share-inline:hover {
+  background: var(--yellow) !important;
+  color: var(--bg) !important;
+}
+
+/* 14. Sello MONITORED: contraste en claro */
+[data-theme="light"] .nt-stamp {
+  background: var(--bg) !important;
+  color: var(--red) !important;
+  border-color: var(--red) !important;
+}
+
+/* 15. Footer final (END_OF_LOG) */
+[data-theme="light"] .nt-footer-final {
+  color: var(--red) !important;
+}
+
+/* 16. Status bar (si existe) */
+[data-theme="light"] .nt-status-bar {
+  background: var(--bg2) !important;
+}
+
+/* 17. VHS frame: en modo claro, las barras negras resaltan bien, pero el texto del HUD debe ser visible */
+[data-theme="light"] .nt-vhs-topbar span,
+[data-theme="light"] .nt-vhs-bottombar span {
+  color: #fff !important;
+}
+
+/* =====================================================================
+   FIX: Headers sin duplicación de símbolos en wrap
+   ===================================================================== */
+
+/* H2: >> colgando a la izquierda, texto fluye natural */
+.nt-content h2 {
+  display: block !important;
+  position: relative !important;
+  padding-left: 2em !important; /* Espacio para el símbolo */
+  text-indent: -2em !important; /* El símbolo se sale a la izquierda */
+}
+
+.nt-content h2::before {
+  content: ">> " !important;
+  display: inline !important;
+  color: var(--red) !important;
+  font-weight: 900 !important;
+  margin-right: 0 !important;
+}
+
+.nt-content h2::after {
+  display: none !important; /* Quita la línea derecha que se veía rara */
+}
+
+/* H3: > colgando a la izquierda, texto fluye natural */
+.nt-content h3 {
+  display: block !important;
+  position: relative !important;
+  padding-left: 1.5em !important;
+  text-indent: -1.5em !important;
+}
+
+.nt-content h3::before {
+  content: "> " !important;
+  display: inline !important;
+  color: var(--yellow) !important;
+  font-weight: 700 !important;
+  margin-right: 0 !important;
+}
+
+/* Excepción About: sin símbolos */
+.nt-content.nt-about > h2:first-of-type {
+  padding-left: 0 !important;
+  text-indent: 0 !important;
+}
+
+.nt-content.nt-about > h2:first-of-type::before {
+  content: "" !important;
+  display: none !important;
+}
+
+/* Móvil: ajustar indentación */
+@media (max-width: 800px) {
+  .nt-content h2 {
+    padding-left: 1.5em !important;
+    text-indent: -1.5em !important;
+  }
+  .nt-content h3 {
+    padding-left: 1.2em !important;
+    text-indent: -1.2em !important;
+  }
+}
+
+/* =====================================================================
+   BOTÓN DE BÚSQUEDA EN TOPBAR
+   ===================================================================== */
+
+.nt-search-btn {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--fg);
+  font-family: var(--mono);
+  font-size: 13px;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-left: auto; /* Empuja el botón hacia la derecha */
+  margin-right: 8px;
+}
+
+.nt-search-btn:hover {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+/* Móvil: Ocultar el botón de búsqueda (porque ya está en el menú [≡]) */
+@media (max-width: 800px) {
+  .nt-search-btn {
+    display: none !important;
+  }
+}
+
+/* =====================================================================
+   FAKE SEARCH BAR (Topbar Desktop)
+   ===================================================================== */
+
+.nt-search-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 5px 12px;
+  margin-left: auto;
+  margin-right: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.nt-search-trigger:hover {
+  border-color: var(--green);
+  color: var(--fg-strong);
+}
+
+.nt-search-icon {
+  font-size: 14px;
+  color: var(--green);
+  font-weight: 700;
+}
+
+.nt-search-label {
+  opacity: 0.7;
+}
+
+.nt-search-shortcut {
+  border: 1px solid var(--line);
+  padding: 2px 5px;
+  font-size: 9px;
+  border-radius: 2px;
+  opacity: 0.5;
+  margin-left: 8px;
+}
+
+/* Ocultar en móvil (porque ya está en el menú [≡]) */
+@media (max-width: 800px) {
+  .nt-search-trigger {
+    display: none !important;
+  }
+}
+
+/* =====================================================================
+   LIGHT MODE v4: Fix definitivo de contrastes grises
+   ===================================================================== */
+
+/* 1. Valores más oscuros para --dim y --faint en modo claro */
+[data-theme="light"] {
+  --dim: #3a3329 !important;   /* Antes #5a5245 → ahora casi negro cálido */
+  --faint: #6a5f4f !important; /* Antes #8a7f6c → ahora gris medio legible */
+  --line: rgba(26, 24, 21, 0.32) !important; /* Líneas más visibles */
+}
+
+/* 2. Eliminar las opacidades que hacen el texto invisible en claro */
+[data-theme="light"] .nt-dim {
+  opacity: 1 !important;
+  color: var(--dim) !important;
+}
+
+[data-theme="light"] .nt-faint {
+  opacity: 1 !important;
+  color: var(--faint) !important;
+}
+
+/* 3. FILELINE (// FILE: /var/dossiers/...) */
+[data-theme="light"] .nt-fileline {
+  opacity: 1 !important;
+  color: var(--dim) !important;
+}
+
+[data-theme="light"] .nt-fileline span:last-child {
+  color: var(--yellow) !important;
+}
+
+/* 4. POST READOUT ([DATE] [READ] [WORDS] [TAGS]) */
+[data-theme="light"] .nt-post-readout {
+  opacity: 1 !important;
+}
+
+[data-theme="light"] .nt-post-readout span {
+  opacity: 1 !important;
+  color: var(--dim) !important;
+}
+
+[data-theme="light"] .nt-post-readout .nt-readout-warn {
+  color: var(--yellow) !important;
+}
+
+/* 5. POST META (línea de metadatos del post) */
+[data-theme="light"] .nt-post-meta {
+  opacity: 1 !important;
+}
+
+[data-theme="light"] .nt-post-meta span {
+  opacity: 1 !important;
+  color: var(--dim) !important;
+}
+
+/* 6. ASIDE (FILE_META, TOC, STATUS) */
+[data-theme="light"] .nt-aside-label {
+  color: var(--yellow) !important;
+  opacity: 1 !important;
+}
+
+[data-theme="light"] .nt-sysrow {
+  opacity: 1 !important;
+}
+
+[data-theme="light"] .nt-sysrow > span:first-child {
+  color: var(--dim) !important;
+  opacity: 1 !important;
+}
+
+[data-theme="light"] .nt-sysrow > span:last-child {
+  color: var(--fg-strong) !important;
+  opacity: 1 !important;
+}
+
+/* 7. TOC (tabla de contenidos) */
+[data-theme="light"] .nt-toc-aside,
+[data-theme="light"] .nt-toc-aside a {
+  color: var(--dim) !important;
+  opacity: 1 !important;
+}
+
+[data-theme="light"] .nt-toc-aside a:hover {
+  color: var(--red) !important;
+}
+
+/* 8. TYPEWRITER (SCANNING...) */
+[data-theme="light"] .nt-typewriter {
+  color: var(--green) !important;
+  opacity: 1 !important;
+}
+
+/* 9. CLOCK / BOG_CO */
+[data-theme="light"] .nt-hide-s {
+  color: var(--dim) !important;
+  opacity: 1 !important;
+}
+
+/* 10. TOPBAR (brand, nav, etc) */
+[data-theme="light"] .nt-nav a {
+  opacity: 1 !important;
+  color: var(--dim) !important;
+}
+
+[data-theme="light"] .nt-nav a.on,
+[data-theme="light"] .nt-nav a:hover {
+  color: var(--fg-strong) !important;
+}
+
+[data-theme="light"] .nt-brand .nt-dim {
+  color: var(--dim) !important;
+  opacity: 1 !important;
+}
+
+/* 11. ALERT BANNER (el texto debe leerse) */
+[data-theme="light"] .nt-alert {
+  color: var(--red) !important;
+  opacity: 1 !important;
+}
+
+/* 12. POST READOUT en el footer del listado (dossiers) */
+[data-theme="light"] .nt-post-readtime {
+  color: var(--dim) !important;
+  opacity: 1 !important;
+}
+
+/* 13. HOME - Paneles y series */
+[data-theme="light"] .nt-home-panel-header {
+  color: var(--dim) !important;
+  opacity: 1 !important;
+}
+
+[data-theme="light"] .nt-series-count {
+  color: var(--yellow) !important;
+  opacity: 1 !important;
+}
+
+[data-theme="light"] .nt-series-arrow {
+  color: var(--dim) !important;
+  opacity: 1 !important;
+}
+
+/* 14. LISTAS (dossiers) */
+[data-theme="light"] .nt-section-label,
+[data-theme="light"] .nt-list-stats {
+  color: var(--dim) !important;
+  opacity: 1 !important;
+}
+
+/* 15. CAPTIONS de imágenes VHS */
+[data-theme="light"] .nt-figure figcaption {
+  color: var(--dim) !important;
+  opacity: 1 !important;
+}
+
+/* 16. FOOTNOTES */
+[data-theme="light"] .nt-content .footnotes {
+  color: var(--dim) !important;
+}
+
+[data-theme="light"] .nt-content .footnotes li {
+  color: var(--dim) !important;
+  opacity: 1 !important;
+}
+
+[data-theme="light"] .nt-content .footnotes a {
+  color: var(--red) !important;
+}
+
+/* 17. COPY BUTTON y SHARE */
+[data-theme="light"] .nt-copy-btn {
+  color: var(--dim) !important;
+  border-color: var(--line) !important;
+  opacity: 1 !important;
+}
+
+/* 18. Sello MONITORED (el gris de fondo) */
+[data-theme="light"] .nt-stamp {
+  color: var(--red) !important;
+  background: var(--bg) !important;
+  opacity: 1 !important;
+}
+
+/* 19. SERIES NAV (al final del post) */
+[data-theme="light"] .nt-series-date {
+  color: var(--yellow) !important;
+  opacity: 1 !important;
+}
+
+[data-theme="light"] .nt-series-label,
+[data-theme="light"] .nt-series-count {
+  color: var(--dim) !important;
+  opacity: 1 !important;
+}
+
+[data-theme="light"] .nt-series-name {
+  color: var(--yellow) !important;
+}
+
+/* 20. PAGINACIÓN */
+[data-theme="light"] .nt-pagination a {
+  color: var(--red) !important;
+}
+
+/* 21. FORZAR todos los --fg en modo claro (por si acaso) */
+[data-theme="light"] .nt-content {
+  color: var(--fg) !important;
+}
+
+[data-theme="light"] .nt-content p,
+[data-theme="light"] .nt-content li {
+  color: var(--fg) !important;
+}
+
+/* 22. LINKS EN EL CONTENIDO: rojo bien visible */
+[data-theme="light"] .nt-content a {
+  color: var(--red) !important;
+  text-decoration-color: var(--red) !important;
+}
+
+/* 23. CODE INLINE: más oscuro para contraste */
+[data-theme="light"] .nt-content code {
+  background: var(--bg3) !important;
+  color: var(--fg-strong) !important;
+}
+
+/* 24. BLOCKQUOTES: el texto también debe ser visible */
+[data-theme="light"] .nt-content blockquote {
+  color: var(--fg-strong) !important;
+}
+
+/* 25. H3 (subtítulos) con su texto legible */
+[data-theme="light"] .nt-content h3 {
+  color: var(--fg-strong) !important;
+}
+
+/* 26. El status del footer (KIPPLE_LEVEL) */
+[data-theme="light"] #kipple {
+  color: var(--yellow) !important;
+  opacity: 1 !important;
 }

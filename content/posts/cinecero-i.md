@@ -45,23 +45,15 @@ Sin embargo, el medio de expresión privilegiado que acogió el modo narrativo d
 
 ## Obras citadas
 
-*Aelita*. Dirigida por Yákov Protazánov, Mosfilm, 1924. Restauración digital, Lobster Films, 2018.
-
 Dick, Philip K. «My Definition of Science Fiction». *Just: SF*, vol. 1, n.º 1, 1981. Reimpreso en *The Shifting Realities of Philip K. Dick: Selected Literary and Philosophical Writings*, editado por Lawrence Sutin, Vintage Books, 1995, pp. 99-100.
 
 Gernsback, Hugo. «A New Sort of Magazine». *Amazing Stories*, vol. 1, n.º 1, abril de 1926, p. 3.
 
-*The Lost World*. Dirigida por Harry O. Hoyt, First National Pictures, 1925. Restauración de Lobster Films y Blackhawk Films, 2017.
-
 Mendlesohn, Farah. «Introduction: Reading Science Fiction». *The Cambridge Companion to Science Fiction*, editado por Edward James y Farah Mendlesohn, Cambridge University Press, 2003, pp. 1-12.
-
-*Metropolis*. Dirigida por Fritz Lang, UFA, 1927. Restauración de Friedrich-Wilhelm-Murnau-Stiftung, 2010.
 
 Stableford, Brian M., John Clute y Peter Nicholls. «Definitions of SF». *The Encyclopedia of Science Fiction*, editado por Brian M. Stableford et al., 2.ª ed., St. Martin’s Griffin, 1995, pp. 311-314.
 
 Suvin, Darko. *Metamorphoses of Science Fiction: On the Poetics and History of a Literary Genre*. Yale University Press, 1979.
-
-*Le Voyage dans la Lune*. Dirigida por Georges Méliès, Star-Film, 1902. Restauración de Lobster Films, Fondation Groupama Gan pour le Cinéma y Fondation Technicolor pour le Patrimoine, 2011.
 
 [^1]: Todas las traducciones de citas en este texto son mías, salvo que se indique lo contrario.
 [^2]: Términos como *ciberespacio*, *metaverso* y varios otros, utilizados hoy como marketing para las corporaciones ciberfascistas que gobiernan el planeta, tienen su origen en las distopías *cyberpunk* de estos autores.

@@ -8,8 +8,7 @@ tags:
   - ciberfascismo
   - neoliberalismo
   - neoreacción
-
-series: ["capitale-vult"]
+series: ["Capitale Vult"]
 dropcap: true
 ---
 Tras el estallido de la <a href="https://en.wikipedia.org/wiki/Dot-com_bubble" target="_blank" rel="noopener" title="Burbuja especulativa en torno a empresas tecnológicas de internet entre 1995 y 2001">burbuja puntocom</a> y la <a href="https://en.wikipedia.org/wiki/September_11_attacks" target="_blank" rel="noopener" title="Atentados del 11 de septiembre de 2001 en Estados Unidos contra las Torres Gemelas y el Pentágono">destrucción de las Torres Gemelas del World Trade Center, el 11 de septiembre de 2001</a>, influyentes teóricos y teóricas marxistas comenzaron a subrayar la inestabilidad del régimen neoliberal, que en buena parte del planeta se había establecido con una eficacia impresionante, salvo contados episodios de resistencia como el <a href="https://es.wikipedia.org/wiki/Levantamiento_zapatista" target="_blank" rel="noopener" title="Levantamiento liderado por el EZLN en Chiapas, México, entre el 1 y el 12 de enero de 1994">levantamiento zapatista</a>, y a cuestionar la solidez de las instituciones políticas que habían estructurado el sistema global desde la década de 1970, abriendo así —de forma tácita o explícita— la posibilidad de un horizonte posneoliberal.[^3] [^4]

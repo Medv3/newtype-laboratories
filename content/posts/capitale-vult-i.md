@@ -7,8 +7,7 @@ toc: false
 tags:
   - neoliberalismo
   - neoreacción
-
-series: ["capitale-vult"]
+series: ["Capitale Vult"]
 ---
 # Introducción
 

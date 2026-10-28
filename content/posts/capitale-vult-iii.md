@@ -8,7 +8,7 @@ tags:
   - capitalismo
   - neoliberalismo
   - historia
-series: ["capitale-vult"]
+series: ["Capitale Vult"]
 dropcap: true
 ---
 # §1. Equivocidad de los conceptos políticos

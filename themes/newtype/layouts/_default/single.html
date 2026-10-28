@@ -45,6 +45,13 @@
             {{ with .Params.tags }}<span>[TAGS:{{ range . }} #{{ . }}{{ end }}]</span>{{ end }}
             {{ with .Params.series }}<span>[SERIES: {{ delimit . " / " }}]</span>{{ end }}
         </div>
+        
+        <div class="nt-share-row">
+            <button class="nt-share-inline" data-url="{{ .Permalink }}" data-title="{{ .Title }}" aria-label="Compartir este dossier">
+                <span class="nt-share-icon">↗</span>
+                <span class="nt-share-text">SHARE</span>
+            </button>
+        </div>
         {{ end }}
     </header>
 
@@ -99,6 +106,10 @@
 
     {{ if eq .Section "posts" }}
     {{ partial "series-nav.html" . }}
+    {{ end }}
+
+    {{ if $isPost }}
+    
     {{ end }}
 
     <hr class="nt-rule">
