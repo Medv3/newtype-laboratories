@@ -78,7 +78,7 @@
             {{ end }}
         </aside>
 
-        <div class="nt-content{{ if .Params.dropcap }} dropcap{{ end }}">
+        <div class="nt-content{{ if .Params.dropcap }} dropcap{{ end }}{{ if $isAbout }} nt-about{{ end }}">
             {{ .Content }}
         </div>
 

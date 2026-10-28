@@ -1838,7 +1838,7 @@ body {
 }
 
 /* ===== Primer h2 en about/operator: título poético ===== */
-.nt-content > h2:first-of-type {
+.nt-content.nt-about > h2:first-of-type {
   font-size: 1.8rem;
   letter-spacing: -0.01em;
   text-transform: none;
