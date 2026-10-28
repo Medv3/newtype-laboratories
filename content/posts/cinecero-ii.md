@@ -1,5 +1,5 @@
 ---
-title: "Cine Cero 2: El cine de ciencia ficción (1)"
+title: "Cine Cero 2: El cine de ciencia ficción (I)"
 date: 2026-10-28T00:00:00-05:00
 draft: false
 dropcap: true
