@@ -1,6 +1,6 @@
 ---
 title: "Cine Cero 2: La ciencia ficción en el cine"
-date: 2026-10-28T00:27:15-05:00
+date: 2026-10-28T00:00:00-05:00
 draft: false
 dropcap: true
 toc: false
