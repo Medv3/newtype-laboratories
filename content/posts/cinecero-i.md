@@ -1,0 +1,38 @@
+---
+title: "Cine Cero I: Hiperdesarrollo y ciencia ficción"
+date: 2026-10-27T17:08:17-05:00
+draft: false
+dropcap: true
+toc: false
+series: [cine-cero]
+tags: []
+---
+En 1981, Philip K. Dick, uno de los grandes autores de la ciencia ficción, hizo su aporte más importante, o al menos el más explícito y concreto, al eterno debate acerca de la definición del campo con *My Definition of Science Fiction*, un escrito corto aparecido en el número inaugural de *Just: SF*, un fanzine editado por John Betancourt entre octubre de 1981 y junio de 1982. Este texto, breve pero muy rico, siempre me ha gustado, porque en él, a pesar de reconocer la complejidad del término, Dick lanza una idea clara de lo que considera que es el modo literario en el que trabajó durante décadas.
+
+Los críticos y académicos, desde Gernsback y Campbell hasta Suvin y Clute, acostumbran a resaltar hasta el cansancio lo difícil que es definir la ciencia ficción (en adelante, CF). Casi todos ellos, además, enumeran definiciones de otros casi nunca dispuestos a comprometerse con una definición cerrada. Llenan páginas y páginas de ejemplos más o menos parecidos, surgidos de distintos contextos, para concluir que la CF no se puede definir, o se limitan a asumir que el lector ya sabe qué es, evadiendo así el compromiso de una caracterización, según ellos, por prudencia intelectual: *The Encyclopedia of Science Fiction*, una fuente clásica de los estudios sobre la CF, concluye que «There is really no good reason to expect that a workable definition of sf will ever be established. None has been, so far» («no hay ninguna buena razón para esperar que alguna vez se establezca una definición viable de la CF; ninguna lo ha sido hasta ahora»; Stableford et al. 314; mi trad.).[^1] El *Cambridge Companion to Science Fiction*, por su parte, declara que «it assumes that you, the reader, know what sf is, and that everyone who has contributed to this book shares the same criteria» («asume que usted, el lector, sabe lo que es la CF, y que todos los que han contribuido a este libro comparten los mismos criterios»; Mendlesohn 1; mi trad.), lo que en la práctica equivale a librarse de la obligación de dar una definición operativa y limitarse, en lo que resta de su introducción, a considerar algunos elementos que podrían servir de indicaciones formales para aproximarse al concepto.
+
+En el mejor de los casos, los autores y autoras se comprometen con definiciones tan abiertas que parecen no decir mucho: desde joyas como «science fiction is what we point to when we say it» («la ciencia ficción es aquello a lo que señalamos cuando decimos “ciencia ficción”»; Damon Knight, citado en Stableford et al. 314; mi trad.) o «science fiction is anything published as science fiction» («la ciencia ficción es cualquier cosa publicada como ciencia ficción»; Norman Spinrad, citado en Stableford et al. 314; mi trad.), hasta caracterizaciones más decididas pero limitadas a uno o dos elementos difusos como la construcción de mundos alternativos pero estrechamente relacionados con el que experimenta el lector en su cotidianidad (Alvin Toffler y Kim Stanley Robinson, citados en Stableford et al. 314), extrañamiento cognitivo (Suvin 15), un *novum* (Suvin 63), en algunos casos una relación cercana con la explicación científica de lo ideado (Gernsback 3), etc.
+
+Dick hace algo más breve, más simple pero también más valiente y decisivo. Se atreve a dar una definición de la forma narrativa de la CF (o *SF*, según la convención anglófona) que, en lo personal, me convence más. Se trata de una concepción que integra varios de los elementos que señalan autores y autoras, críticos y académicas en muchas instancias, pero usualmente con menos determinación. Para Dick, la CF tiene, por lo general, un conjunto de elementos fundamentales:
+
+> \[W\]hat then do we have that can be called SF? We have a fictitious world; that is the first step: It is a society that does not in fact exist, but is predicated on our known society—that is, our known society acts as a jumping-off point for it; the society advances out of our own in some way, perhaps orthogonally, as with the alternate-world story or novel. It is our world dislocated by some kind of mental effort on the part of the author, our world transformed into that which it is not or not yet. This world must differ from the given in at least one way, and this one way must be sufficient to give rise to events that could not occur in our society—or in any known society present or past. There must be a coherent idea involved in this dislocation; that is, the dislocation must be a conceptual one, not merely a trivial or a bizarre one—this is the essence of science fiction, the conceptual dislocation within the society so that as a result a new society is generated in the author’s mind, transferred to paper, and from paper it occurs as a convulsive shock in the reader’s mind, the shock of dysrecognition. He knows that it is not his actual world that he is reading about. (Dick 99-100)
+
+> ¿Qué tenemos, entonces, que pueda llamarse CF? Tenemos un mundo ficticio; ese es el primer paso: es una sociedad que no existe en realidad, pero que se funda en nuestra sociedad conocida —esto es, nuestra sociedad conocida actúa como punto de partida para ella—; la sociedad avanza a partir de la nuestra de alguna manera, tal vez ortogonal, como con el relato o la novela del mundo alternativo. Es nuestro mundo dislocado por algún tipo de esfuerzo mental de parte del autor, nuestro mundo transformado en aquello que no es o no aún. Este mundo debe diferir de lo dado en al menos una manera, y esta manera debe ser suficiente para dar lugar a eventos que no podrían ocurrir en nuestra sociedad —o en cualquier sociedad conocida, presente o pasada—. Debe haber una idea coherente involucrada en esta dislocación; esto es, la dislocación debe ser conceptual, no simplemente trivial o bizarra —esta es la esencia de la ciencia ficción—: la dislocación conceptual dentro de la sociedad, de tal manera que, como resultado, se genera una nueva sociedad en la mente del autor, se transfiere al papel, y desde el papel ocurre como un *shock* convulsivo en la mente del lector, el *shock* de desreconocimiento. El lector sabe que no es su mundo real el que está leyendo.
+
+La CF, entonces, nos muestra un mundo ficticio —pasado, contemporáneo o futuro— similar al nuestro, que bien podría ser el nuestro si una elección, un cambio, una «dislocación», por lo general en el desarrollo y la aplicación de la ciencia y la tecnología, cambiara el rumbo de nuestra historia, llevándonos a una situación que nos debe generar un *shock* de enajenación.
+
+## Notas
+
+[^1]: Todas las traducciones de citas en este texto son mías, salvo que se indique lo contrario.
+
+## Obras citadas
+
+Dick, Philip K. «My Definition of Science Fiction». *Just: SF*, vol. 1, n.º 1, 1981. Reimpreso en *The Shifting Realities of Philip K. Dick: Selected Literary and Philosophical Writings*, editado por Lawrence Sutin, Vintage Books, 1995, pp. 99-100.
+
+Gernsback, Hugo. «A New Sort of Magazine». *Amazing Stories*, vol. 1, n.º 1, abril de 1926, p. 3.
+
+Mendlesohn, Farah. «Introduction: Reading Science Fiction». *The Cambridge Companion to Science Fiction*, editado por Edward James y Farah Mendlesohn, Cambridge University Press, 2003, pp. 1-12.
+
+Stableford, Brian M., John Clute y Peter Nicholls. «Definitions of SF». *The Encyclopedia of Science Fiction*, editado por Brian M. Stableford et al., 2.ª ed., St. Martin’s Griffin, 1995, pp. 311-314.
+
+Suvin, Darko. *Metamorphoses of Science Fiction: On the Poetics and History of a Literary Genre*. Yale University Press, 1979.
