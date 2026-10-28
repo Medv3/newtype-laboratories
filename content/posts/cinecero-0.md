@@ -17,7 +17,7 @@ Esa idea y la excusa de revisitar *Save the Green Planet*, de Jang Joon-hwan (20
 
 Esta exploración me permitió elaborar con más detalle la hipótesis que pretendo exponer y defender en este texto. Sostengo, pues, que el cine de ciencia ficción, en especial el *cyberpunk*, de Asia del Este (particularmente Japón entre los setenta y los 2000, y Corea del Sur entre los 90 y la actualidad), se nos hace tan profético porque se trata de cine producido en periferias hiperdesarrolladas que encontraron en él una forma privilegiada de expresión y crítica de las contradicciones del modo de producción capitalista y de las formaciones sociales que se articulaban a su alrededor en sus contextos.
 
-![Tokio](/img/cinecero0.02.jpg "Tokio en el ocaso del milagro económico. Fotografía de Greg Girard, *JAL 76-88*, Kominek, 2022.")
+![Tokio](/img/cinecero0.02.png "Rascacielos de Seúl en 2004 y Tokio en 1983")
 
 Durante la época de integración de posguerra y de los llamados milagros económicos, estas sociedades fueron utilizadas por los países centrales, en particular por Estados Unidos, como laboratorios para probar tecnologías que, a los ojos del resto del mundo, parecían futuristas y, en buena medida, distópicas. La posguerra no trajo para ellas una integración genuina al mercado global en condiciones de igualdad con los países centrales occidentales, como sus cifras económicas y sus avances tecnológicos podrían hacer creer, sino que se mantuvieron siendo periferias bajo un control férreo de Estados Unidos, sin posibilidad de desarrollar sus propias defensas, con integración obligatoria y alianzas con los estadounidenses, y una dependencia estructural que persiste hasta hoy.
 
