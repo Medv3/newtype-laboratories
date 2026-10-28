@@ -1,6 +1,6 @@
 <figure class="nt-figure">
     <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" loading="lazy" decoding="async">
     {{ with .Title }}
-    <figcaption>// SOURCE: {{ . }}</figcaption>
+    <figcaption>// CAPTURE: {{ . }}</figcaption>
     {{ end }}
 </figure>

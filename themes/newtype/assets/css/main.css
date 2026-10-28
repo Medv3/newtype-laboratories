@@ -4082,3 +4082,71 @@ lite-youtube {
   --lyt-play-btn-bg: var(--red);
   --lyt-play-btn-hover-bg: var(--yellow);
 }
+
+/* =====================================================================
+   v24: SUBTÍTULOS TIPO TERMINAL (Divisiones notorias)
+   ===================================================================== */
+
+/* === H2: Sección Mayor === */
+.nt-content h2 {
+  font-family: var(--mono) !important;
+  font-size: clamp(20px, 3vw, 26px) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  color: var(--fg-strong) !important;
+  margin: 4rem 0 1.5rem 0 !important;
+  padding: 1.2rem 0 0 0 !important;
+  border-top: 1px solid var(--line) !important;
+  border-bottom: none !important;
+  display: flex !important;
+  align-items: center !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* Prefijo >> */
+.nt-content h2::before {
+  content: ">>" !important;
+  color: var(--red) !important;
+  margin-right: 12px !important;
+  font-weight: 900 !important;
+  font-size: 1.2em !important;
+}
+
+/* Línea que rellena el espacio a la derecha */
+.nt-content h2::after {
+  content: "" !important;
+  flex: 1 !important;
+  height: 1px !important;
+  background: var(--line) !important;
+  margin-left: 1.5rem !important;
+}
+
+/* === H3: Subsección === */
+.nt-content h3 {
+  font-family: var(--mono) !important;
+  font-size: clamp(16px, 2vw, 20px) !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+  color: var(--yellow) !important;
+  margin: 3rem 0 1rem 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* Prefijo > */
+.nt-content h3::before {
+  content: ">" !important;
+  color: var(--dim) !important;
+  margin-right: 10px !important;
+  font-weight: 400 !important;
+}
+
+/* Excepción para el primer H2 en About (el título en árabe) */
+.nt-content.nt-about > h2:first-of-type::after {
+  display: none !important; /* Quita la línea en el título árabe */
+}
+.nt-content.nt-about > h2:first-of-type::before {
+  content: "" !important; /* Quita el >> en el título árabe */
+  margin: 0 !important;
+}
