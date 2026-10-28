@@ -45,7 +45,7 @@ Sin embargo, el medio de expresión privilegiado que acogió el modo narrativo d
 
 ## La ciencia ficción en el cine
 
-![Le Voyage dans la Lune](/img/cinecero1.03.webp "Le Voyage dans la Lune (1902) de Georges Méliès"")
+![Le Voyage dans la Lune](/img/cinecero1.03.webp "Le Voyage dans la Lune (1902) de Georges Méliès")
 
 El cine comenzó a fines del siglo XIX con la obra separada y usualmente desconocida entre sí de Thomas Edison y W. K. L. Dickson en Estados Unidos, Max y Emil Skladanowsky en Alemania, y Louis y Auguste Lumière en Francia. Ya sus pioneros comenzaron a explorar posibilidades mecánicas ficticias en sus filmes, como los hermanos Lumière en el corto cómico *La Charcuterie mécanique* (1895) —considerada por la crítica como probablemente la primera película de ciencia ficción— o G. A. Smith en su versión más oscura del mismo motivo, *Making Sausages* (1897). Pero el primer hito cinematográfico genuino de la ciencia ficción llega con la obra de Georges Méliès, que desde 1897 había explorado temas de ciencia ficción en películas como *Gugusse et l'Automate* —la primera aparición fílmica de un robot— y que en 1902 lanzaría la que sí es ampliamente considerada como la primera obra maestra fílmica en este modo narrativo: *Le Voyage dans la Lune*, claramente influenciada por las novelas de Verne y Wells.
 
