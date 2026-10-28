@@ -31,9 +31,9 @@ En otras palabras, la CF posibilita la exploración de las consecuencias más ra
 
 ## La ciencia ficción como crítica
 
-Esta señalada apertura a la crítica que propicia la ciencia ficción ha sido aprovechada prácticamente desde los orígenes mismos del modo narrativo. Mary Shelley señaló con agudeza las contradicciones de la sociedad inglesa decimonónica en su *Frankenstein*, oponiendo la existencia monstruosa a la institucionalidad patriarcal, cientificista e imbuida de ideas liberales de progreso y modernidad, una institucionalidad que terminó por producir una creciente exclusión social, un afianzamiento del poder excluyente de la burguesía y un desarrollo acelerado de la tecnología tras la Revolución Industrial en función de la acumulación capitalista y la precarización de las fracciones oprimidas de la población.
+![Frankenstein](/img/cinecero1.02.webp "Frankenstein ilustrado por Bernie Wrightson")
 
-![Frankenstein](/img/cinecero1.02.jpg "Frankenstein ilustrado por Bernie Wrightson")
+Esta señalada apertura a la crítica que propicia la ciencia ficción ha sido aprovechada prácticamente desde los orígenes mismos del modo narrativo. Mary Shelley señaló con agudeza las contradicciones de la sociedad inglesa decimonónica en su *Frankenstein*, oponiendo la existencia monstruosa a la institucionalidad patriarcal, cientificista e imbuida de ideas liberales de progreso y modernidad, una institucionalidad que terminó por producir una creciente exclusión social, un afianzamiento del poder excluyente de la burguesía y un desarrollo acelerado de la tecnología tras la Revolución Industrial en función de la acumulación capitalista y la precarización de las fracciones oprimidas de la población.
 
 H. G. Wells, por la misma vía, se sirvió del viaje en el tiempo en *The Time Machine* y *When the Sleeper Wakes*, así como del desarrollo posible —y particularmente profético— de la tecnología militar en *The War in the Air*, de la figura del otro, extraño y enemigo, en *The War of the Worlds*, o del sujeto invisible —tal vez invisibilizado— en *The Invisible Man* para desarrollar fuertes críticas a la realidad del capitalismo victoriano, la desigualdad creciente, la concentración de capital en pocas manos y la intensificación del imperialismo, todos fenómenos que con el tiempo desembocarían en las grandes guerras de comienzos del siglo XX. Este espíritu crítico está también presente, si bien no siempre de manera tan explícita como en la obra de Wells o Shelley, en la obra de Jules Verne.
 
@@ -45,20 +45,19 @@ Sin embargo, el medio de expresión privilegiado que acogió el modo narrativo d
 
 ## La ciencia ficción en el cine
 
+![Le Voyage dans la Lune](/img/cinecero1.03.webp "Le Voyage dans la Lune (1902) de Georges Méliès"")
+
 El cine comenzó a fines del siglo XIX con la obra separada y usualmente desconocida entre sí de Thomas Edison y W. K. L. Dickson en Estados Unidos, Max y Emil Skladanowsky en Alemania, y Louis y Auguste Lumière en Francia. Ya sus pioneros comenzaron a explorar posibilidades mecánicas ficticias en sus filmes, como los hermanos Lumière en el corto cómico *La Charcuterie mécanique* (1895) —considerada por la crítica como probablemente la primera película de ciencia ficción— o G. A. Smith en su versión más oscura del mismo motivo, *Making Sausages* (1897). Pero el primer hito cinematográfico genuino de la ciencia ficción llega con la obra de Georges Méliès, que desde 1897 había explorado temas de ciencia ficción en películas como *Gugusse et l'Automate* —la primera aparición fílmica de un robot— y que en 1902 lanzaría la que sí es ampliamente considerada como la primera obra maestra fílmica en este modo narrativo: *Le Voyage dans la Lune*, claramente influenciada por las novelas de Verne y Wells.
 
 Los literatos clásicos de la CF continuarían ejerciendo influencia sobre los cineastas de los primeros años. En 1910, los estudios Edison produjeron una adaptación de *Frankenstein* dirigida por J. Searle Dawley, la primera adaptación de la novela de Shelley. En 1913 apareció *Dr. Jekyll and Mr. Hyde*, adaptación de la novela de Robert Louis Stevenson dirigida por Herbert Brenon, y en 1916 Stuart Paton adaptó *Vingt Mille Lieues sous les mers* de Verne al cine en un largometraje, incorporando también algunos elementos de *L'Île mystérieuse*. Se trataba, por lo general, de adaptaciones de clásicos que ya traían la carga crítica de la CF y la trasladaron al cine, aprovechando los recursos visuales y musicales que este ofrecía para intensificar el impacto de la obra impresa.
 
 Sin embargo, el cine de ciencia ficción tomó una forma y un carácter más significativos gracias al rápido desarrollo de la industria cinematográfica, el establecimiento de los largometrajes y las revolucionarias formas cinematográficas que cambiaron para siempre el medio en la década de 1920. Películas como *Aelita* (*Аэли́та*) (1924), de Yákov Protazánov, y *Metropolis* (1927) de Fritz Lang —hito del cine alemán y del expresionismo tardío— exhibieron ya la forma y el discurso propios del cine de ciencia ficción como lo conocemos ahora, lleno de elementos visuales y musicales que potencian su narrativa y su mensaje en un complejo bloque sensorial. En *Aelita*, el ingeniero Los y el soldado Gúsev viajan a Marte, donde organizan una revolución proletaria, si bien la revolución reinstaura a Aelita en lugar del dictador Tuskub, lo que ha dado lugar a múltiples discusiones e interpretaciones por la crítica de entonces y de ahora.
 
+![Metropolis](/img/cinecero1.04.jpg "Metropolis (1927) de Fritz Lang")
+
 *Metropolis*, por su parte, construye un mundo que parece reflejar la decadencia de la República de Weimar, la concentración de capital y la distopía gobernada por magnates desde rascacielos sostenidos por el trabajo de los obreros, un mundo que desembocaría en el triunfo del fascismo. Freder, el hijo de uno de esos magnates, se enamora de Maria, la líder espiritual de los trabajadores. Su padre, temeroso de perder el control de su hijo y sus fábricas, le ordena al científico Rotwang que construya un robot con la imagen de Maria. No se trata solo de sustituir un cuerpo, sino de separar el cuerpo de la conciencia que lo habita. El autómata tiene la apariencia de Maria, pero carece de su subjetividad revolucionaria. El cuerpo de la mujer se convierte en un territorio de disputa en el que el burgués lucha por poseerla así, despojada de toda conciencia, como autómata dominada, frente a la resistencia revolucionaria de Maria, líder proletaria. Lang propicia profundas reflexiones sobre la alienación, la subjetividad y la conciencia de clase: el burgués desea a la proletaria como autómata, mientras la obrera lucha por conservar su subjetividad y conseguir condiciones materiales dignas.
 
 En 1925, el director Harry O. Hoyt y la guionista Marion Fairfax habían adaptado *The Lost World* de Arthur Conan Doyle, y en 1929, dos años después del estreno de *Metropolis*, Fritz Lang continuó desarrollando su obra en el modo narrativo con *Frau im Mond*.
-
-## Notas
-
-[^1]: Todas las traducciones de citas en este texto son mías, salvo que se indique lo contrario.
-[^2]: Términos como *ciberespacio*, *metaverso* y varios otros, utilizados hoy como marketing para las corporaciones ciberfascistas que gobiernan el planeta, tienen su origen en las distopías *cyberpunk* de estos autores.
 
 ## Obras citadas
 
@@ -79,3 +78,6 @@ Stableford, Brian M., John Clute y Peter Nicholls. «Definitions of SF». *The E
 Suvin, Darko. *Metamorphoses of Science Fiction: On the Poetics and History of a Literary Genre*. Yale University Press, 1979.
 
 *Le Voyage dans la Lune*. Dirigida por Georges Méliès, Star-Film, 1902. Restauración de Lobster Films, Fondation Groupama Gan pour le Cinéma y Fondation Technicolor pour le Patrimoine, 2011.
+
+[^1]: Todas las traducciones de citas en este texto son mías, salvo que se indique lo contrario.
+[^2]: Términos como *ciberespacio*, *metaverso* y varios otros, utilizados hoy como marketing para las corporaciones ciberfascistas que gobiernan el planeta, tienen su origen en las distopías *cyberpunk* de estos autores.

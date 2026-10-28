@@ -4083,76 +4083,7 @@ lite-youtube {
   --lyt-play-btn-hover-bg: var(--yellow);
 }
 
-/* =====================================================================
-   v24: SUBTÍTULOS TIPO TERMINAL (Divisiones notorias)
-   ===================================================================== */
-
-/* === H2: Sección Mayor === */
-.nt-content h2 {
-  font-family: var(--mono) !important;
-  font-size: clamp(20px, 3vw, 26px) !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  color: var(--fg-strong) !important;
-  margin: 4rem 0 1.5rem 0 !important;
-  padding: 1.2rem 0 0 0 !important;
-  border-top: 1px solid var(--line) !important;
-  border-bottom: none !important;
-  display: flex !important;
-  align-items: center !important;
-  letter-spacing: -0.01em !important;
-}
-
-/* Prefijo >> */
-.nt-content h2::before {
-  content: ">>" !important;
-  color: var(--red) !important;
-  margin-right: 12px !important;
-  font-weight: 900 !important;
-  font-size: 1.2em !important;
-}
-
-/* Línea que rellena el espacio a la derecha */
-.nt-content h2::after {
-  content: "" !important;
-  flex: 1 !important;
-  height: 1px !important;
-  background: var(--line) !important;
-  margin-left: 1.5rem !important;
-}
-
-/* === H3: Subsección === */
-.nt-content h3 {
-  font-family: var(--mono) !important;
-  font-size: clamp(16px, 2vw, 20px) !important;
-  font-weight: 700 !important;
-  text-transform: none !important;
-  color: var(--yellow) !important;
-  margin: 3rem 0 1rem 0 !important;
-  padding: 0 !important;
-  border: none !important;
-  letter-spacing: 0.02em !important;
-}
-
-/* Prefijo > */
-.nt-content h3::before {
-  content: ">" !important;
-  color: var(--dim) !important;
-  margin-right: 10px !important;
-  font-weight: 400 !important;
-}
-
-/* Excepción para el primer H2 en About (el título en árabe) */
-.nt-content.nt-about > h2:first-of-type::after {
-  display: none !important; /* Quita la línea en el título árabe */
-}
-.nt-content.nt-about > h2:first-of-type::before {
-  content: "" !important; /* Quita el >> en el título árabe */
-  margin: 0 !important;
-}
-
-/* =====================================================================
-   v25: JOYAS ESTÉTICAS (Surveillance, Scanline, Terminal Links)
+ (Surveillance, Scanline, Terminal Links)
    ===================================================================== */
 
 /* === 1. SURVEILLANCE IMAGE === */
@@ -4166,10 +4097,6 @@ lite-youtube {
   transition: filter 0.4s ease, transform 0.4s ease;
 }
 
-.nt-surveillance:hover img {
-  filter: grayscale(0%) contrast(1);
-  transform: scale(1.02); /* Sutil zoom al recuperar color */
-}
 
 /* El badge REC */
 .nt-cam-badge {
@@ -4190,10 +4117,6 @@ lite-youtube {
   pointer-events: none;
 }
 
-.nt-surveillance:hover .nt-cam-badge {
-  opacity: 1;
-  animation: blink 1s steps(1) infinite;
-}
 
 /* === 2. SCANLINE EN EL TÍTULO === */
 .nt-post-titlewrap {
@@ -4227,17 +4150,214 @@ lite-youtube {
   transition: all 0.15s ease;
 }
 
-.nt-content a:hover {
-  background: var(--red);
-  color: var(--bg) !important;
-  text-decoration: none !important;
-  padding: 0 4px;
-  box-shadow: 2px 2px 0 var(--yellow); /* Sombra dura tipo terminal */
+
+
+
+
+/* =====================================================================
+   v31: SOBRIEDAD Y JERARQUÍA (Archivo Negro)
+   ===================================================================== */
+
+/* === 1. ENCABEZADOS H2: Caja cerrada y numeración === */
+.nt-content { counter-reset: h2counter; }
+
+.nt-content h2 {
+  counter-reset: h3counter; 
+  counter-increment: h2counter;
+  font-family: var(--mono) !important; 
+  font-size: clamp(20px, 3vw, 24px) !important;
+  font-weight: 700 !important; 
+  text-transform: uppercase !important;
+  color: var(--fg-strong) !important; 
+  margin: 4rem 0 2rem 0 !important;
+  padding: 1rem 0 !important; 
+  border-top: 1px solid var(--line) !important; 
+  border-bottom: 1px solid var(--line) !important;
+  display: flex !important; 
+  align-items: center !important; 
+  letter-spacing: -0.01em !important;
 }
 
-.nt-content a:hover::after {
+/* El prefijo >> 01 */
+.nt-content h2::before {
+  content: ">> " counter(h2counter, decimal-leading-zero) " " !important;
+  color: var(--red) !important; 
+  margin-right: 12px !important; 
+  font-weight: 900 !important;
+}
+
+/* === 2. ENCABEZADOS H3: Subsecciones === */
+.nt-content h3 {
+  counter-increment: h3counter;
+  font-family: var(--mono) !important; 
+  font-size: clamp(16px, 2vw, 18px) !important;
+  font-weight: 700 !important; 
+  text-transform: none !important;
+  color: var(--yellow) !important; 
+  margin: 3rem 0 1rem 0 !important;
+  padding: 0 !important; 
+  border: none !important;
+}
+
+.nt-content h3::before {
+  content: "> " counter(h2counter, decimal-leading-zero) "." counter(h3counter, decimal-leading-zero) " " !important;
+  color: var(--dim) !important; 
+  margin-right: 8px !important; 
+  font-weight: 400 !important;
+}
+
+/* === 3. EXCEPCIÓN: Título de About (Intacto) === */
+.nt-content.nt-about > h2:first-of-type {
+  counter-increment: none !important; 
+  border: none !important; 
+  padding: 0 !important; 
+  margin-bottom: 1rem !important;
+}
+.nt-content.nt-about > h2:first-of-type::before {
+  content: "" !important; 
+  display: none !important;
+}
+
+/* === 4. ENLACES: Subrayado sobrio === */
+.nt-content a {
+  color: var(--red) !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 1px !important;
+  text-underline-offset: 3px !important;
+  transition: color 0.15s ease !important;
+}
+.nt-content a:hover {
+  color: var(--yellow) !important;
+}
+.nt-content a[target="_blank"]::after {
   content: " ↗";
   font-size: 0.85em;
-  color: var(--yellow);
-  margin-left: 2px;
+  color: var(--dim);
+}
+
+/* =====================================================================
+   v32: SURVEILLANCE BADGE (Estático, sin distracciones)
+   ===================================================================== */
+
+.nt-surveillance {
+  position: relative;
+  overflow: hidden;
+}
+
+/* El badge REC: siempre visible, pero sutil para no tapar la imagen */
+.nt-cam-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(10, 10, 10, 0.85);
+  color: var(--red);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 4px 8px;
+  border: 1px solid var(--red);
+  z-index: 2;
+  pointer-events: none; /* No interfiere con clics */
+  opacity: 0.8; /* Ligeramente transparente para que no sea agresivo */
+}
+
+/* Aseguramos que las imágenes se vean normales, sin filtros ni hover */
+.nt-surveillance img {
+  filter: none !important;
+  transform: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+/* =====================================================================
+   v42: CLINICAL SURVEILLANCE (Flat, Brutalista, Sin 3D)
+   ===================================================================== */
+
+.nt-surveillance {
+  margin: 3rem 0 !important;
+  display: block;
+}
+
+/* El marco: solo un borde fino de 1px, sin padding ni redondeos */
+.nt-vhs-frame {
+  border: 1px solid var(--line);
+  background: #000;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Las barras VHS (negras, planas) */
+.nt-vhs-topbar, .nt-vhs-bottombar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: #000;
+}
+
+.nt-vhs-topbar { border-bottom: 1px solid var(--line); }
+.nt-vhs-bottombar { border-top: 1px solid var(--line); }
+
+/* Colores de los textos */
+.nt-rec { color: var(--red); }
+.nt-rec-dot { animation: blink 2s steps(1) infinite; margin-right: 4px; }
+.nt-cam-id { color: var(--dim); font-weight: 400; }
+.nt-cam-play { color: var(--green); }
+.nt-cam-time { color: var(--yellow); }
+
+/* La imagen: con un rayado sutil encima (usando un pseudo-elemento en el contenedor) */
+.nt-vhs-image {
+  position: relative;
+  display: block;
+  background: #000;
+}
+
+.nt-vhs-image img {
+  display: block;
+  width: 100%;
+  border: none !important;
+  filter: contrast(1.05); /* Un toque muy sutil de contraste, nada de vintage */
+}
+
+/* Las scanlines sutiles (el único efecto de "pantalla") */
+.nt-vhs-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15) 0px,
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+/* Pie de foto */
+.nt-surveillance figcaption {
+  padding: 10px 0 0 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  text-align: right;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }

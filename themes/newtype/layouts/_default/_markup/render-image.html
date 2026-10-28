@@ -1,7 +1,30 @@
 <figure class="nt-figure nt-surveillance">
-    <div class="nt-cam-badge">● REC</div>
-    <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" loading="lazy" decoding="async">
+    <div class="nt-vhs-frame">
+        <div class="nt-vhs-topbar">
+            <span class="nt-rec"><span class="nt-rec-dot">●</span> REC</span>
+            <span class="nt-cam-id">CAM_01 // L1621</span>
+        </div>
+        <div class="nt-vhs-image">
+            <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" loading="lazy" decoding="async">
+        </div>
+        <div class="nt-vhs-bottombar">
+            <span class="nt-cam-play">PLAY ►</span>
+            <span class="nt-cam-time">1999-12-31 23:59:59</span>
+        </div>
+    </div>
     {{ with .Title }}
     <figcaption>// CAPTURE: {{ . }}</figcaption>
     {{ end }}
 </figure>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('.nt-cam-time').forEach(function(el) {
+            var d = new Date();
+            el.textContent = d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,'0') + "-" + 
+                             String(d.getDate()).padStart(2,'0') + " " + 
+                             String(d.getHours()).padStart(2,'0') + ":" + 
+                             String(d.getMinutes()).padStart(2,'0') + ":" + 
+                             String(d.getSeconds()).padStart(2,'0');
+        });
+    });
+</script>
