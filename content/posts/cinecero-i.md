@@ -1,5 +1,5 @@
 ---
-title: "Cine Cero I: La ciencia ficción como crítica"
+title: "Cine Cero 1: La ciencia ficción como crítica"
 date: 2026-10-27T17:08:17-05:00
 draft: false
 dropcap: true

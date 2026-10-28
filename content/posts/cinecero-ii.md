@@ -1,5 +1,5 @@
 ---
-title: "Cine Cero II: La ciencia ficción en el cine"
+title: "Cine Cero 2: La ciencia ficción en el cine"
 date: 2026-10-28T00:27:15-05:00
 draft: false
 dropcap: true
@@ -9,7 +9,7 @@ tags: ["ciencia-ficcion", "cine", "cyberpunk", "crítica"]
 ---
 ## El cine de ciencia ficción: notas para una historia
 
-### 1890s-1930s
+### 1890s-1930
 
 ![Le Voyage dans la Lune](/img/cinecero2.01.webp "Le Voyage dans la Lune (1902) de Georges Méliès")
 
@@ -25,7 +25,7 @@ Sin embargo, el cine de ciencia ficción tomó una forma y un carácter más sig
 
 En 1925, el director Harry O. Hoyt y la guionista Marion Fairfax habían adaptado *The Lost World* de Arthur Conan Doyle, y en 1929, dos años después del estreno de *Metropolis*, Fritz Lang continuó desarrollando su obra en el modo narrativo con *Frau im Mond*.
 
-### 1930s-1960s
+### 1930-1960s
 
 Pronto...
 
